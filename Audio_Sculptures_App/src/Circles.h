@@ -4,7 +4,7 @@
 #include "ofxiOS.h"
 #include "ofxiOSExtras.h"
 
-class Circles : public ofxiOSApp{
+class Circles {
     
 public:
     Circles();

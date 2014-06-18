@@ -5,7 +5,7 @@
 #include "ofxiOS.h"
 #include "ofxiOSExtras.h"
 
-class drawCube : public ofxiOSApp{
+class drawCube {
 	
 public:
     drawCube();

@@ -4,7 +4,7 @@
 #include "ofxiOS.h"
 #include "ofxiOSExtras.h"
 
-class drawCyl : public ofxiOSApp{
+class drawCyl {
 	
 public:
     drawCyl();

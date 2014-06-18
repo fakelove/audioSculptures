@@ -6,6 +6,10 @@ void testApp::setup(){
 
     ofSetOrientation(OF_ORIENTATION_90_RIGHT);
     ofBackground(255);
+    
+    bg.loadBackground();
+    fg.loadForeground();
+    
     ofSetVerticalSync(true);
     ofEnableAlphaBlending();
     ofEnableSmoothing();
@@ -33,7 +37,7 @@ void testApp::setup(){
         }
     }
     
-    int orbAmt = 15;
+    int orbAmt = 10;
     
     drawOrbs tempOrbs;
     
@@ -71,6 +75,7 @@ void testApp::setup(){
     buttonColor = ofColor::black;
     
     //// GENERATE BACKGROUNDS ////
+  
     
     //imageNames.push_back("Mountains/Mountains");
     //imageNames.push_back("Space/Space");
@@ -118,10 +123,19 @@ void testApp::update(){
 
 //--------------------------------------------------------------
 void testApp::draw(){
+/*
+    ofPushMatrix();
+    ofTranslate(0, 0, -100);
+    bg.draw();
+    ofTranslate(0, 0, -50);
+    fg.draw();
+    ofPopMatrix();
+*/
+    bg.draw();
+    fg.draw();
     
     //gif[randomImage].draw();
-    
-    
+  
     ////Randomize button
     ofPushMatrix();
     ofSetCircleResolution(100);
@@ -133,6 +147,7 @@ void testApp::draw(){
     ofCircle(randomPos.x, randomPos.y, sizeRandom);
     ///ofDrawBitmapString("Randomize Sound Sculptures", 150, 75);
     ofPopMatrix();
+    
     
     if (randomSculpture1 == 7 || randomSculpture2 == 7 || randomSculpture3 == 7) {
         rect.trackVolume = 0.50;
@@ -188,10 +203,12 @@ void testApp::draw(){
             cyl.draw();
     }
     
+    if (randomSculpture1 == 10 || randomSculpture2 == 10 || randomSculpture3 == 10) {
+
     for (int i = 0; i < orbs.size(); i++) {
     orbs[i].draw();
+        }
     }
-    
     /////Fake logo
     /*if (ofGetElapsedTimef() < 4.0) {
      ofPushMatrix();
@@ -202,7 +219,7 @@ void testApp::draw(){
      flLogo.draw(0, 0);
      ofPopMatrix();
      }*/
-    
+
     
 }
 

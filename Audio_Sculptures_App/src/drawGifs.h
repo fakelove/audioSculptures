@@ -7,7 +7,7 @@
 #include "ofxImageSequence.h"
 
 
-class drawGifs : public ofxiOSApp{
+class drawGifs {
 	
 public:
     drawGifs();

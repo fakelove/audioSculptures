@@ -4,7 +4,7 @@
 #include "ofxiOS.h"
 #include "ofxiOSExtras.h"
 
-class lineShape : public ofxiOSApp{
+class lineShape {
 	
 public:
     lineShape();

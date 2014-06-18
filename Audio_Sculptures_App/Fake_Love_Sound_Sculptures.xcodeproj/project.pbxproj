@@ -47,6 +47,8 @@
 		E683524719520574001206F7 /* ofxAssimpModelLoader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E683521319520574001206F7 /* ofxAssimpModelLoader.cpp */; };
 		E683524819520574001206F7 /* ofxAssimpTexture.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E683521519520574001206F7 /* ofxAssimpTexture.cpp */; };
 		E683524919520574001206F7 /* assimp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E683524219520574001206F7 /* assimp.a */; };
+		E6835255195223D8001206F7 /* background.mm in Sources */ = {isa = PBXBuildFile; fileRef = E6835253195223D8001206F7 /* background.mm */; };
+		E6835258195226A3001206F7 /* foreground.mm in Sources */ = {isa = PBXBuildFile; fileRef = E6835256195226A3001206F7 /* foreground.mm */; };
 		E696B21B192C070800506912 /* drawGifs.mm in Sources */ = {isa = PBXBuildFile; fileRef = E696B219192C070800506912 /* drawGifs.mm */; };
 		E696B22A192C078D00506912 /* ofxImageSequence.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E696B228192C078D00506912 /* ofxImageSequence.cpp */; };
 /* End PBXBuildFile section */
@@ -166,6 +168,10 @@
 		E683523E19520574001206F7 /* NullLogger.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NullLogger.h; sourceTree = "<group>"; };
 		E683523F19520574001206F7 /* ProgressHandler.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProgressHandler.h; sourceTree = "<group>"; };
 		E683524219520574001206F7 /* assimp.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = assimp.a; sourceTree = "<group>"; };
+		E6835253195223D8001206F7 /* background.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = background.mm; sourceTree = "<group>"; };
+		E6835254195223D8001206F7 /* background.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = background.h; sourceTree = "<group>"; };
+		E6835256195226A3001206F7 /* foreground.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = foreground.mm; sourceTree = "<group>"; };
+		E6835257195226A3001206F7 /* foreground.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = foreground.h; sourceTree = "<group>"; };
 		E696B219192C070800506912 /* drawGifs.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = drawGifs.mm; sourceTree = "<group>"; };
 		E696B21A192C070800506912 /* drawGifs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = drawGifs.h; sourceTree = "<group>"; };
 		E696B228192C078D00506912 /* ofxImageSequence.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ofxImageSequence.cpp; sourceTree = "<group>"; };
@@ -320,6 +326,10 @@
 				E683520B195204D9001206F7 /* drawOrbs.h */,
 				E696B219192C070800506912 /* drawGifs.mm */,
 				E696B21A192C070800506912 /* drawGifs.h */,
+				E6835253195223D8001206F7 /* background.mm */,
+				E6835254195223D8001206F7 /* background.h */,
+				E6835256195226A3001206F7 /* foreground.mm */,
+				E6835257195226A3001206F7 /* foreground.h */,
 			);
 			path = src;
 			sourceTree = SOURCE_ROOT;
@@ -562,6 +572,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E4D8936E11527B74007E1F53 /* main.mm in Sources */,
+				E6835255195223D8001206F7 /* background.mm in Sources */,
 				E683524619520574001206F7 /* ofxAssimpMeshHelper.cpp in Sources */,
 				E4D8936F11527B74007E1F53 /* testApp.mm in Sources */,
 				5C7A1F3D1905D1D800467932 /* drawShape.mm in Sources */,
@@ -578,6 +589,7 @@
 				E66A7D7F19253C1700E337CB /* Circles.mm in Sources */,
 				5C7A1F581905D58D00467932 /* drawDiamond.mm in Sources */,
 				E683524519520574001206F7 /* ofxAssimpAnimation.cpp in Sources */,
+				E6835258195226A3001206F7 /* foreground.mm in Sources */,
 				5C7A1F5B1905D5DD00467932 /* drawRect.mm in Sources */,
 				5C7A1F5E1905D62600467932 /* drawChip.mm in Sources */,
 				5C7A1F611905D6F000467932 /* drawCyl.mm in Sources */,

@@ -5,7 +5,7 @@
 #include "ofxiOSExtras.h"
 #include "ofxAssimpModelLoader.h"
 
-class drawOrbs : public ofxiOSApp{
+class drawOrbs {
 	
 public:
     drawOrbs();
@@ -27,6 +27,7 @@ public:
     ofColor c;
     float rotate, sendNoise, noise;
     float size;
+    
 };
 
 

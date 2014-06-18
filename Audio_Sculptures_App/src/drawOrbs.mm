@@ -2,8 +2,7 @@
 #include "drawOrbs.h"
 
 drawOrbs::drawOrbs() {
-    ofDisableArbTex(); // we need GL_TEXTURE_2D for our models coords.
-    ofEnableDepthTest();
+    
 }
 
 drawOrbs::~drawOrbs() {
@@ -12,15 +11,18 @@ drawOrbs::~drawOrbs() {
 
 //--------------------------------------------------------------
 void drawOrbs::setup(int posX, int posY, float orbSize){
-    
+    ofDisableArbTex(); // we need GL_TEXTURE_2D for our models coords.
     pos.set(posX, posY, 0);
     model.loadModel("orb2.dae");
     //model.setPosition(pos.x, pos.y, pos.z);
     rotate = 0;
     c = ofColor::teal;
     c.a = 100;
-    
     size = orbSize;
+
+    ofxAccelerometer.setup();
+    ofxAccelerometer.setForceSmoothing(.50);
+    
 }
 
 //--------------------------------------------------------------
@@ -29,13 +31,14 @@ void drawOrbs::update(float noiseSpeed, float rotationSpeed){
     model.update();
     rotate += 0.33f;
     noise += noiseSpeed;
-    sendNoise = 200 * ofNoise(noise);
-    pos.y = sendNoise;
+    sendNoise = 300 * ofNoise(noise);
+    pos.y = sendNoise + ofMap(ofxAccelerometer.getForce().x, 0.0, 1.0, 50, 400);
 }
 
 //--------------------------------------------------------------
 void drawOrbs::draw(){
     
+    ofEnableDepthTest();
     //Outside Orb
     ofSetColor(c);
     ofPushMatrix();
@@ -56,6 +59,8 @@ void drawOrbs::draw(){
     ofRotateY(rotate);
     model.drawFaces();
     ofPopMatrix();
+    ofDisableDepthTest();
+    
    
 }
 

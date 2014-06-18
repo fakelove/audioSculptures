@@ -4,7 +4,7 @@
 #include "ofxiOS.h"
 #include "ofxiOSExtras.h"
 
-class drawDiamond : public ofxiOSApp{
+class drawDiamond {
 	
 public:
     drawDiamond();

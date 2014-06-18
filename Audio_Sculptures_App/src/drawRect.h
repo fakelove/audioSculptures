@@ -4,7 +4,7 @@
 #include "ofxiOS.h"
 #include "ofxiOSExtras.h"
 
-class drawRect : public ofxiOSApp{
+class drawRect {
 	
 public:
     drawRect();

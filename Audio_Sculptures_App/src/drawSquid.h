@@ -4,7 +4,7 @@
 #include "ofxiOS.h"
 #include "ofxiOSExtras.h"
 
-class drawSquid : public ofxiOSApp{
+class drawSquid {
 	
 public:
     drawSquid();

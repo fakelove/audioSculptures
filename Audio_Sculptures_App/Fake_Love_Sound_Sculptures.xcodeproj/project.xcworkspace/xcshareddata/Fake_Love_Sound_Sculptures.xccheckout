@@ -5,15 +5,15 @@
 	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
 	<false/>
 	<key>IDESourceControlProjectIdentifier</key>
-	<string>DDBCD5AE-7EA1-4467-9559-FBE846BFD847</string>
+	<string>8C28A1B5-4A31-4B40-A008-2CCDCA29E2D3</string>
 	<key>IDESourceControlProjectName</key>
 	<string>Fake_Love_Sound_Sculptures</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
 		<key>0269BDE2-0FB6-4102-9A73-A0D16AA9FFE2</key>
 		<string>https://github.com/Flightphase/ofxImageSequence.git</string>
-		<key>74C62125-E058-4AA0-9D9A-D95B58C7AFDE</key>
-		<string>https://github.com/nightshining/Audio_Sculptures.git</string>
+		<key>896548F2-BDD3-417D-83A9-7B9E2780FB63</key>
+		<string>https://github.com/fakelove/audioSculptures.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>Audio_Sculptures_App/Fake_Love_Sound_Sculptures.xcodeproj/project.xcworkspace</string>
@@ -21,24 +21,24 @@
 	<dict>
 		<key>0269BDE2-0FB6-4102-9A73-A0D16AA9FFE2</key>
 		<string>../../../../../addons/ofxImageSequence</string>
-		<key>74C62125-E058-4AA0-9D9A-D95B58C7AFDE</key>
+		<key>896548F2-BDD3-417D-83A9-7B9E2780FB63</key>
 		<string>../../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
-	<string>https://github.com/nightshining/Audio_Sculptures.git</string>
+	<string>https://github.com/fakelove/audioSculptures.git</string>
 	<key>IDESourceControlProjectVersion</key>
 	<integer>110</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>74C62125-E058-4AA0-9D9A-D95B58C7AFDE</string>
+	<string>896548F2-BDD3-417D-83A9-7B9E2780FB63</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>74C62125-E058-4AA0-9D9A-D95B58C7AFDE</string>
+			<string>896548F2-BDD3-417D-83A9-7B9E2780FB63</string>
 			<key>IDESourceControlWCCName</key>
-			<string>Audio_Sculptures</string>
+			<string>audioSculptures</string>
 		</dict>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>

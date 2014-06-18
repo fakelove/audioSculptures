@@ -5,7 +5,7 @@
 #include "ofxiOSExtras.h"
 #include "ofxMultiTouch.h"
 
-class drawCircle : public ofxiOSApp{
+class drawCircle {
 	
 public:
     drawCircle();

@@ -5,7 +5,7 @@
 #include "ofxiOS.h"
 #include "ofxiOSExtras.h"
 
-class drawPentagon : public ofxiOSApp{
+class drawPentagon {
 	
 public:
     drawPentagon();

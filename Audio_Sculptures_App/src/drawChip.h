@@ -4,7 +4,7 @@
 #include "ofxiOS.h"
 #include "ofxiOSExtras.h"
 
-class drawChip : public ofxiOSApp{
+class drawChip {
 	
 public:
     drawChip();

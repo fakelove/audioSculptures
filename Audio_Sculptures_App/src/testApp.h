@@ -5,10 +5,17 @@ This is the latest version of the Fake Love Audio Sculptures Ipad App
 */
 
 #pragma once
+//openFrameworks stuff
 
 #include "ofMain.h"
 #include "ofxiOS.h"
 #include "ofxiOSExtras.h"
+
+//Background Images
+#include "background.h"
+#include "foreground.h"
+
+//Objects
 #include "drawShape.h"
 #include "drawCircle.h"
 #include "drawPentagon.h"
@@ -61,7 +68,10 @@ class testApp : public ofxiOSApp{
     //Generate Button
     ofColor buttonColor;
     
-    //Backgrounds
+    //Load Backgrounds
+    background bg;
+    foreground fg;
+    
     //vector<drawGifs> gif;
     //vector<int> imgAmt;
     //vector<string> imageNames;
