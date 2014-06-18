@@ -73,7 +73,7 @@ void drawCube::draw(){
     for (int i = 0; i < 50; i += 5) {
         ofPushMatrix();
         ofTranslate(pos.x, pos.y);
-        ofScale(2.5, 2.5);
+        ofScale(3.5, 3.5);
         ofRotateY(rotate);
         ofRotateX(rotate);
         //ofRotateZ(rotate);

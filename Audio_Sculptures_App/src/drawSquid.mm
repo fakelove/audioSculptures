@@ -49,11 +49,11 @@ void drawSquid::draw(){
         ofPushMatrix();
         ofSetColor(randomFill, ofMap(i, 0, 500, 180, 100));
         ofNoFill();
-        ofTranslate(ofGetWidth() / 2 + 200, ofGetHeight() / 2);
+        ofTranslate(ofGetWidth() / 2, ofGetHeight() / 2);
         ofRotateX( i + squidPos.y );
         ofRotateY( rotate + i );
         ofRotateZ( rotate  + cos(i) );
-        ofScale(0.20, 0.20);
+        ofScale(0.50, 0.50);
         ofCurve(point1.x + i + noise, point1.y + i + noise, point2.x + i, point2.y + i, point3.x + i, point3.y + i, point4.x, point4.y);
         ofPopMatrix();
     }

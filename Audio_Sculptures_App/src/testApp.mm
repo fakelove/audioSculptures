@@ -25,6 +25,27 @@ void testApp::setup(){
     chip.setup();
     cyl.setup();
     
+    //// Floating Orbs ////
+    for (int i = 0; i < ofGetWidth(); i ++) {
+        for (int j = 0; j < ofGetHeight(); j ++) {
+            orbsPosX = i;
+            orbsPosY = j;
+        }
+    }
+    
+    int orbAmt = 15;
+    
+    drawOrbs tempOrbs;
+    
+    for (int i = 0; i < orbAmt; i++) {
+        orbs.push_back(tempOrbs);
+    }
+    
+    for (int i = 0; i < orbs.size(); i++) {
+        orbs[i].setup(ofRandom(50, ofGetWidth() - 50), ofRandom(50, 200), ofRandom(0.05, 0.20));
+    }
+    
+    //// Floating Circles ////
     for (int i = 0; i < ofGetWidth(); i ++) {
         for (int j = 0; j < ofGetHeight(); j ++) {
             cirPosX = i;
@@ -41,7 +62,7 @@ void testApp::setup(){
     }
     
     for (int i = 0; i < circles.size(); i++) {
-        circles[i].setup(ofRandom(ofGetWidth()),ofRandom(ofGetHeight()) );
+        circles[i].setup(ofRandom(ofGetWidth()), ofRandom(ofGetHeight()) );
     }
 
     //Random button
@@ -51,20 +72,20 @@ void testApp::setup(){
     
     //// GENERATE BACKGROUNDS ////
     
-    imageNames.push_back("Mountains/Mountains");
-    imageNames.push_back("Space/Space");
-    imageNames.push_back("Portrait/Portrait");
+    //imageNames.push_back("Mountains/Mountains");
+    //imageNames.push_back("Space/Space");
+    //imageNames.push_back("Portrait/Portrait");
 
     
-    imgAmt.push_back(10);
-    imgAmt.push_back(15);
-    imgAmt.push_back(1);
+    //imgAmt.push_back(10);
+    //imgAmt.push_back(15);
+    //imgAmt.push_back(1);
     
-    gif.resize(imageNames.size());
+    //gif.resize(imageNames.size());
     
-    for (int i = 0; i < imageNames.size(); i++) {
-    gif[i].loadNewSequence(imageNames[i], imgAmt[i], 6);
-    }
+    //for (int i = 0; i < imageNames.size(); i++) {
+    //gif[i].loadNewSequence(imageNames[i], imgAmt[i], 6);
+    //}
     ////gif.loadNewSequence(fileName, amtFiles, frameRate)
 
 }
@@ -82,6 +103,9 @@ void testApp::update(){
     chip.update();
     cyl.update();
     
+    for (int i = 0; i < orbs.size(); i++) {
+        orbs[i].update(ofRandom(0.009f, 0.03f), ofRandom(0.15f, 0.33f));
+    }
     for (int i = 0; i < circles.size(); i++) {
         circles[i].update();
     }
@@ -95,7 +119,7 @@ void testApp::update(){
 //--------------------------------------------------------------
 void testApp::draw(){
     
-    gif[randomImage].draw();
+    //gif[randomImage].draw();
     
     
     ////Randomize button
@@ -162,6 +186,10 @@ void testApp::draw(){
     if (randomSculpture1 == 9 || randomSculpture2 == 9 || randomSculpture3 == 9) {
 
             cyl.draw();
+    }
+    
+    for (int i = 0; i < orbs.size(); i++) {
+    orbs[i].draw();
     }
     
     /////Fake logo
@@ -278,8 +306,8 @@ void testApp::touchUp(ofTouchEventArgs & touch){
     randomSculpture2 = ofRandom(10);
     randomSculpture3 = ofRandom(10);
         
-    randomImage = ofRandom(gif.size());
-    
+    //randomImage = ofRandom(gif.size());
+    /*
     if (randomImage == 0) {
         imgAmt[0];
         buttonColor = ofColor::black;
@@ -303,7 +331,7 @@ void testApp::touchUp(ofTouchEventArgs & touch){
         dia.outerDiaColor = ofColor::black;
         cyl.outerCyl = ofColor::black;
 
-    }
+    }*/
     
     cube.randomizeColor();
     dia.randomizeColor();
@@ -334,9 +362,12 @@ void testApp::touchUp(ofTouchEventArgs & touch){
     if (randomSculpture1 == 4 || randomSculpture2 == 4 || randomSculpture3 == 4) {
         
         cube.upTouch(touch.x, touch.y);
-        
     }
    
+    //Randomize the orbs every random button touch
+    for (int i = 0; i < orbs.size(); i++) {
+        orbs[i].setup(ofRandom(50, ofGetWidth() - 50), ofRandom(50, 200), ofRandom(0.05, 0.20));
+    }
 }
 
 //--------------------------------------------------------------

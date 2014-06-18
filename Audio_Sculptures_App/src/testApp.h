@@ -1,3 +1,9 @@
+/*
+Note:
+6/18/14
+This is the latest version of the Fake Love Audio Sculptures Ipad App
+*/
+
 #pragma once
 
 #include "ofMain.h"
@@ -15,7 +21,7 @@
 #include "drawCyl.h"
 #include "Circles.h"
 #include "drawGifs.h"
-
+#include "drawOrbs.h"
 
 class testApp : public ofxiOSApp{
 	
@@ -49,14 +55,17 @@ class testApp : public ofxiOSApp{
     drawChip chip; //OK
     drawCyl cyl; //OK
     
+    vector<drawOrbs> orbs;
+    int orbsPosX, orbsPosY;
+    
     //Generate Button
     ofColor buttonColor;
     
     //Backgrounds
-    vector<drawGifs> gif;
-    vector<int> imgAmt;
-    vector<string> imageNames;
-    int randomImage;
+    //vector<drawGifs> gif;
+    //vector<int> imgAmt;
+    //vector<string> imageNames;
+    //int randomImage;
     
     
     vector<Circles> circles;

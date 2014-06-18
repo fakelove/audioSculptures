@@ -16,7 +16,7 @@ void drawChip::setup(){
     
     clicks.loadSound("circleClicks.caf");
     trigger = false;
-    size = 50;
+    size = 75;
     pos.set(ofGetWidth() / 2, ofGetHeight() / 2); //actual translation of object
     
 }
@@ -25,7 +25,10 @@ void drawChip::setup(){
 void drawChip::update(){
     
     
-    rotate += 0.50f;
+    rotate += 0.05f;
+    
+    sine = 2.0 + .25 * sin(rotate);
+    
     
     speed1 += 0.15f;
     speed2 += 0.10f;
@@ -54,8 +57,8 @@ void drawChip::draw(){
     
     ofSetCircleResolution(100);
     
-    button(75, noise4);
-    button(size, noise1);
+    button(size, noise4);
+    button(50, noise1);
     button(25, noise2);
     button(10, noise3);
     
@@ -67,9 +70,9 @@ void drawChip::button(int size, int color){
     
     ofPushMatrix();
     ofTranslate(pos.x, pos.y);
-    ofRotateX(rotate);
+    //ofRotateX(rotate);
     //ofRotateY(rotate);
-    ofScale(1.0, 1.0);
+    ofScale(sine, sine);
     ofSetColor(0, 0, 0, color);
     ofFill();
     ofCircle(0, 0, size);
