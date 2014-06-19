@@ -54,11 +54,12 @@ void drawPentagon::draw(){
     for (int i = 0; i < 250; i += 5) {
         shape(ofGetWidth() / 2, ofGetHeight() / 2, 25, i * PI / 2 + 50);
     }
-    
+
+    ofPushMatrix();
     cirSlider();
     ofSetColor(0);
     //ofDrawBitmapString("Sound Sculpture Control", sliderPos.x + 50, sliderPos.y);
-
+    ofPopMatrix();
     
 }
 
@@ -77,7 +78,7 @@ void drawPentagon::shape(int x, int y, int size, float alpha) {
     ofRotateY(rotateShape * PI);
     ofRotateX(alpha + 50);
     ofRotateZ(rotateShape + alpha);
-    ofScale(scaleParaX, scaleParaY);
+    ofScale(scaleParaX + 3.0, scaleParaY + 3.0);
     //ofSetPolyMode(OF_POLY_WINDING_NONZERO); //odd that this effected other objects
     ofSetColor(pentColor, 80);
     ofNoFill();

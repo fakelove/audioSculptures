@@ -3,6 +3,7 @@
 #include "ofMain.h"
 #include "ofxiOS.h"
 #include "ofxiOSExtras.h"
+#include "ofxAssimpModelLoader.h"
 
 class Circles {
     
@@ -25,4 +26,8 @@ public:
     //random colors
     void randomizeColor(int randomColor);
     ofColor randomFill;
+    
+    //3d stuff
+    ofxAssimpModelLoader model;
+    float rotate;
 };

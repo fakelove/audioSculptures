@@ -12,9 +12,10 @@ public:
     ~drawOrbs();
     void setup(int posX, int posY, float size);
     void update(float noiseSpeed, float rotationSpeed);
+    void randomizeColor();
     void draw();
     void exit();
-    void shape();
+    void randomizePosition(int posX, int posY);
 	
     void touchDown(ofTouchEventArgs & touch);
     void touchMoved(ofTouchEventArgs & touch);
@@ -27,6 +28,8 @@ public:
     ofColor c;
     float rotate, sendNoise, noise;
     float size;
+    int randomColor;
+
     
 };
 

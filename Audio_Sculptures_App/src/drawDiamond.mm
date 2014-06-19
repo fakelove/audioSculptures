@@ -69,15 +69,15 @@ void drawDiamond::sphere(){
     ofSetSphereResolution(3);
     ofPushMatrix();
     ofTranslate(pos.x, pos.y);
-    ofScale(1.0, 1.0);
+    ofScale(1.75, 1.75);
     ofRotateX(rotate);
     ofRotateY(rotate);
     //small shape
-    ofSetColor(randomFill);
+    ofSetColor(randomFill, 150);
     ofFill();
     ofDrawSphere(sendNoise);
     //big shape
-    ofSetColor(outerDiaColor, 150);
+    ofSetColor(outerDiaColor, 100);
     ofNoFill();
     ofDrawSphere(50);
     ofPopMatrix();

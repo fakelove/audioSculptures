@@ -57,7 +57,7 @@ void testApp::setup(){
         }
     }
     
-    int objectAmt = 15;
+    int objectAmt = 10;
     
     Circles temp;
     
@@ -66,7 +66,7 @@ void testApp::setup(){
     }
     
     for (int i = 0; i < circles.size(); i++) {
-        circles[i].setup(ofRandom(ofGetWidth()), ofRandom(ofGetHeight()) );
+        circles[i].setup(ofRandom(ofGetWidth()), ofRandom(0, ofGetHeight() / 2) );
     }
 
     //Random button
@@ -132,8 +132,7 @@ void testApp::draw(){
     ofPopMatrix();
 */
     bg.draw();
-    fg.draw();
-    
+   
     //gif[randomImage].draw();
   
     ////Randomize button
@@ -157,11 +156,11 @@ void testApp::draw(){
     }
 
     
-    if (randomSculpture1 == 1 || randomSculpture2 == 1 || randomSculpture3 == 1) {
+    //if (randomSculpture1 == 1 || randomSculpture2 == 1 || randomSculpture3 == 1) {
         for (int i = 0; i < circles.size(); i++) {
             circles[i].draw();
         }
-    }
+    //}
     if (randomSculpture1 == 2 || randomSculpture2 == 2 || randomSculpture3 == 2) {
         
             pent.objectOn = true;
@@ -219,8 +218,8 @@ void testApp::draw(){
      flLogo.draw(0, 0);
      ofPopMatrix();
      }*/
-
     
+     fg.draw();
 }
 
 //--------------------------------------------------------------
@@ -257,12 +256,12 @@ void testApp::touchDown(ofTouchEventArgs & touch){
     cyl.touchTrigger(touch.x, touch.y);
     }
     
-    if (randomSculpture1 == 1 || randomSculpture2 == 1 || randomSculpture3 == 1) {
+    //if (randomSculpture1 == 1 || randomSculpture2 == 1 || randomSculpture3 == 1) {
         
         for (int i = 0; i < circles.size(); i++) {
             circles[i].touchTrigger(touch.x, touch.y);
         }
-    }
+    //}
     
     //cout << "Finger: " << touch.id << endl;
 
@@ -319,9 +318,14 @@ void testApp::touchUp(ofTouchEventArgs & touch){
     if ( dist1 < sizeRandom ) {
     
     //Needs randomize button
-    randomSculpture1 = ofRandom(10);
-    randomSculpture2 = ofRandom(10);
-    randomSculpture3 = ofRandom(10);
+    randomSculpture1 = ofRandom(11);
+    randomSculpture2 = ofRandom(11);
+    randomSculpture3 = ofRandom(11);
+        
+        //Randomize the orbs every random button touch
+        for (int i = 0; i < orbs.size(); i++) {
+            orbs[i].randomizePosition(ofRandom(50, ofGetWidth() - 50), ofRandom(50, 200));
+        }
         
     //randomImage = ofRandom(gif.size());
     /*
@@ -356,13 +360,13 @@ void testApp::touchUp(ofTouchEventArgs & touch){
     cyl.randomizeColor();
     line.randomizeColor();
     squid.randomizeColor();
+    chip.randomizeColor();
     
         
     /*cout << "Sculpture 1: " << randomSculpture1 << endl;
     cout << "Sculpture 2: " << randomSculpture2 << endl;
     cout << "Sculpture 3: " << randomSculpture3 << endl;*/
    
-    
     }
     
     /// If you hold the "Chip" object it loops if touchUp then off
@@ -381,10 +385,7 @@ void testApp::touchUp(ofTouchEventArgs & touch){
         cube.upTouch(touch.x, touch.y);
     }
    
-    //Randomize the orbs every random button touch
-    for (int i = 0; i < orbs.size(); i++) {
-        orbs[i].setup(ofRandom(50, ofGetWidth() - 50), ofRandom(50, 200), ofRandom(0.05, 0.20));
-    }
+    
 }
 
 //--------------------------------------------------------------

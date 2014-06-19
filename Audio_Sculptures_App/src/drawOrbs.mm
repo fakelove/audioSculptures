@@ -64,11 +64,32 @@ void drawOrbs::draw(){
    
 }
 
-//--------------------------------------------------------------
-void drawOrbs::shape(){
+void drawOrbs::randomizePosition(int posX, int posY) {
     
+     pos.set(posX, posY, 0);
     
+}
+
+void drawOrbs::randomizeColor() {
     
+    randomColor = ofRandom(4);
+    
+    switch (randomColor) {
+        case 0:
+            c = ofColor::crimson;
+            break;
+        case 1:
+            c = ofColor::aquamarine;
+            break;
+        case 2:
+            c = ofColor::whiteSmoke;
+        case 3:
+            c = ofColor::teal;
+        default:
+            c = ofColor::black;
+            break;
+    }
+
 }
 
 //--------------------------------------------------------------

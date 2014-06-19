@@ -87,7 +87,7 @@ void drawRect::rect(int x, int y, float rotate){
     ofSetColor(randomFill, 15);
     ofFill();
     ofTranslate(ofGetWidth() / 2, ofGetHeight() / 2);
-    ofScale(.80, .80);
+    ofScale(1.25, 1.25);
     ofRotateZ(rotate);
     ofRect(0, 0, x, y);
     ofPopMatrix();

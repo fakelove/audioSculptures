@@ -11,11 +11,14 @@ Circles::~Circles(){
 
 void Circles::setup(int posX, int posY) {
     
-    alphaAction = 0.0;
-    size = 30;
+    ofDisableArbTex(); // we need GL_TEXTURE_2D for our models coords.
+    model.loadModel("orb.dae");
+    
+    //alphaAction = 0.0;
+    //size = 30;
     fingerPos.set(posX, posY);
-    randomSizeSpeed = ofRandom(0.01f, 0.10f);
-    randomRotateSpeed = ofRandom(0.10f, 0.40f);
+    //randomSizeSpeed = ofRandom(0.01f, 0.10f);
+    randomRotateSpeed = ofRandom(-0.10f, 0.40f);
     randomSample = ofRandom(3);
     
     for (int i = 0; i < 4; i++) {
@@ -28,16 +31,18 @@ void Circles::setup(int posX, int posY) {
 //--------------------------------------------------------------
 void Circles::update(){
     
-    alphaAction -= 5.0;
-    rotateAction += randomRotateSpeed;
-    pulse(randomSizeSpeed);
+    //alphaAction -= 5.0;
+    //rotateAction += randomRotateSpeed;
+    //pulse(randomSizeSpeed);
     
-    
+    model.update();
+    rotate += randomRotateSpeed;
 }
 
 //--------------------------------------------------------------
 void Circles::draw(){
     
+    /*
     ofSetCircleResolution(5);
     for (int i = 0; i < 50; i += 10) {
         ofPushMatrix();
@@ -55,6 +60,33 @@ void Circles::draw(){
         ofCircle(0, 0, size + i);
         ofPopMatrix();
     }
+    */
+    
+    ofEnableDepthTest(); //important to begin and end
+
+    //Outside Orb
+    ofSetColor(0);
+    ofPushMatrix();
+    ofTranslate(fingerPos);
+    model.setScale(.10,.10,.10);
+    ofRotateX(rotate);
+    ofRotateY(rotate);
+    model.drawWireframe();
+    ofPopMatrix();
+    
+    //Inside Orb
+    ofSetColor(ofColor::whiteSmoke, 50);
+    ofPushMatrix();
+    ofTranslate(fingerPos);
+    model.setScale(.10,.10,.10);
+    ofRotateX(rotate);
+    ofRotateY(rotate);
+    model.drawFaces();
+    ofPopMatrix();
+    
+    ofDisableDepthTest();
+
+     
 }
 
 void Circles::pulse(float speed){

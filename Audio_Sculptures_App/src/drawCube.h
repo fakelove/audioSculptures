@@ -37,6 +37,9 @@ public:
     //outer box color
     ofColor outerCube;
     
+    //texturize
+    ofImage texture;
+    
 };
 
 

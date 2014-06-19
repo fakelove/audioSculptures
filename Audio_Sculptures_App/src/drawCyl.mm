@@ -42,6 +42,7 @@ void drawCyl::update(){
 void drawCyl::draw(){
     
 
+    ofPushMatrix();
     for (int i = 0; i < 50; i += 15) {
     cylinder(i, 25, 50, sendNoise - 240, 50);
     cylinder(0, 15, 25, sendNoise - 50, 0);
@@ -53,7 +54,7 @@ void drawCyl::draw(){
     //ofNoFill();
     ofTranslate(pos.x, pos.y);
     ofCircle(0, 0, sizeTrigger);
-
+    ofPopMatrix();
 }
 
 //--------------------------------------------------------------

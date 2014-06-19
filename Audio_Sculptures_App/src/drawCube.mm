@@ -25,7 +25,13 @@ void drawCube::setup(){
     pos.set(ofGetWidth() / 2 - 200, ofGetHeight() / 2);
     randomFill.set(ofColor::black);
     
-    outerCube = ofColor::black;
+    outerCube = ofColor::lightYellow;
+    
+    texture.loadImage("tex/tex1.jpg");
+    texture.getTextureReference().setTextureWrap( GL_REPEAT, GL_REPEAT );
+
+    ofDisableArbTex(); // we need GL_TEXTURE_2D for our models coords.
+
 }
 
 //--------------------------------------------------------------
@@ -35,8 +41,6 @@ void drawCube::update(){
     speed += 0.20f;
     noise = 35 * ofNoise(speed);
     noise = noise / 2;
-    
-    
     
     if (trigger == true) {
         alpha = noise;
@@ -62,16 +66,20 @@ void drawCube::update(){
 //--------------------------------------------------------------
 void drawCube::draw(){
     
-    
     //clickBox.setFromCenter(ofGetWidth() / 2 - 200, ofGetHeight() / 2, 100, 100);
-   
+
     //Trigger and move sound with circle
+    ofPushMatrix();
     ofSetColor(0, 0, 0, 0);
     ofCircle(pos.x, pos.y, sizeTrigger);
-    
+    ofPopMatrix();
+    ofEnableDepthTest();
+
     //cam.begin();
     for (int i = 0; i < 50; i += 5) {
         ofPushMatrix();
+        ofEnableNormalizedTexCoords();
+
         ofTranslate(pos.x, pos.y);
         ofScale(3.5, 3.5);
         ofRotateY(rotate);
@@ -85,14 +93,20 @@ void drawCube::draw(){
         ofNoFill();
         ofDrawBox(0, 0, -1, 10 + sendNoise, 10 + sendNoise, 10 + sendNoise);
         //big box
-        ofSetColor(0);
+        ofSetColor(ofColor::black);
         ofNoFill();
         ofDrawBox(0, 0, -1, 50, 50, 50);
         ofSetColor(outerCube, alpha);
         ofFill();
+        texture.getTextureReference().bind();
         ofDrawBox(0, 0, -1, 50, 50, 50);
+        texture.getTextureReference().unbind();
+        ofDisableNormalizedTexCoords();
         ofPopMatrix();
     }
+    
+    ofDisableDepthTest();
+
     //cam.end();
         
     //ofSetColor(0);
@@ -121,7 +135,7 @@ void drawCube::randomizeColor() {
             randomFill = ofColor::black;
             break;
     }
-    cout << "Cube: " << randomColor << endl;
+    //cout << "Cube: " << randomColor << endl;
     
 }
 

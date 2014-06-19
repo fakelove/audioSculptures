@@ -27,7 +27,7 @@ void drawChip::update(){
     
     rotate += 0.05f;
     
-    sine = 2.0 + .25 * sin(rotate);
+    sine = 3.0 + .25 * sin(rotate);
     
     
     speed1 += 0.15f;
@@ -44,10 +44,10 @@ void drawChip::update(){
     
     if (!clicks.getIsPlaying()) {
         trigger = false;
-        noise1 = 255;
-        noise2 = 200;
-        noise3 = 150;
-        noise4 = 255;
+        noise1 = 30;
+        noise2 = 30;
+        noise3 = 30;
+        noise4 = 30;
     }
 
 }
@@ -65,6 +65,28 @@ void drawChip::draw(){
 	
 }
 
+void drawChip::randomizeColor() {
+    
+    randomColor = ofRandom(4);
+    
+    switch (randomColor) {
+        case 0:
+            randomFill = ofColor::whiteSmoke;
+            break;
+        case 1:
+            randomFill = ofColor::lightYellow;
+            break;
+        case 2:
+            randomFill = ofColor::black;
+        case 3:
+            randomFill = ofColor::teal;
+        default:
+            randomFill = ofColor::lightYellow;
+            break;
+    }
+    
+}
+
 //--------------------------------------------------------------
 void drawChip::button(int size, int color){
     
@@ -73,7 +95,7 @@ void drawChip::button(int size, int color){
     //ofRotateX(rotate);
     //ofRotateY(rotate);
     ofScale(sine, sine);
-    ofSetColor(0, 0, 0, color);
+    ofSetColor(randomFill, color);
     ofFill();
     ofCircle(0, 0, size);
     ofPopMatrix();
@@ -85,7 +107,7 @@ void drawChip::receivedTouch(int x, int y) {
     
     int dist1 = ofDist(pos.x, pos.y, x, y);
     
-    if ( dist1 < size ) {
+    if ( dist1 < size + 100) {
         trigger = true;
         clicks.setPositionMS(0);
         clicks.play();
@@ -97,7 +119,7 @@ void drawChip::upTouch(int x, int y){
     
     int dist1 = ofDist(pos.x, pos.y, x, y);
     
-    if ( dist1 < size ) {
+    if ( dist1 < size + 300 ) {
         trigger = false;
         clicks.stop();
         clicks.setLoop(false);
