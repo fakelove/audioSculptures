@@ -16,9 +16,13 @@ void drawCyl::setup(){
     
     sound.loadSound("cylSound.caf");
     trigger = false;
-    pos.set(ofGetWidth() / 2 , ofGetHeight() / 2 + 200 );
+    pos.set(ofGetWidth() / 2 , ofGetHeight() / 2 );
     sizeTrigger = 60;
+    movementOn = false;
     
+    texture.loadImage("tex/tex0.jpg");
+    texture.getTextureReference().setTextureWrap( GL_REPEAT, GL_REPEAT );
+    ofDisableArbTex(); // we need GL_TEXTURE_2D for our models coords.
 }
 
 //--------------------------------------------------------------
@@ -36,19 +40,32 @@ void drawCyl::update(){
         sendNoise = 255;
     }
     
+}
+
+void drawCyl::reloadTex(int changeTex) {
+    
+    texture.loadImage("tex/tex" + ofToString(changeTex) + ".jpg");
+    texture.getTextureReference().setTextureWrap( GL_REPEAT, GL_REPEAT );
     
 }
+
+
 //--------------------------------------------------------------
 void drawCyl::draw(){
     
-
     ofPushMatrix();
-    for (int i = 0; i < 50; i += 15) {
-    cylinder(i, 25, 50, sendNoise - 240, 50);
-    cylinder(0, 15, 25, sendNoise - 50, 0);
+    //outer cyl
+    cylinder(0, 25, 50, sendNoise - 240, 50);
     //ofDrawBitmapString("Sound File Position: " + ofToString(sound.getPosition()), 50, 50);
-    }
     
+    //inner cyl
+    ofEnableDepthTest();
+    ofEnableNormalizedTexCoords();
+    texture.getTextureReference().bind();
+    cylinder(0, 15, 25, sendNoise - 100, 0);
+    texture.getTextureReference().unbind();
+    ofDisableNormalizedTexCoords();
+    ofDisableDepthTest();
     /////Trigger Button/////
     //ofSetColor(0);
     //ofNoFill();
@@ -60,13 +77,12 @@ void drawCyl::draw(){
 //--------------------------------------------------------------
 void drawCyl::cylinder(float iterate, int width, int height, float alpha, int outline){
 
-
     ofSetCylinderResolution(4, 2);
     ofPushMatrix();
     ofTranslate( pos.x, pos.y );
-    ofScale(2.0, 2.0);
-    ofRotateY(rotate + iterate * PI / 2);
-    ofRotateX(rotate + iterate * PI);
+    ofScale(4.0, 4.0);
+    ofRotateY(rotate + iterate * PI );
+    ofRotateX(rotate * PI);
     ofSetColor(randomFill, alpha);
     ofFill();
     ofDrawCylinder(0, 0, width, height);
@@ -94,13 +110,17 @@ void drawCyl::touchTrigger(int x, int y){
 
 void drawCyl::moveCyl(int x, int y) {
 
-    
     int dist1 = ofDist(pos.x, pos.y, x, y);
     
     if ( dist1 < sizeTrigger ) {
     pos.x = x;
     pos.y = y;
+    movementOn = true;
         
+    } else {
+    
+    movementOn = false;
+    
     }
 }
 

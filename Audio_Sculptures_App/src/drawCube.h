@@ -17,11 +17,10 @@ public:
     void touchTrigger(int x, int y);
     void upTouch(int x, int y);
     void moveCube(int x, int y);
+    void reloadTex(int changeTex);
     
     float rotate, noise, speed, alpha, alphaOutline;
-    float sendNoise;
-    ofEasyCam cam;
-    
+    float sendNoise;    
     bool trigger, triggerSound;
     int sizeTrigger;
     ofPoint pos;
@@ -40,6 +39,8 @@ public:
     //texturize
     ofImage texture;
     
+    //bg movement
+    bool movementOn;
 };
 
 

@@ -47,15 +47,15 @@ void lineShape::draw(){
     
     cam.begin();
     for (int i = 0; i < 200; i += 2 ) {
-        drawLine(i, 0, rotateShape + i);
+        drawLine(i, 0, rotateShape + i, ofMap(i, 0, 200, 75, 175));
     }
     cam.end();
 }
 
-void lineShape::drawLine(float x, float y, float rotate){
+void lineShape::drawLine(float x, float y, float rotate, int opacity){
     
     ofPushMatrix();
-    ofSetColor(randomFill);
+    ofSetColor(randomFill, opacity);
     ofRotateX(rotate * sin(PI / 2));
     ofRotateY(x + rotate);
     ofScale(.10, .10);

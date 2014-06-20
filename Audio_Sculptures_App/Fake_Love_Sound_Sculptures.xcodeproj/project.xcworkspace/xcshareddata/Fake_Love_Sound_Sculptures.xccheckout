@@ -14,6 +14,8 @@
 		<string>https://github.com/Flightphase/ofxImageSequence.git</string>
 		<key>896548F2-BDD3-417D-83A9-7B9E2780FB63</key>
 		<string>https://github.com/fakelove/audioSculptures.git</string>
+		<key>A2DCBE45-7339-454C-9FF8-87863C3AE842</key>
+		<string>https://github.com/neilmendoza/ofxPostProcessing.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>Audio_Sculptures_App/Fake_Love_Sound_Sculptures.xcodeproj/project.xcworkspace</string>
@@ -23,6 +25,8 @@
 		<string>../../../../../addons/ofxImageSequence</string>
 		<key>896548F2-BDD3-417D-83A9-7B9E2780FB63</key>
 		<string>../../..</string>
+		<key>A2DCBE45-7339-454C-9FF8-87863C3AE842</key>
+		<string>../../../../../addons/ofxPostProcessing</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
 	<string>https://github.com/fakelove/audioSculptures.git</string>
@@ -47,6 +51,14 @@
 			<string>0269BDE2-0FB6-4102-9A73-A0D16AA9FFE2</string>
 			<key>IDESourceControlWCCName</key>
 			<string>ofxImageSequence</string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>A2DCBE45-7339-454C-9FF8-87863C3AE842</string>
+			<key>IDESourceControlWCCName</key>
+			<string>ofxPostProcessing</string>
 		</dict>
 	</array>
 </dict>

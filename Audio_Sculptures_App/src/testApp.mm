@@ -5,9 +5,11 @@
 void testApp::setup(){	
 
     ofSetOrientation(OF_ORIENTATION_90_RIGHT);
+    
     ofBackground(255);
     
     bg.loadBackground();
+    mg.loadmiddleground();
     fg.loadForeground();
     
     ofSetVerticalSync(true);
@@ -66,7 +68,7 @@ void testApp::setup(){
     }
     
     for (int i = 0; i < circles.size(); i++) {
-        circles[i].setup(ofRandom(ofGetWidth()), ofRandom(0, ofGetHeight() / 2) );
+        circles[i].setup(ofRandom(ofGetWidth()), ofRandom(0, ofGetHeight() / 2), ofRandom(0.05, 0.20) );
     }
 
     //Random button
@@ -131,11 +133,12 @@ void testApp::draw(){
     fg.draw();
     ofPopMatrix();
 */
+    /// BACKGROUND ///
     bg.draw();
    
     //gif[randomImage].draw();
   
-    ////Randomize button
+    ////Randomize button////
     ofPushMatrix();
     ofSetCircleResolution(100);
     ofSetColor(0, 0, 0, 100);
@@ -147,7 +150,7 @@ void testApp::draw(){
     ///ofDrawBitmapString("Randomize Sound Sculptures", 150, 75);
     ofPopMatrix();
     
-    
+    /////SPINNING RECTANGLE BACKGROUND/////
     if (randomSculpture1 == 7 || randomSculpture2 == 7 || randomSculpture3 == 7) {
         rect.trackVolume = 0.50;
         rect.draw();
@@ -156,11 +159,8 @@ void testApp::draw(){
     }
 
     
-    //if (randomSculpture1 == 1 || randomSculpture2 == 1 || randomSculpture3 == 1) {
-        for (int i = 0; i < circles.size(); i++) {
-            circles[i].draw();
-        }
-    //}
+    /////ROTATING CENTER BACKGROUND PENT/////
+
     if (randomSculpture1 == 2 || randomSculpture2 == 2 || randomSculpture3 == 2) {
         
             pent.objectOn = true;
@@ -171,6 +171,9 @@ void testApp::draw(){
             pent.objectOn = false;
     
     }
+    
+    /////EVOLVING LINES SWIRL/////
+
     if (randomSculpture1 == 3 || randomSculpture2 == 3 || randomSculpture3 == 3) {
 
             line.volumeLevel = 1.0;
@@ -179,35 +182,67 @@ void testApp::draw(){
     } else {
             line.volumeLevel = 0.0;
     }
+    
+    ////CIRCLE CENTER////
+    if (randomSculpture1 == 8 || randomSculpture2 == 8 || randomSculpture3 == 8) {
+        
+        chip.draw();
+    }
+    
+    /// MIDDLEGROUND ///
+    mg.draw();
+    
+    
+    ////ORBS////
+    if (randomSculpture1 == 10 || randomSculpture2 == 10 || randomSculpture3 == 10) {
+        
+        for (int i = 0; i < orbs.size(); i++) {
+            orbs[i].draw();
+        }
+    }
+    
+    /////CUBE BACKGROUND/////
+
     if (randomSculpture1 == 4 || randomSculpture2 == 4 || randomSculpture3 == 4) {
 
             cube.draw();
     }
+    
+    /////SQUIGGLE LINES/////
+
     if (randomSculpture1 == 5 || randomSculpture2 == 5 || randomSculpture3 == 5) {
             squid.trackVolume = 1.0;
             squid.draw();
     } else {
             squid.trackVolume = 0.0;
     }
+    
+  
+    /// FOREGROUND ///
+    fg.draw();
+    
+    
+    ////DIAMOND////
     if (randomSculpture1 == 6 || randomSculpture2 == 6 || randomSculpture3 == 6) {
 
             dia.draw();
     }
-        if (randomSculpture1 == 8 || randomSculpture2 == 8 || randomSculpture3 == 8) {
 
-            chip.draw();
-    }
+    ////CYLINDER////
     if (randomSculpture1 == 9 || randomSculpture2 == 9 || randomSculpture3 == 9) {
 
             cyl.draw();
     }
     
-    if (randomSculpture1 == 10 || randomSculpture2 == 10 || randomSculpture3 == 10) {
-
-    for (int i = 0; i < orbs.size(); i++) {
-    orbs[i].draw();
+    
+    
+    ////SPHERES 3D////
+    if (randomSculpture1 == 1 || randomSculpture2 == 1 || randomSculpture3 == 1) {
+    for (int i = 0; i < circles.size(); i++) {
+        circles[i].draw();
         }
     }
+    
     /////Fake logo
     /*if (ofGetElapsedTimef() < 4.0) {
      ofPushMatrix();
@@ -219,7 +254,17 @@ void testApp::draw(){
      ofPopMatrix();
      }*/
     
-     fg.draw();
+    /////  UI /////
+    
+    /////ROTATING CENTER BACKGROUND PENT/////
+    if (randomSculpture1 == 2 || randomSculpture2 == 2 || randomSculpture3 == 2) {
+        pent.drawSlider();
+    }
+    
+    ///// RECT SLIDER ////
+    if (randomSculpture1 == 7 || randomSculpture2 == 7 || randomSculpture3 == 7) {
+        rect.rectSlider();
+    }
 }
 
 //--------------------------------------------------------------
@@ -246,22 +291,21 @@ void testApp::touchDown(ofTouchEventArgs & touch){
 
     cube.touchTrigger(touch.x, touch.y);
     
+        
     }
-    //if (randomSculpture1 == 1 || randomSculpture2 == 1 || randomSculpture3 == 1) {
-
-    //cir.touchTrigger(touch.x, touch.y);
-    //}
+    
     if (randomSculpture1 == 9 || randomSculpture2 == 9 || randomSculpture3 == 9) {
 
     cyl.touchTrigger(touch.x, touch.y);
+        
     }
     
-    //if (randomSculpture1 == 1 || randomSculpture2 == 1 || randomSculpture3 == 1) {
+    if (randomSculpture1 == 1 || randomSculpture2 == 1 || randomSculpture3 == 1) {
         
         for (int i = 0; i < circles.size(); i++) {
             circles[i].touchTrigger(touch.x, touch.y);
         }
-    //}
+    }
     
     //cout << "Finger: " << touch.id << endl;
 
@@ -294,18 +338,35 @@ void testApp::touchMoved(ofTouchEventArgs & touch){
     if (randomSculpture1 == 9 || randomSculpture2 == 9 || randomSculpture3 == 9) {
 
     cyl.moveCyl(touch.x, touch.y);
+        
     }
     
     if (randomSculpture1 == 6 || randomSculpture2 == 6 || randomSculpture3 == 6) {
 
     dia.moveDiamond(touch.x, touch.y);
+        
     }
     
     if (randomSculpture1 == 4 || randomSculpture2 == 4 || randomSculpture3 == 4) {
 
     cube.moveCube(touch.x, touch.y);
+    
+    }
+
+    
+    ///BACKGROUND MOVEMENT
+    
+    if (cube.movementOn == true || cyl.movementOn == true || dia.movementOn == true) {
+        
+        bg.pos.z = ofMap(touch.x, 0, ofGetWidth(), 10, -10);
+        fg.pos.x = ofMap(touch.x, 0, ofGetWidth(), -100, 100);
+        mg.pos.x = ofMap(touch.x, 0, ofGetWidth(), -50, 50);
     }
     
+    //cout << "cube moveOn: " << ofToString(cube.movementOn) << endl;
+    //cout << "cyl moveOn: " << ofToString(cyl.movementOn) << endl;
+    //cout << "dia moveOn: " << ofToString(dia.movementOn) << endl;
+
 }
 
 //--------------------------------------------------------------
@@ -367,6 +428,52 @@ void testApp::touchUp(ofTouchEventArgs & touch){
     cout << "Sculpture 2: " << randomSculpture2 << endl;
     cout << "Sculpture 3: " << randomSculpture3 << endl;*/
    
+    //BACKGROUND IMAGE CYCLES//
+        
+    randomBackground = ofRandom(bg.totalFiles);
+    bg.changeBackground(randomBackground);
+    mg.changemiddleground(randomBackground);
+    fg.changeForeground(randomBackground);
+        
+        if (randomBackground == 0) {
+            buttonColor = ofColor::black;
+            pent.pentColor = ofColor::black;
+            cube.outerCube = ofColor::black;
+            dia.outerDiaColor = ofColor::black;
+            cyl.outerCyl = ofColor::black;
+            for (int i = 0; i < circles.size(); i++) {
+                circles[i].outSideColor = ofColor::black;
+            }
+            
+        }  else if (randomBackground == 1) {
+            buttonColor = ofColor::black;
+            pent.pentColor = ofColor::black;
+            cube.outerCube = ofColor::black;
+            dia.outerDiaColor = ofColor::black;
+            cyl.outerCyl = ofColor::black;
+            for (int i = 0; i < circles.size(); i++) {
+                circles[i].outSideColor = ofColor::black;
+            }
+            
+        } else if (randomBackground == 2) {
+                buttonColor = ofColor::lightPink;
+                pent.pentColor = ofColor::white;
+                cube.outerCube = ofColor::white;
+                dia.outerDiaColor = ofColor::white;
+                cyl.outerCyl = ofColor::white;
+            for (int i = 0; i < circles.size(); i++) {
+                circles[i].outSideColor = ofColor::white;
+            }
+                
+        }
+        
+
+        
+    //TEXTURE CYCLES//
+    
+    cube.reloadTex(ofRandom(2));
+    cyl.reloadTex(ofRandom(2));
+    
     }
     
     /// If you hold the "Chip" object it loops if touchUp then off

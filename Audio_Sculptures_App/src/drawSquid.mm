@@ -47,7 +47,7 @@ void drawSquid::draw(){
    //cam.begin();
     for (int i = 0; i < 700; i += 5) {
         ofPushMatrix();
-        ofSetColor(randomFill, ofMap(i, 0, 500, 180, 100));
+        ofSetColor(randomFill, ofMap(i, 0, 500, 100, 30));
         ofNoFill();
         ofTranslate(ofGetWidth() / 2, ofGetHeight() / 2);
         ofRotateX( i + squidPos.y );
@@ -93,6 +93,7 @@ void drawSquid::randomizeColor() {
             randomFill = ofColor::whiteSmoke;
         case 3:
             randomFill = ofColor::crimson;
+            break;
         default:
             randomFill = ofColor::black;
             break;

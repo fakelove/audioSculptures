@@ -19,10 +19,12 @@ void drawDiamond::setup(){
     
     sound.loadSound(soundFiles[0]);
     sizeTrigger = 60;
-    pos.set(ofGetWidth() / 2 + 200, ofGetHeight() / 2);
+    pos.set(ofGetWidth() / 2 + 250, ofGetHeight() / 2 + 100);
     
     randomFill.set(ofColor::black);
     outerDiaColor.set(ofColor::black);
+    
+    movementOn = false;
     
 }
 
@@ -33,7 +35,7 @@ void drawDiamond::update(){
     speed += 0.20f;
     noise = 50 * ofNoise(speed);
     noise = noise / 2;
-    
+    sine = 4.0 * sin(speed);
     
     if (trigger == true) {
         sendNoise = noise;
@@ -68,12 +70,12 @@ void drawDiamond::sphere(){
     
     ofSetSphereResolution(3);
     ofPushMatrix();
-    ofTranslate(pos.x, pos.y);
+    ofTranslate(pos.x, pos.y + sine);
     ofScale(1.75, 1.75);
     ofRotateX(rotate);
     ofRotateY(rotate);
     //small shape
-    ofSetColor(randomFill, 150);
+    ofSetColor(randomFill, 100);
     ofFill();
     ofDrawSphere(sendNoise);
     //big shape
@@ -114,7 +116,7 @@ void drawDiamond::upTouch(int x, int y){
         sound.setLoop(false);
         
     }
-
+  
 }
 
 void drawDiamond::moveDiamond(int x, int y) {
@@ -125,7 +127,12 @@ void drawDiamond::moveDiamond(int x, int y) {
         pos.x = x;
         pos.y = y;
         
-    }    
+        movementOn = true;
+        
+    } else {
+        
+        movementOn = false;
+    }
     
 }
 
@@ -142,6 +149,7 @@ void drawDiamond::randomizeColor() {
             break;
         case 2:
             randomFill = ofColor::magenta;
+            break;
         default:
             randomFill = ofColor::black;
             break;

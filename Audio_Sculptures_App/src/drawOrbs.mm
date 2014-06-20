@@ -16,12 +16,15 @@ void drawOrbs::setup(int posX, int posY, float orbSize){
     model.loadModel("orb2.dae");
     //model.setPosition(pos.x, pos.y, pos.z);
     rotate = 0;
+    
     c = ofColor::teal;
-    c.a = 100;
+    c.a = 50;
     size = orbSize;
 
     ofxAccelerometer.setup();
-    ofxAccelerometer.setForceSmoothing(.50);
+    ofxAccelerometer.setForceSmoothing(200);
+    
+    
     
 }
 
@@ -32,7 +35,15 @@ void drawOrbs::update(float noiseSpeed, float rotationSpeed){
     rotate += 0.33f;
     noise += noiseSpeed;
     sendNoise = 300 * ofNoise(noise);
-    pos.y = sendNoise + ofMap(ofxAccelerometer.getForce().x, 0.0, 1.0, 50, 400);
+
+    
+    total -= total;
+    total += ofMap(ofxAccelerometer.getForce().x, 0.0, 1.0, 50, 600);
+    pos.y = total + sendNoise;
+    
+    
+    //cout << "Accel: " << total << endl;
+    
 }
 
 //--------------------------------------------------------------
@@ -40,7 +51,7 @@ void drawOrbs::draw(){
     
     ofEnableDepthTest();
     //Outside Orb
-    ofSetColor(c);
+    ofSetColor(c, 75);
     ofPushMatrix();
     ofTranslate(pos);
     //ofScale(size, size);
@@ -67,7 +78,7 @@ void drawOrbs::draw(){
 void drawOrbs::randomizePosition(int posX, int posY) {
     
      pos.set(posX, posY, 0);
-    
+
 }
 
 void drawOrbs::randomizeColor() {

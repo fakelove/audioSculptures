@@ -13,6 +13,7 @@ This is the latest version of the Fake Love Audio Sculptures Ipad App
 
 //Background Images
 #include "background.h"
+#include "middleground.h"
 #include "foreground.h"
 
 //Objects
@@ -70,7 +71,9 @@ class testApp : public ofxiOSApp{
     
     //Load Backgrounds
     background bg;
+    middleground mg;
     foreground fg;
+    int randomBackground;
     
     //vector<drawGifs> gif;
     //vector<int> imgAmt;

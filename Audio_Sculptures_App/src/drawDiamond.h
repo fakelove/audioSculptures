@@ -18,7 +18,7 @@ public:
     void upTouch(int x, int y);
     void moveDiamond(int x, int y);
     
-    float rotate, sendNoise,noise, speed;
+    float rotate, sendNoise, noise, speed, sine;
     bool trigger;
     ofSoundPlayer sound;
     vector <string> soundFiles;
@@ -31,6 +31,9 @@ public:
     
     //outer color
     ofColor outerDiaColor;
+    
+    //background movement
+    bool movementOn;
 };
 
 

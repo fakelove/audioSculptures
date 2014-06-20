@@ -10,7 +10,7 @@ class Circles {
 public:
     Circles();
     ~Circles();
-    void setup(int posX, int posY);
+    void setup(int posX, int posY, float setSize);
     void update();
     void draw();
     void pulse(float speed);
@@ -25,9 +25,9 @@ public:
     
     //random colors
     void randomizeColor(int randomColor);
-    ofColor randomFill;
-    
+    ofColor randomFill, outSideColor;
     //3d stuff
     ofxAssimpModelLoader model;
-    float rotate;
+    float rotate, sine;
+    int buttonSize;
 };

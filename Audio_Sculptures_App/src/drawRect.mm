@@ -43,7 +43,7 @@ void drawRect::draw(){
         ofPopMatrix();
     }
     
-    rectSlider();
+  
     ofSetColor(0);
     //ofDrawBitmapString("Sound Sculpture Control", sliderPos.x + 50, sliderPos.y);
     

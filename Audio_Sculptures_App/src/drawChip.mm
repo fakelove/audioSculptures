@@ -19,6 +19,7 @@ void drawChip::setup(){
     size = 75;
     pos.set(ofGetWidth() / 2, ofGetHeight() / 2); //actual translation of object
     
+    
 }
 
 //--------------------------------------------------------------
@@ -49,19 +50,20 @@ void drawChip::update(){
         noise3 = 30;
         noise4 = 30;
     }
-
+    
 }
 
 //--------------------------------------------------------------
 void drawChip::draw(){
     
-    ofSetCircleResolution(100);
+   
     
+    ofSetCircleResolution(100);
+  
     button(size, noise4);
     button(50, noise1);
     button(25, noise2);
     button(10, noise3);
-    
 	
 }
 
@@ -80,10 +82,13 @@ void drawChip::randomizeColor() {
             randomFill = ofColor::black;
         case 3:
             randomFill = ofColor::teal;
+            break;
         default:
             randomFill = ofColor::lightYellow;
             break;
     }
+    
+   // cout << "Chip Color: " << randomColor << endl;
     
 }
 

@@ -49,6 +49,7 @@
 		E683524919520574001206F7 /* assimp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E683524219520574001206F7 /* assimp.a */; };
 		E6835255195223D8001206F7 /* background.mm in Sources */ = {isa = PBXBuildFile; fileRef = E6835253195223D8001206F7 /* background.mm */; };
 		E6835258195226A3001206F7 /* foreground.mm in Sources */ = {isa = PBXBuildFile; fileRef = E6835256195226A3001206F7 /* foreground.mm */; };
+		E68352E41954BFCC001206F7 /* middleground.mm in Sources */ = {isa = PBXBuildFile; fileRef = E68352E21954BFCC001206F7 /* middleground.mm */; };
 		E696B21B192C070800506912 /* drawGifs.mm in Sources */ = {isa = PBXBuildFile; fileRef = E696B219192C070800506912 /* drawGifs.mm */; };
 		E696B22A192C078D00506912 /* ofxImageSequence.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E696B228192C078D00506912 /* ofxImageSequence.cpp */; };
 /* End PBXBuildFile section */
@@ -172,6 +173,8 @@
 		E6835254195223D8001206F7 /* background.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = background.h; sourceTree = "<group>"; };
 		E6835256195226A3001206F7 /* foreground.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = foreground.mm; sourceTree = "<group>"; };
 		E6835257195226A3001206F7 /* foreground.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = foreground.h; sourceTree = "<group>"; };
+		E68352E21954BFCC001206F7 /* middleground.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = middleground.mm; sourceTree = "<group>"; };
+		E68352E31954BFCC001206F7 /* middleground.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = middleground.h; sourceTree = "<group>"; };
 		E696B219192C070800506912 /* drawGifs.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = drawGifs.mm; sourceTree = "<group>"; };
 		E696B21A192C070800506912 /* drawGifs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = drawGifs.h; sourceTree = "<group>"; };
 		E696B228192C078D00506912 /* ofxImageSequence.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ofxImageSequence.cpp; sourceTree = "<group>"; };
@@ -330,6 +333,8 @@
 				E6835254195223D8001206F7 /* background.h */,
 				E6835256195226A3001206F7 /* foreground.mm */,
 				E6835257195226A3001206F7 /* foreground.h */,
+				E68352E21954BFCC001206F7 /* middleground.mm */,
+				E68352E31954BFCC001206F7 /* middleground.h */,
 			);
 			path = src;
 			sourceTree = SOURCE_ROOT;
@@ -575,6 +580,7 @@
 				E6835255195223D8001206F7 /* background.mm in Sources */,
 				E683524619520574001206F7 /* ofxAssimpMeshHelper.cpp in Sources */,
 				E4D8936F11527B74007E1F53 /* testApp.mm in Sources */,
+				E68352E41954BFCC001206F7 /* middleground.mm in Sources */,
 				5C7A1F3D1905D1D800467932 /* drawShape.mm in Sources */,
 				E683524819520574001206F7 /* ofxAssimpTexture.cpp in Sources */,
 				5C7A1F491905D3A400467932 /* drawCircle.mm in Sources */,

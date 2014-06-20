@@ -14,7 +14,7 @@ public:
     void draw();
     void cylinder(float iterate, int width, int height, float alpha, int outline);
     void exit();
-
+    void reloadTex(int changeTex);
     void touchTrigger(int x, int y);
     void moveCyl(int x, int y);
     
@@ -31,6 +31,13 @@ public:
     
     //outer color
     ofColor outerCyl;
+    
+    //texture
+    ofImage texture;
+    
+    //background move
+    bool movementOn;
+    
 };
 
 

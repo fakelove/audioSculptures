@@ -13,7 +13,7 @@ public:
     void update();
     void draw();
     void exit();
-    void drawLine(float x, float y, float rotate);
+    void drawLine(float x, float y, float rotate, int opacity);
     void moveLine(int x, int y);
     
     float rotateShape, volumeLevel;

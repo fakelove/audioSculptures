@@ -29,6 +29,7 @@ public:
     ofPoint pos;
     int size, randomColor;
     ofColor randomFill;
+
 };
 
 

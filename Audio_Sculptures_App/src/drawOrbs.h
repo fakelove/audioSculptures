@@ -29,8 +29,7 @@ public:
     float rotate, sendNoise, noise;
     float size;
     int randomColor;
-
-    
+    float total;
 };
 
 

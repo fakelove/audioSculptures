@@ -12,10 +12,14 @@ public:
     ~foreground();
     void loadForeground();
     void draw();
+    void changeForeground(int imageNumber);
     void exit();
 	    
-    ofTexture texture;
- 
+    vector<ofTexture> texture;
+    int totalFiles, counter;
+    ofPoint pos;
+  
+
 };
 
 

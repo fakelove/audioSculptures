@@ -17,17 +17,18 @@ void drawCube::setup(){
     trigger = false;
     alpha = 240;
     alphaOutline = 200;
-        
+    movementOn = false;
+    
     triggerSound = false;
     cubeSound.loadSound("drawCubeSound.caf");
     cubeSound.setMultiPlay(true);
-    sizeTrigger = 60;
+    sizeTrigger = 100;
     pos.set(ofGetWidth() / 2 - 200, ofGetHeight() / 2);
     randomFill.set(ofColor::black);
     
     outerCube = ofColor::lightYellow;
     
-    texture.loadImage("tex/tex1.jpg");
+    texture.loadImage("tex/tex0.jpg");
     texture.getTextureReference().setTextureWrap( GL_REPEAT, GL_REPEAT );
 
     ofDisableArbTex(); // we need GL_TEXTURE_2D for our models coords.
@@ -70,33 +71,34 @@ void drawCube::draw(){
 
     //Trigger and move sound with circle
     ofPushMatrix();
-    ofSetColor(0, 0, 0, 0);
+    ofSetColor(ofColor::red, 0);
     ofCircle(pos.x, pos.y, sizeTrigger);
     ofPopMatrix();
+    
     ofEnableDepthTest();
-
-    //cam.begin();
     for (int i = 0; i < 50; i += 5) {
         ofPushMatrix();
         ofEnableNormalizedTexCoords();
-
         ofTranslate(pos.x, pos.y);
-        ofScale(3.5, 3.5);
+        ofScale(4.5, 4.5);
         ofRotateY(rotate);
         ofRotateX(rotate);
-        //ofRotateZ(rotate);
+        
         //small box
-        ofSetColor(randomFill, alpha + 10);
+        
+        ofSetColor(randomFill, alpha + 100);
         ofFill();
         ofDrawBox(0, 0, -1, 10 + sendNoise, 10 + sendNoise, 10 + sendNoise);
-        ofSetColor(255, 240, 250, alpha);
+        ofSetColor(255, 240, 250, alpha + 150);
         ofNoFill();
         ofDrawBox(0, 0, -1, 10 + sendNoise, 10 + sendNoise, 10 + sendNoise);
+        
         //big box
-        ofSetColor(ofColor::black);
+        
+        ofSetColor(ofColor::black, 150);
         ofNoFill();
         ofDrawBox(0, 0, -1, 50, 50, 50);
-        ofSetColor(outerCube, alpha);
+        ofSetColor(255, alpha - 20); //outerCube
         ofFill();
         texture.getTextureReference().bind();
         ofDrawBox(0, 0, -1, 50, 50, 50);
@@ -106,11 +108,16 @@ void drawCube::draw(){
     }
     
     ofDisableDepthTest();
-
-    //cam.end();
-        
+    
     //ofSetColor(0);
     //ofDrawBitmapString("Waveform MS: " + ofToString(cubeSound.getPositionMS()), 50, 50);
+}
+
+void drawCube::reloadTex(int changeTex) {
+    
+    texture.loadImage("tex/tex" + ofToString(changeTex) + ".jpg");
+    texture.getTextureReference().setTextureWrap( GL_REPEAT, GL_REPEAT );
+    
 }
 
 void drawCube::exit() {
@@ -123,7 +130,7 @@ void drawCube::randomizeColor() {
     
     switch (randomColor) {
         case 0:
-            randomFill = ofColor::aquamarine;
+            randomFill = ofColor::teal;
             break;
         case 1:
             randomFill = ofColor::lightYellow;
@@ -135,7 +142,6 @@ void drawCube::randomizeColor() {
             randomFill = ofColor::black;
             break;
     }
-    //cout << "Cube: " << randomColor << endl;
     
 }
 
@@ -143,7 +149,6 @@ void drawCube::randomizeColor() {
 void drawCube::touchTrigger(int x, int y){
     
         
-    //if (clickBox.inside(x, y)) {
     
     int dist1 = ofDist(pos.x, pos.y, x, y);
     
@@ -181,6 +186,9 @@ void drawCube::moveCube(int x, int y){
         pos.x = x;
         pos.y = y;
         
+        movementOn = true;
+    } else {
+        movementOn = false;
     }
     
 }

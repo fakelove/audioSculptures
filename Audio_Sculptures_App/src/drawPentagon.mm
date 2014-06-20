@@ -54,13 +54,17 @@ void drawPentagon::draw(){
     for (int i = 0; i < 250; i += 5) {
         shape(ofGetWidth() / 2, ofGetHeight() / 2, 25, i * PI / 2 + 50);
     }
+    
+}
 
+void drawPentagon::drawSlider() {
+    
     ofPushMatrix();
     cirSlider();
     ofSetColor(0);
     //ofDrawBitmapString("Sound Sculpture Control", sliderPos.x + 50, sliderPos.y);
     ofPopMatrix();
-    
+
 }
 
 //--------------------------------------------------------------
