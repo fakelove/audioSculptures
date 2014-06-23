@@ -19,7 +19,7 @@ void drawSquid::setup(){
     point4.set(200, 200);
     
     trackVolume = 0.0;
-    sound.loadSound("squidSound.caf");
+    sound.loadSound("sounds/squidSound.caf");
     sound.play();
     sound.setLoop(true);
     sound.setVolume(trackVolume);

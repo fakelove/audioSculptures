@@ -20,7 +20,7 @@ void drawCube::setup(){
     movementOn = false;
     
     triggerSound = false;
-    cubeSound.loadSound("drawCubeSound.caf");
+    cubeSound.loadSound("sounds/drawCubeSound.caf");
     cubeSound.setMultiPlay(true);
     sizeTrigger = 100;
     pos.set(ofGetWidth() / 2 - 200, ofGetHeight() / 2);

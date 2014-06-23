@@ -15,7 +15,7 @@ drawRect::~drawRect() {
 void drawRect::setup(){
     
     trackVolume = 0.0;
-    sound.loadSound("rectArp.caf");
+    sound.loadSound("sounds/rectArp.caf");
     sound.play();
     sound.setLoop(true);
     speed = 10.0;

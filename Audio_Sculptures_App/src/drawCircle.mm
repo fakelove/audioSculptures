@@ -13,7 +13,7 @@ drawCircle::~drawCircle() {
 //--------------------------------------------------------------
 void drawCircle::setup(){
     
-    sound.loadSound("cirSound.caf");
+    sound.loadSound("sounds/cirSound.caf");
     sound.setMultiPlay(true);
     pos.set(0, 0);
     counter = 0;

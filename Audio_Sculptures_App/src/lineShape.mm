@@ -2,7 +2,7 @@
 #include "lineShape.h"
 
 lineShape::lineShape() {
-    
+
 }
 
 lineShape::~lineShape() {
@@ -13,7 +13,7 @@ lineShape::~lineShape() {
 void lineShape::setup(){
     
     volumeLevel = 0.50;
-    pad.loadSound("linePad.caf");
+    pad.loadSound("sounds/linePad.caf");
     pad.play();
     pad.setLoop(true);
     pad.setVolume(volumeLevel);

@@ -24,8 +24,18 @@ void drawOrbs::setup(int posX, int posY, float orbSize){
     ofxAccelerometer.setup();
     ofxAccelerometer.setForceSmoothing(200);
     
+    int fileAmt = 5;
     
+    for (int i = 0; i < fileAmt; i++) {
+        sounds.resize(i);
+    }
     
+    for (int i = 0; i < sounds.size(); i++) {
+        sounds[i].loadSound("sounds/orb" + ofToString(i) + ".caf");
+        sounds[i].setVolume(1.0);
+    }
+    
+
 }
 
 //--------------------------------------------------------------
@@ -38,12 +48,31 @@ void drawOrbs::update(float noiseSpeed, float rotationSpeed){
 
     
     total -= total;
-    total += ofMap(ofxAccelerometer.getForce().x, 0.0, 1.0, 50, 600);
+    total += ofMap(ofxAccelerometer.getForce().x, 0.0, 1.0, -10, 600);
     pos.y = total + sendNoise;
     
     
+    triggerSounds = ofMap(sendNoise, 0, 300, 0.0, 1.0);
+    triggerSounds = round(triggerSounds);
     //cout << "Accel: " << total << endl;
     
+    
+    if (triggerSounds == 1 && !sounds[sampleCycle].getIsPlaying()) {
+        
+        sampleCycle = ofRandom(sounds.size());
+        sounds[sampleCycle].play();
+        c = ofColor::whiteSmoke;
+    } else {
+        c = ofColor::teal;
+    }
+    
+    for (int i = 0; i < sounds.size(); i++) {
+        sounds[i].setVolume(ofMap(ofxAccelerometer.getForce().x, 0.0, 1.0, 1.0, 0.10, true));
+        sounds[i].setSpeed(ofMap(ofxAccelerometer.getForce().x, 0.0, 1.0, 1.0, 0.60, true));
+    }
+    
+   // cout << "Orb Pos Y: " << sampleCycle << endl;
+
 }
 
 //--------------------------------------------------------------

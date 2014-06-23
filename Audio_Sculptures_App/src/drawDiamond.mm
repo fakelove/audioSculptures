@@ -13,9 +13,9 @@ drawDiamond::~drawDiamond() {
 void drawDiamond::setup(){
     
     
-    soundFiles.push_back("shapeBass1.caf");
-    soundFiles.push_back("shapeBass2.caf");
-    soundFiles.push_back("shapeBass3.caf");
+    soundFiles.push_back("sounds/shapeBass1.caf");
+    soundFiles.push_back("sounds/shapeBass2.caf");
+    soundFiles.push_back("sounds/shapeBass3.caf");
     
     sound.loadSound(soundFiles[0]);
     sizeTrigger = 60;

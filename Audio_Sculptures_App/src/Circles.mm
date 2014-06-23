@@ -25,7 +25,7 @@ void Circles::setup(int posX, int posY, float setSize) {
         circleSound.resize(i);
     }
     for (int i = 0; i < circleSound.size(); i++) {
-        circleSound[i].loadSound("circles" + ofToString(i) + ".caf");
+        circleSound[i].loadSound("sounds/circles" + ofToString(i) + ".caf");
     }
     
     //button to trigger action

@@ -14,7 +14,7 @@ drawCyl::~drawCyl() {
 void drawCyl::setup(){
     
     
-    sound.loadSound("cylSound.caf");
+    sound.loadSound("sounds/cylSound.caf");
     trigger = false;
     pos.set(ofGetWidth() / 2 , ofGetHeight() / 2 );
     sizeTrigger = 60;

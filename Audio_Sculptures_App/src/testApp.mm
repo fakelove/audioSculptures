@@ -110,9 +110,13 @@ void testApp::update(){
     chip.update();
     cyl.update();
     
+    if (randomSculpture1 == 10 || randomSculpture2 == 10 || randomSculpture3 == 10) {
+
     for (int i = 0; i < orbs.size(); i++) {
         orbs[i].update(ofRandom(0.009f, 0.03f), ofRandom(0.15f, 0.33f));
+        }
     }
+    
     for (int i = 0; i < circles.size(); i++) {
         circles[i].update();
     }

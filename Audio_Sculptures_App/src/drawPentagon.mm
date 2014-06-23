@@ -13,7 +13,7 @@ drawPentagon::~drawPentagon() {
 //--------------------------------------------------------------
 void drawPentagon::setup(){
     
-    sound.loadSound("pentSound.caf");
+    sound.loadSound("sounds/pentSound.caf");
     sound.play();
     sound.setLoop(true);
     sound.setVolume(0.0);

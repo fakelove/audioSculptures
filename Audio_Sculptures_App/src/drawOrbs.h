@@ -30,6 +30,11 @@ public:
     float size;
     int randomColor;
     float total;
+    
+    //sounds
+    vector<ofSoundPlayer> sounds;
+    int sampleCycle;
+    float triggerSounds;
 };
 
 

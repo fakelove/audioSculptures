@@ -14,7 +14,7 @@ drawChip::~drawChip() {
 //--------------------------------------------------------------
 void drawChip::setup(){	
     
-    clicks.loadSound("circleClicks.caf");
+    clicks.loadSound("sounds/circleClicks.caf");
     trigger = false;
     size = 75;
     pos.set(ofGetWidth() / 2, ofGetHeight() / 2); //actual translation of object
