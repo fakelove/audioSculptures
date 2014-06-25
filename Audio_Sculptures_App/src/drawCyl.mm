@@ -122,6 +122,7 @@ void drawCyl::moveCyl(int x, int y) {
     movementOn = false;
     
     }
+
 }
 
 void drawCyl::randomizeColor() {

@@ -18,8 +18,7 @@ void drawChip::setup(){
     trigger = false;
     size = 75;
     pos.set(ofGetWidth() / 2, ofGetHeight() / 2); //actual translation of object
-    
-    
+    randomCircleRes = 100;
 }
 
 //--------------------------------------------------------------
@@ -58,13 +57,28 @@ void drawChip::draw(){
     
    
     
-    ofSetCircleResolution(100);
+    ofSetCircleResolution(randomCircleRes);
   
     button(size, noise4);
     button(50, noise1);
     button(25, noise2);
     button(10, noise3);
 	
+}
+
+void drawChip::randomRes() {
+    
+    int randomNumber = ofRandom(3);
+    
+    if (randomNumber == 0) {
+        randomCircleRes = 100;
+    } else if (randomNumber == 1) {
+        randomCircleRes = 6;
+    } else if (randomNumber == 2) {
+        randomCircleRes = 3;
+    }
+    
+    //cout << "Random Circle Resolution: " << randomNumber << endl;
 }
 
 void drawChip::randomizeColor() {

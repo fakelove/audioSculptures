@@ -12,6 +12,7 @@ public:
     void setup();
     void update();
     void draw();
+    void randomRes();
     void randomizeColor();
     void button(int size, int color);
     void receivedTouch(int x, int y);
@@ -27,7 +28,7 @@ public:
     bool trigger;
     ofSoundPlayer clicks;
     ofPoint pos;
-    int size, randomColor;
+    int size, randomColor, randomCircleRes;
     ofColor randomFill;
 
 };

@@ -1,6 +1,6 @@
 /*
 Note:
-6/18/14
+6/23/14
 This is the latest version of the Fake Love Audio Sculptures Ipad App
 */
 
@@ -53,7 +53,6 @@ class testApp : public ofxiOSApp{
     //ofImage flLogo;
     
     drawShape shape; //n/a
-    //drawCircle cir; //OK
     drawPentagon pent; //OK
     lineShape line; //OK
     drawCube cube; //OK

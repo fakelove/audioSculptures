@@ -21,7 +21,6 @@ void testApp::setup(){
     //flLogo.loadImage("fakelovelogo.jpg");
     //flLogo.resize(300, 300);
     
-    //cir.setup();
     pent.setup();
     line.setup();
     cube.setup();
@@ -77,7 +76,6 @@ void testApp::setup(){
     buttonColor = ofColor::black;
     
     //// GENERATE BACKGROUNDS ////
-  
     
     //imageNames.push_back("Mountains/Mountains");
     //imageNames.push_back("Space/Space");
@@ -426,7 +424,7 @@ void testApp::touchUp(ofTouchEventArgs & touch){
     line.randomizeColor();
     squid.randomizeColor();
     chip.randomizeColor();
-    
+    chip.randomRes();
         
     /*cout << "Sculpture 1: " << randomSculpture1 << endl;
     cout << "Sculpture 2: " << randomSculpture2 << endl;
