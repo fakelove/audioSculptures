@@ -1,16 +1,17 @@
 
-#include "drawOrbs.h"
+#include "Orbs.h"
 
-drawOrbs::drawOrbs() {
+Orbs::Orbs() {
     
 }
 
-drawOrbs::~drawOrbs() {
+Orbs::~Orbs() {
     
 }
 
 //--------------------------------------------------------------
-void drawOrbs::setup(int posX, int posY, float orbSize){
+void Orbs::setup(int posX, int posY, float orbSize){
+    
     ofDisableArbTex(); // we need GL_TEXTURE_2D for our models coords.
     pos.set(posX, posY, 0);
     model.loadModel("orb2.dae");
@@ -20,7 +21,7 @@ void drawOrbs::setup(int posX, int posY, float orbSize){
     c = ofColor::teal;
     c.a = 50;
     size = orbSize;
-
+    
     ofxAccelerometer.setup();
     ofxAccelerometer.setForceSmoothing(200);
     
@@ -35,17 +36,17 @@ void drawOrbs::setup(int posX, int posY, float orbSize){
         sounds[i].setVolume(1.0);
     }
     
-
+    
 }
 
 //--------------------------------------------------------------
-void drawOrbs::update(float noiseSpeed, float rotationSpeed){
+void Orbs::update(float noiseSpeed, float rotationSpeed){
     
     model.update();
     rotate += 0.33f;
     noise += noiseSpeed;
     sendNoise = 300 * ofNoise(noise);
-
+    
     
     total -= total;
     total += ofMap(ofxAccelerometer.getForce().x, 0.0, 1.0, -10, 600);
@@ -71,46 +72,57 @@ void drawOrbs::update(float noiseSpeed, float rotationSpeed){
         sounds[i].setSpeed(ofMap(ofxAccelerometer.getForce().x, 0.0, 1.0, 1.0, 0.60, true));
     }
     
-   // cout << "Orb Pos Y: " << sampleCycle << endl;
-
+    // cout << "Orb Pos Y: " << sampleCycle << endl;
+    
 }
 
 //--------------------------------------------------------------
-void drawOrbs::draw(){
+void Orbs::draw(){
     
-    ofEnableDepthTest();
-    //Outside Orb
-    ofSetColor(c, 75);
-    ofPushMatrix();
-    ofTranslate(pos);
-    //ofScale(size, size);
-    model.setScale(size, size, size);
-    ofRotateX(rotate);
-    ofRotateY(rotate);
-    model.drawWireframe();
-    ofPopMatrix();
-    //Inside Orb
-    ofSetColor(0, 0, 0, sendNoise);
-    ofPushMatrix();
-    ofTranslate(pos);
-    model.setScale(size, size, size);
-    //ofScale(size, size);
-    ofRotateX(rotate);
-    ofRotateY(rotate);
-    model.drawFaces();
-    ofPopMatrix();
-    ofDisableDepthTest();
+    ofPushStyle(); {
+        
+        ofEnableDepthTest();
+        //Outside Orb
+        ofSetColor(c, 75);
+        
+        ofPushMatrix(); {
+            
+            ofTranslate(pos);
+            //ofScale(size, size);
+            model.setScale(size, size, size);
+            ofRotateX(rotate);
+            ofRotateY(rotate);
+            model.drawWireframe();
+            
+        } ofPopMatrix();
+        
+        //Inside Orb
+        ofSetColor(0, 0, 0, sendNoise);
+        ofPushMatrix(); {
+            
+            ofTranslate(pos);
+            model.setScale(size, size, size);
+            //ofScale(size, size);
+            ofRotateX(rotate);
+            ofRotateY(rotate);
+            model.drawFaces();
+            
+        } ofPopMatrix();
+        
+        ofDisableDepthTest();
+        
+    } ofPopStyle();
     
-   
+    
 }
 
-void drawOrbs::randomizePosition(int posX, int posY) {
+void Orbs::randomizePosition(int posX, int posY) {
     
-     pos.set(posX, posY, 0);
-
+    pos.set(posX, posY, 0);
+    
 }
 
-void drawOrbs::randomizeColor() {
+void Orbs::randomizeColor() {
     
     randomColor = ofRandom(4);
     
@@ -129,36 +141,36 @@ void drawOrbs::randomizeColor() {
             c = ofColor::black;
             break;
     }
-
-}
-
-//--------------------------------------------------------------
-void drawOrbs::exit(){
     
 }
 
 //--------------------------------------------------------------
-void drawOrbs::touchDown(ofTouchEventArgs & touch){
+void Orbs::exit(){
     
 }
 
 //--------------------------------------------------------------
-void drawOrbs::touchMoved(ofTouchEventArgs & touch){
+void Orbs::touchDown(ofTouchEventArgs & touch){
     
 }
 
 //--------------------------------------------------------------
-void drawOrbs::touchUp(ofTouchEventArgs & touch){
+void Orbs::touchMoved(ofTouchEventArgs & touch){
     
 }
 
 //--------------------------------------------------------------
-void drawOrbs::touchDoubleTap(ofTouchEventArgs & touch){
+void Orbs::touchUp(ofTouchEventArgs & touch){
     
 }
 
 //--------------------------------------------------------------
-void drawOrbs::touchCancelled(ofTouchEventArgs & touch){
+void Orbs::touchDoubleTap(ofTouchEventArgs & touch){
+    
+}
+
+//--------------------------------------------------------------
+void Orbs::touchCancelled(ofTouchEventArgs & touch){
     
 }
 

@@ -5,21 +5,10 @@
 void testApp::setup(){	
 
     ofSetOrientation(OF_ORIENTATION_90_RIGHT);
-    
     ofBackground(255);
-    
-    bg.loadBackground();
-    mg.loadmiddleground();
-    fg.loadForeground();
-    
-    ofSetVerticalSync(true);
-    ofEnableAlphaBlending();
     ofEnableSmoothing();
     ofSetFrameRate(60);
     ofSetRectMode(OF_RECTMODE_CENTER);
-    
-    //flLogo.loadImage("fakelovelogo.jpg");
-    //flLogo.resize(300, 300);
     
     pent.setup();
     line.setup();
@@ -40,7 +29,7 @@ void testApp::setup(){
     
     int orbAmt = 10;
     
-    drawOrbs tempOrbs;
+    Orbs tempOrbs;
     
     for (int i = 0; i < orbAmt; i++) {
         orbs.push_back(tempOrbs);
@@ -76,6 +65,15 @@ void testApp::setup(){
     buttonColor = ofColor::black;
     
     //// GENERATE BACKGROUNDS ////
+    
+    bg.loadBackground("back");
+    mg.loadBackground("middle");
+    fg.loadBackground("front");
+    
+    ///Note: make sure to load assests after everything has been setup();
+    
+    //flLogo.loadImage("fakelovelogo.jpg");
+    //flLogo.resize(300, 300);
     
     //imageNames.push_back("Mountains/Mountains");
     //imageNames.push_back("Space/Space");
@@ -127,21 +125,15 @@ void testApp::update(){
 
 //--------------------------------------------------------------
 void testApp::draw(){
-/*
-    ofPushMatrix();
-    ofTranslate(0, 0, -100);
-    bg.draw();
-    ofTranslate(0, 0, -50);
-    fg.draw();
-    ofPopMatrix();
-*/
+
     /// BACKGROUND ///
     bg.draw();
    
     //gif[randomImage].draw();
   
     ////Randomize button////
-    ofPushMatrix();
+    ofPushMatrix(); {
+        
     ofSetCircleResolution(100);
     ofSetColor(0, 0, 0, 100);
     ofNoFill();
@@ -149,7 +141,8 @@ void testApp::draw(){
     ofSetColor(buttonColor, alpha);
     ofFill();
     ofCircle(randomPos.x, randomPos.y, sizeRandom);
-    ///ofDrawBitmapString("Randomize Sound Sculptures", 150, 75);
+        
+        }
     ofPopMatrix();
     
     /////SPINNING RECTANGLE BACKGROUND/////
@@ -390,33 +383,6 @@ void testApp::touchUp(ofTouchEventArgs & touch){
             orbs[i].randomizePosition(ofRandom(50, ofGetWidth() - 50), ofRandom(50, 200));
         }
         
-    //randomImage = ofRandom(gif.size());
-    /*
-    if (randomImage == 0) {
-        imgAmt[0];
-        buttonColor = ofColor::black;
-        pent.pentColor = ofColor::black;
-        cube.outerCube = ofColor::black;
-        dia.outerDiaColor = ofColor::black;
-        cyl.outerCyl = ofColor::black;
-    } else if (randomImage == 1) {
-        imgAmt[1];
-        buttonColor = ofColor::lightPink;
-        pent.pentColor = ofColor::white;
-        cube.outerCube = ofColor::white;
-        dia.outerDiaColor = ofColor::white;
-        cyl.outerCyl = ofColor::white;
-        
-    } else if (randomImage == 2) {
-        imgAmt[2];
-        buttonColor = ofColor::black;
-        pent.pentColor = ofColor::black;
-        cube.outerCube = ofColor::black;
-        dia.outerDiaColor = ofColor::black;
-        cyl.outerCyl = ofColor::black;
-
-    }*/
-    
     cube.randomizeColor();
     dia.randomizeColor();
     rect.randomizeColor();
@@ -434,8 +400,8 @@ void testApp::touchUp(ofTouchEventArgs & touch){
         
     randomBackground = ofRandom(bg.totalFiles);
     bg.changeBackground(randomBackground);
-    mg.changemiddleground(randomBackground);
-    fg.changeForeground(randomBackground);
+    mg.changeBackground(randomBackground);
+    fg.changeBackground(randomBackground);
         
         if (randomBackground == 0) {
             buttonColor = ofColor::black;

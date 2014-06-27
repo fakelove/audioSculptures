@@ -4,11 +4,11 @@
 #include "ofxiOS.h"
 #include "ofxiOSExtras.h"
 
-class drawChip {
+class Chip {
 	
 public:
-    drawChip();
-    ~drawChip();
+    Chip();
+    ~Chip();
     void setup();
     void update();
     void draw();
@@ -17,10 +17,10 @@ public:
     void button(int size, int color);
     void receivedTouch(int x, int y);
     void upTouch(int x, int y);
-
+    
     
     void exit();
-
+    
     
     float noise1, noise2, noise3, noise4;
     float speed1, speed2, speed3, speed4;
@@ -30,7 +30,7 @@ public:
     ofPoint pos;
     int size, randomColor, randomCircleRes;
     ofColor randomFill;
-
+    
 };
 
 

@@ -4,11 +4,11 @@
 #include "ofxiOS.h"
 #include "ofxiOSExtras.h"
 
-class drawDiamond {
+class Diamond {
 	
 public:
-    drawDiamond();
-    ~drawDiamond();
+    Diamond();
+    ~Diamond();
     void setup();
     void update();
     void draw();

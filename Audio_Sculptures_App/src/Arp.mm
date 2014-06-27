@@ -1,18 +1,18 @@
 
-#include "drawRect.h"
+#include "Arp.h"
 
-drawRect::drawRect() {
+Arp::Arp() {
     
     
 }
 
-drawRect::~drawRect() {
+Arp::~Arp() {
     
     
 }
 
 //--------------------------------------------------------------
-void drawRect::setup(){
+void Arp::setup(){
     
     trackVolume = 0.0;
     sound.loadSound("sounds/rectArp.caf");
@@ -25,37 +25,36 @@ void drawRect::setup(){
 }
 
 //--------------------------------------------------------------
-void drawRect::update(){
+void Arp::update(){
     
     rotateShape += speed;
     sound.setVolume(trackVolume);
     
 }
 //--------------------------------------------------------------
-void drawRect::draw(){
+void Arp::draw(){
     
     sound.setVolume(trackVolume);
     
     for (int i = 0; i < 400; i += 25) {
-        ofPushMatrix();
-        rect(i, i, rotateShape);
-        rect(i, i, -rotateShape);
-        ofPopMatrix();
+        ofPushMatrix(); {
+            
+            rect(i, i, rotateShape);
+            rect(i, i, -rotateShape);
+            
+        } ofPopMatrix();
     }
     
-  
-    ofSetColor(0);
-    //ofDrawBitmapString("Sound Sculpture Control", sliderPos.x + 50, sliderPos.y);
     
 }
 
-void drawRect::exit() {
+void Arp::exit() {
     
     
 }
 
 
-void drawRect::randomizeColor() {
+void Arp::randomizeColor() {
     
     randomColor = ofRandom(4);
     
@@ -81,7 +80,7 @@ void drawRect::randomizeColor() {
 
 
 //--------------------------------------------------------------
-void drawRect::rect(int x, int y, float rotate){
+void Arp::rect(int x, int y, float rotate){
     
     ofPushMatrix();
     ofSetColor(randomFill, 15);
@@ -97,22 +96,22 @@ void drawRect::rect(int x, int y, float rotate){
 }
 
 //--------------------------------------------------------------
-void drawRect::slide(int x, int y){
+void Arp::slide(int x, int y){
     
     int dist1 = ofDist(sliderPos.x, sliderPos.y, x, y);
     
     if (dist1 < sliderSize + 10){
-    speed = ofMap(x, 0, ofGetWidth(), 10.0, 0.01);
-    sound.setSpeed(ofMap(x, 0, ofGetWidth(), 1.0, 0.0, true));
-    
-    //slide control
-    sliderPos.x = x;
-    
-    alpha = ofMap(x, 0.0, ofGetWidth() - 100, 0.0, 255);
+        speed = ofMap(x, 0, ofGetWidth(), 10.0, 0.01);
+        sound.setSpeed(ofMap(x, 0, ofGetWidth(), 1.0, 0.0, true));
+        
+        //slide control
+        sliderPos.x = x;
+        
+        alpha = ofMap(x, 0.0, ofGetWidth() - 100, 0.0, 255);
     }
 }
 
-void drawRect::rectSlider() {
+void Arp::rectSlider() {
     
     ofPushMatrix();
     ofSetCircleResolution(100);

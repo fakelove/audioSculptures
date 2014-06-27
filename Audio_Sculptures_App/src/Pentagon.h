@@ -5,11 +5,11 @@
 #include "ofxiOS.h"
 #include "ofxiOSExtras.h"
 
-class drawPentagon {
+class Pentagon {
 	
 public:
-    drawPentagon();
-    ~drawPentagon();
+    Pentagon();
+    ~Pentagon();
     void setup();
     void update();
     void draw();

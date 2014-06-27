@@ -10,7 +10,7 @@ class background {
 public:
     background();
     ~background();
-    void loadBackground();
+    void loadBackground(string layerType);
     void draw();
     void changeBackground(int imageNumber);
     void exit();

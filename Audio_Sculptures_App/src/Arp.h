@@ -4,11 +4,11 @@
 #include "ofxiOS.h"
 #include "ofxiOSExtras.h"
 
-class drawRect {
+class Arp {
 	
 public:
-    drawRect();
-    ~drawRect();
+    Arp();
+    ~Arp();
     void setup();
     void update();
     void draw();

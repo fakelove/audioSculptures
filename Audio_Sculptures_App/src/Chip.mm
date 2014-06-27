@@ -1,18 +1,18 @@
 
-#include "drawChip.h"
+#include "Chip.h"
 
-drawChip::drawChip() {
+Chip::Chip() {
     
     
 }
 
-drawChip::~drawChip() {
+Chip::~Chip() {
     
     
 }
 
 //--------------------------------------------------------------
-void drawChip::setup(){	
+void Chip::setup(){
     
     clicks.loadSound("sounds/circleClicks.caf");
     trigger = false;
@@ -22,7 +22,7 @@ void drawChip::setup(){
 }
 
 //--------------------------------------------------------------
-void drawChip::update(){
+void Chip::update(){
     
     
     rotate += 0.05f;
@@ -53,12 +53,12 @@ void drawChip::update(){
 }
 
 //--------------------------------------------------------------
-void drawChip::draw(){
+void Chip::draw(){
     
-   
+    
     
     ofSetCircleResolution(randomCircleRes);
-  
+    
     button(size, noise4);
     button(50, noise1);
     button(25, noise2);
@@ -66,7 +66,7 @@ void drawChip::draw(){
 	
 }
 
-void drawChip::randomRes() {
+void Chip::randomRes() {
     
     int randomNumber = ofRandom(3);
     
@@ -81,7 +81,7 @@ void drawChip::randomRes() {
     //cout << "Random Circle Resolution: " << randomNumber << endl;
 }
 
-void drawChip::randomizeColor() {
+void Chip::randomizeColor() {
     
     randomColor = ofRandom(4);
     
@@ -102,27 +102,33 @@ void drawChip::randomizeColor() {
             break;
     }
     
-   // cout << "Chip Color: " << randomColor << endl;
+    // cout << "Chip Color: " << randomColor << endl;
     
 }
 
 //--------------------------------------------------------------
-void drawChip::button(int size, int color){
+void Chip::button(int size, int color){
     
-    ofPushMatrix();
-    ofTranslate(pos.x, pos.y);
-    //ofRotateX(rotate);
-    //ofRotateY(rotate);
-    ofScale(sine, sine);
-    ofSetColor(randomFill, color);
-    ofFill();
-    ofCircle(0, 0, size);
-    ofPopMatrix();
+    ofPushStyle(); {
+        
+        ofPushMatrix(); {
+            
+            ofTranslate(pos.x, pos.y);
+            //ofRotateX(rotate);
+            //ofRotateY(rotate);
+            ofScale(sine, sine);
+            ofSetColor(randomFill, color);
+            ofFill();
+            ofCircle(0, 0, size);
+            
+        } ofPopMatrix();
+        
+    } ofPopStyle();
     
     
 }
 
-void drawChip::receivedTouch(int x, int y) {
+void Chip::receivedTouch(int x, int y) {
     
     int dist1 = ofDist(pos.x, pos.y, x, y);
     
@@ -134,7 +140,7 @@ void drawChip::receivedTouch(int x, int y) {
     }
     
 }
-void drawChip::upTouch(int x, int y){
+void Chip::upTouch(int x, int y){
     
     int dist1 = ofDist(pos.x, pos.y, x, y);
     
@@ -147,7 +153,7 @@ void drawChip::upTouch(int x, int y){
 }
 
 //--------------------------------------------------------------
-void drawChip::exit(){
+void Chip::exit(){
     
 }
 

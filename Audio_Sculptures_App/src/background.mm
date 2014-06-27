@@ -9,14 +9,14 @@ background::background() {
 background::~background() {
     
 }
-void background::loadBackground() {
+void background::loadBackground(string layerType) {
     
     totalFiles = 3;
     
     texture.resize(totalFiles);
     
     for (int i = 0; i < texture.size(); i++) {
-        ofLoadImage( texture[i], "bg" + ofToString(i) + "/bg" + ofToString(i) + "back.png" );
+        ofLoadImage( texture[i], "bg" + ofToString(i) + "/bg" + ofToString(i) + layerType + ".png" );
     }
     
     counter = 0;
@@ -26,12 +26,18 @@ void background::loadBackground() {
 //--------------------------------------------------------------
 void background::draw(){
     
-    ofPushMatrix();
+    ofPushStyle(); {
+        
+        ofPushMatrix(); {
+        
     ofSetColor(255);
     ofTranslate(ofGetWidth() / 2 + pos.x, ofGetHeight() / 2, pos.z);
     ofScale(0.75, 0.75);
     texture[counter].draw(0, 0);
-    ofPopMatrix();
+            
+        } ofPopMatrix();
+        
+    } ofPopStyle();
 }
 
 void background::changeBackground(int imageNumber) {

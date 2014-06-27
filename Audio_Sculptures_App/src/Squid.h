@@ -4,11 +4,11 @@
 #include "ofxiOS.h"
 #include "ofxiOSExtras.h"
 
-class drawSquid {
+class Squid {
 	
 public:
-    drawSquid();
-    ~drawSquid();
+    Squid();
+    ~Squid();
     void setup();
     void update();
     void draw();
@@ -18,7 +18,6 @@ public:
     
     
     ofVec2f point1, point2, point3, point4;
-    ofEasyCam cam;
     float rotate, noise, speedNoise;
     ofSoundPlayer sound;
     ofPoint squidPos;

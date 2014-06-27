@@ -12,16 +12,7 @@
 		288765FD0DF74451002DB57D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765FC0DF74451002DB57D /* CoreGraphics.framework */; };
 		5326AEA810A23A0500278DE6 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5326AEA710A23A0500278DE6 /* CoreLocation.framework */; };
 		53F323EB10A20EDB00E0DAE4 /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53F323EA10A20EDB00E0DAE4 /* OpenAL.framework */; };
-		5C7A1F3D1905D1D800467932 /* drawShape.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5C7A1F3C1905D1D800467932 /* drawShape.mm */; };
-		5C7A1F491905D3A400467932 /* drawCircle.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5C7A1F481905D3A400467932 /* drawCircle.mm */; };
-		5C7A1F4C1905D3E000467932 /* drawPentagon.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5C7A1F4B1905D3E000467932 /* drawPentagon.mm */; };
 		5C7A1F4F1905D46800467932 /* lineShape.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5C7A1F4E1905D46800467932 /* lineShape.mm */; };
-		5C7A1F521905D4E000467932 /* drawCube.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5C7A1F511905D4E000467932 /* drawCube.mm */; };
-		5C7A1F551905D52D00467932 /* drawSquid.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5C7A1F541905D52C00467932 /* drawSquid.mm */; };
-		5C7A1F581905D58D00467932 /* drawDiamond.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5C7A1F571905D58D00467932 /* drawDiamond.mm */; };
-		5C7A1F5B1905D5DD00467932 /* drawRect.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5C7A1F5A1905D5DD00467932 /* drawRect.mm */; };
-		5C7A1F5E1905D62600467932 /* drawChip.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5C7A1F5D1905D62600467932 /* drawChip.mm */; };
-		5C7A1F611905D6F000467932 /* drawCyl.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5C7A1F601905D6F000467932 /* drawCyl.mm */; };
 		678E130817951530005B6D19 /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 678E130717951530005B6D19 /* Icon@2x.png */; };
 		678E130A17951536005B6D19 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 678E130917951536005B6D19 /* Icon.png */; };
 		678E130C1795153C005B6D19 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 678E130B1795153C005B6D19 /* Default.png */; };
@@ -30,28 +21,30 @@
 		BB16EBD20F2B2A9500518274 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB16EBD10F2B2A9500518274 /* OpenGLES.framework */; };
 		BB16EBD90F2B2AB500518274 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB16EBD80F2B2AB500518274 /* QuartzCore.framework */; };
 		BBE5EAB80F49AD8400F28951 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BBE5EAB70F49AD8400F28951 /* AudioToolbox.framework */; };
-		E41D3ED713B38FB500A75A5D /* Project.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = E41D3ED613B38FB500A75A5D /* Project.xcconfig */; };
-		E41D3EE613B3906D00A75A5D /* CoreOF.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = E41D3EE513B3906D00A75A5D /* CoreOF.xcconfig */; };
 		E41D400B13B39D2100A75A5D /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E41D400613B39D2100A75A5D /* AVFoundation.framework */; };
 		E41D400C13B39D2100A75A5D /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E41D400713B39D2100A75A5D /* CoreMedia.framework */; };
 		E41D400D13B39D2100A75A5D /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E41D400813B39D2100A75A5D /* CoreVideo.framework */; };
 		E41D400E13B39D2100A75A5D /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E41D400913B39D2100A75A5D /* MapKit.framework */; };
 		E41D421413B3A95300A75A5D /* libofxiOS_iphoneos_Debug.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E41D410213B3A0D800A75A5D /* libofxiOS_iphoneos_Debug.a */; };
-		E4A823A412561BE3002F86A2 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E4A823A312561BE3002F86A2 /* CoreGraphics.framework */; };
 		E4D8936E11527B74007E1F53 /* main.mm in Sources */ = {isa = PBXBuildFile; fileRef = E4D8936B11527B74007E1F53 /* main.mm */; };
 		E4D8936F11527B74007E1F53 /* testApp.mm in Sources */ = {isa = PBXBuildFile; fileRef = E4D8936D11527B74007E1F53 /* testApp.mm */; };
 		E66A7D7F19253C1700E337CB /* Circles.mm in Sources */ = {isa = PBXBuildFile; fileRef = E66A7D7D19253C1700E337CB /* Circles.mm */; };
-		E683520C195204D9001206F7 /* drawOrbs.mm in Sources */ = {isa = PBXBuildFile; fileRef = E683520A195204D9001206F7 /* drawOrbs.mm */; };
 		E683524519520574001206F7 /* ofxAssimpAnimation.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E683520F19520574001206F7 /* ofxAssimpAnimation.cpp */; };
 		E683524619520574001206F7 /* ofxAssimpMeshHelper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E683521119520574001206F7 /* ofxAssimpMeshHelper.cpp */; };
 		E683524719520574001206F7 /* ofxAssimpModelLoader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E683521319520574001206F7 /* ofxAssimpModelLoader.cpp */; };
 		E683524819520574001206F7 /* ofxAssimpTexture.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E683521519520574001206F7 /* ofxAssimpTexture.cpp */; };
 		E683524919520574001206F7 /* assimp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E683524219520574001206F7 /* assimp.a */; };
 		E6835255195223D8001206F7 /* background.mm in Sources */ = {isa = PBXBuildFile; fileRef = E6835253195223D8001206F7 /* background.mm */; };
-		E6835258195226A3001206F7 /* foreground.mm in Sources */ = {isa = PBXBuildFile; fileRef = E6835256195226A3001206F7 /* foreground.mm */; };
-		E68352E41954BFCC001206F7 /* middleground.mm in Sources */ = {isa = PBXBuildFile; fileRef = E68352E21954BFCC001206F7 /* middleground.mm */; };
 		E696B21B192C070800506912 /* drawGifs.mm in Sources */ = {isa = PBXBuildFile; fileRef = E696B219192C070800506912 /* drawGifs.mm */; };
 		E696B22A192C078D00506912 /* ofxImageSequence.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E696B228192C078D00506912 /* ofxImageSequence.cpp */; };
+		E6F6351D195DE1F400E4C719 /* Pentagon.mm in Sources */ = {isa = PBXBuildFile; fileRef = E6F6351B195DE1F400E4C719 /* Pentagon.mm */; };
+		E6F63520195DE23800E4C719 /* Cube.mm in Sources */ = {isa = PBXBuildFile; fileRef = E6F6351E195DE23800E4C719 /* Cube.mm */; };
+		E6F63523195DE27000E4C719 /* Squid.mm in Sources */ = {isa = PBXBuildFile; fileRef = E6F63521195DE27000E4C719 /* Squid.mm */; };
+		E6F63526195DE2BF00E4C719 /* Diamond.mm in Sources */ = {isa = PBXBuildFile; fileRef = E6F63524195DE2BF00E4C719 /* Diamond.mm */; };
+		E6F6352C195DE32400E4C719 /* Chip.mm in Sources */ = {isa = PBXBuildFile; fileRef = E6F6352A195DE32400E4C719 /* Chip.mm */; };
+		E6F63532195DE3CF00E4C719 /* Cyl.mm in Sources */ = {isa = PBXBuildFile; fileRef = E6F63530195DE3CF00E4C719 /* Cyl.mm */; };
+		E6F63535195DE44D00E4C719 /* Orbs.mm in Sources */ = {isa = PBXBuildFile; fileRef = E6F63533195DE44D00E4C719 /* Orbs.mm */; };
+		E6F63538195DE5DD00E4C719 /* Arp.mm in Sources */ = {isa = PBXBuildFile; fileRef = E6F63536195DE5DD00E4C719 /* Arp.mm */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -79,26 +72,8 @@
 		32CA4F630368D1EE00C91783 /* ofxiOS_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxiOS_Prefix.pch; sourceTree = "<group>"; };
 		5326AEA710A23A0500278DE6 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		53F323EA10A20EDB00E0DAE4 /* OpenAL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenAL.framework; path = System/Library/Frameworks/OpenAL.framework; sourceTree = SDKROOT; };
-		5C7A1F3C1905D1D800467932 /* drawShape.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = drawShape.mm; sourceTree = "<group>"; };
-		5C7A1F3E1905D1E700467932 /* drawShape.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = drawShape.h; sourceTree = "<group>"; };
-		5C7A1F481905D3A400467932 /* drawCircle.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = drawCircle.mm; sourceTree = "<group>"; };
-		5C7A1F4A1905D3AC00467932 /* drawCircle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = drawCircle.h; sourceTree = "<group>"; };
-		5C7A1F4B1905D3E000467932 /* drawPentagon.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = drawPentagon.mm; sourceTree = "<group>"; };
-		5C7A1F4D1905D3EE00467932 /* drawPentagon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = drawPentagon.h; sourceTree = "<group>"; };
 		5C7A1F4E1905D46800467932 /* lineShape.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = lineShape.mm; sourceTree = "<group>"; };
 		5C7A1F501905D47400467932 /* lineShape.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lineShape.h; sourceTree = "<group>"; };
-		5C7A1F511905D4E000467932 /* drawCube.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = drawCube.mm; sourceTree = "<group>"; };
-		5C7A1F531905D4EB00467932 /* drawCube.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = drawCube.h; sourceTree = "<group>"; };
-		5C7A1F541905D52C00467932 /* drawSquid.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = drawSquid.mm; sourceTree = "<group>"; };
-		5C7A1F561905D53600467932 /* drawSquid.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = drawSquid.h; sourceTree = "<group>"; };
-		5C7A1F571905D58D00467932 /* drawDiamond.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = drawDiamond.mm; sourceTree = "<group>"; };
-		5C7A1F591905D59E00467932 /* drawDiamond.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = drawDiamond.h; sourceTree = "<group>"; };
-		5C7A1F5A1905D5DD00467932 /* drawRect.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = drawRect.mm; sourceTree = "<group>"; };
-		5C7A1F5C1905D5E700467932 /* drawRect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = drawRect.h; sourceTree = "<group>"; };
-		5C7A1F5D1905D62600467932 /* drawChip.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = drawChip.mm; sourceTree = "<group>"; };
-		5C7A1F5F1905D62F00467932 /* drawChip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = drawChip.h; sourceTree = "<group>"; };
-		5C7A1F601905D6F000467932 /* drawCyl.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = drawCyl.mm; sourceTree = "<group>"; };
-		5C7A1F621905D6FA00467932 /* drawCyl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = drawCyl.h; sourceTree = "<group>"; };
 		678E130717951530005B6D19 /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon@2x.png"; path = "bin/data/Icon@2x.png"; sourceTree = "<group>"; };
 		678E130917951536005B6D19 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Icon.png; path = bin/data/Icon.png; sourceTree = "<group>"; };
 		678E130B1795153C005B6D19 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Default.png; path = bin/data/Default.png; sourceTree = "<group>"; };
@@ -121,8 +96,6 @@
 		E4D8936D11527B74007E1F53 /* testApp.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = testApp.mm; path = src/testApp.mm; sourceTree = SOURCE_ROOT; };
 		E66A7D7D19253C1700E337CB /* Circles.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = Circles.mm; sourceTree = "<group>"; };
 		E66A7D7E19253C1700E337CB /* Circles.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Circles.h; sourceTree = "<group>"; };
-		E683520A195204D9001206F7 /* drawOrbs.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = drawOrbs.mm; sourceTree = "<group>"; };
-		E683520B195204D9001206F7 /* drawOrbs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = drawOrbs.h; sourceTree = "<group>"; };
 		E683520F19520574001206F7 /* ofxAssimpAnimation.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ofxAssimpAnimation.cpp; sourceTree = "<group>"; };
 		E683521019520574001206F7 /* ofxAssimpAnimation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ofxAssimpAnimation.h; sourceTree = "<group>"; };
 		E683521119520574001206F7 /* ofxAssimpMeshHelper.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ofxAssimpMeshHelper.cpp; sourceTree = "<group>"; };
@@ -171,14 +144,26 @@
 		E683524219520574001206F7 /* assimp.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = assimp.a; sourceTree = "<group>"; };
 		E6835253195223D8001206F7 /* background.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = background.mm; sourceTree = "<group>"; };
 		E6835254195223D8001206F7 /* background.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = background.h; sourceTree = "<group>"; };
-		E6835256195226A3001206F7 /* foreground.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = foreground.mm; sourceTree = "<group>"; };
-		E6835257195226A3001206F7 /* foreground.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = foreground.h; sourceTree = "<group>"; };
-		E68352E21954BFCC001206F7 /* middleground.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = middleground.mm; sourceTree = "<group>"; };
-		E68352E31954BFCC001206F7 /* middleground.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = middleground.h; sourceTree = "<group>"; };
 		E696B219192C070800506912 /* drawGifs.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = drawGifs.mm; sourceTree = "<group>"; };
 		E696B21A192C070800506912 /* drawGifs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = drawGifs.h; sourceTree = "<group>"; };
 		E696B228192C078D00506912 /* ofxImageSequence.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ofxImageSequence.cpp; sourceTree = "<group>"; };
 		E696B229192C078D00506912 /* ofxImageSequence.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ofxImageSequence.h; sourceTree = "<group>"; };
+		E6F6351B195DE1F400E4C719 /* Pentagon.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = Pentagon.mm; sourceTree = "<group>"; };
+		E6F6351C195DE1F400E4C719 /* Pentagon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Pentagon.h; sourceTree = "<group>"; };
+		E6F6351E195DE23800E4C719 /* Cube.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = Cube.mm; sourceTree = "<group>"; };
+		E6F6351F195DE23800E4C719 /* Cube.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Cube.h; sourceTree = "<group>"; };
+		E6F63521195DE27000E4C719 /* Squid.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = Squid.mm; sourceTree = "<group>"; };
+		E6F63522195DE27000E4C719 /* Squid.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Squid.h; sourceTree = "<group>"; };
+		E6F63524195DE2BF00E4C719 /* Diamond.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = Diamond.mm; sourceTree = "<group>"; };
+		E6F63525195DE2BF00E4C719 /* Diamond.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Diamond.h; sourceTree = "<group>"; };
+		E6F6352A195DE32400E4C719 /* Chip.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = Chip.mm; sourceTree = "<group>"; };
+		E6F6352B195DE32400E4C719 /* Chip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Chip.h; sourceTree = "<group>"; };
+		E6F63530195DE3CF00E4C719 /* Cyl.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = Cyl.mm; sourceTree = "<group>"; };
+		E6F63531195DE3CF00E4C719 /* Cyl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Cyl.h; sourceTree = "<group>"; };
+		E6F63533195DE44D00E4C719 /* Orbs.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = Orbs.mm; sourceTree = "<group>"; };
+		E6F63534195DE44D00E4C719 /* Orbs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Orbs.h; sourceTree = "<group>"; };
+		E6F63536195DE5DD00E4C719 /* Arp.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = Arp.mm; sourceTree = "<group>"; };
+		E6F63537195DE5DD00E4C719 /* Arp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Arp.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -196,7 +181,6 @@
 				BBE5EAB80F49AD8400F28951 /* AudioToolbox.framework in Frameworks */,
 				53F323EB10A20EDB00E0DAE4 /* OpenAL.framework in Frameworks */,
 				5326AEA810A23A0500278DE6 /* CoreLocation.framework in Frameworks */,
-				E4A823A412561BE3002F86A2 /* CoreGraphics.framework in Frameworks */,
 				E41D400B13B39D2100A75A5D /* AVFoundation.framework in Frameworks */,
 				E41D400C13B39D2100A75A5D /* CoreMedia.framework in Frameworks */,
 				E41D400D13B39D2100A75A5D /* CoreVideo.framework in Frameworks */,
@@ -303,38 +287,8 @@
 				E4D8936B11527B74007E1F53 /* main.mm */,
 				E4D8936D11527B74007E1F53 /* testApp.mm */,
 				E4D8936C11527B74007E1F53 /* testApp.h */,
-				5C7A1F3C1905D1D800467932 /* drawShape.mm */,
-				5C7A1F3E1905D1E700467932 /* drawShape.h */,
-				5C7A1F481905D3A400467932 /* drawCircle.mm */,
-				5C7A1F4A1905D3AC00467932 /* drawCircle.h */,
-				5C7A1F4B1905D3E000467932 /* drawPentagon.mm */,
-				5C7A1F4D1905D3EE00467932 /* drawPentagon.h */,
-				5C7A1F4E1905D46800467932 /* lineShape.mm */,
-				5C7A1F501905D47400467932 /* lineShape.h */,
-				5C7A1F511905D4E000467932 /* drawCube.mm */,
-				5C7A1F531905D4EB00467932 /* drawCube.h */,
-				5C7A1F541905D52C00467932 /* drawSquid.mm */,
-				5C7A1F561905D53600467932 /* drawSquid.h */,
-				5C7A1F571905D58D00467932 /* drawDiamond.mm */,
-				5C7A1F591905D59E00467932 /* drawDiamond.h */,
-				5C7A1F5A1905D5DD00467932 /* drawRect.mm */,
-				5C7A1F5C1905D5E700467932 /* drawRect.h */,
-				5C7A1F5D1905D62600467932 /* drawChip.mm */,
-				5C7A1F5F1905D62F00467932 /* drawChip.h */,
-				5C7A1F601905D6F000467932 /* drawCyl.mm */,
-				5C7A1F621905D6FA00467932 /* drawCyl.h */,
-				E66A7D7D19253C1700E337CB /* Circles.mm */,
-				E66A7D7E19253C1700E337CB /* Circles.h */,
-				E683520A195204D9001206F7 /* drawOrbs.mm */,
-				E683520B195204D9001206F7 /* drawOrbs.h */,
-				E696B219192C070800506912 /* drawGifs.mm */,
-				E696B21A192C070800506912 /* drawGifs.h */,
-				E6835253195223D8001206F7 /* background.mm */,
-				E6835254195223D8001206F7 /* background.h */,
-				E6835256195226A3001206F7 /* foreground.mm */,
-				E6835257195226A3001206F7 /* foreground.h */,
-				E68352E21954BFCC001206F7 /* middleground.mm */,
-				E68352E31954BFCC001206F7 /* middleground.h */,
+				E6B29174195DD36C00DBE6FD /* Sculptures */,
+				E6B29173195DCE8300DBE6FD /* Background */,
 			);
 			path = src;
 			sourceTree = SOURCE_ROOT;
@@ -468,6 +422,44 @@
 			path = ../../../addons/ofxImageSequence/src;
 			sourceTree = "<group>";
 		};
+		E6B29173195DCE8300DBE6FD /* Background */ = {
+			isa = PBXGroup;
+			children = (
+				E696B219192C070800506912 /* drawGifs.mm */,
+				E696B21A192C070800506912 /* drawGifs.h */,
+				E6835253195223D8001206F7 /* background.mm */,
+				E6835254195223D8001206F7 /* background.h */,
+			);
+			name = Background;
+			sourceTree = "<group>";
+		};
+		E6B29174195DD36C00DBE6FD /* Sculptures */ = {
+			isa = PBXGroup;
+			children = (
+				5C7A1F4E1905D46800467932 /* lineShape.mm */,
+				5C7A1F501905D47400467932 /* lineShape.h */,
+				E66A7D7D19253C1700E337CB /* Circles.mm */,
+				E66A7D7E19253C1700E337CB /* Circles.h */,
+				E6F6351B195DE1F400E4C719 /* Pentagon.mm */,
+				E6F6351C195DE1F400E4C719 /* Pentagon.h */,
+				E6F6351E195DE23800E4C719 /* Cube.mm */,
+				E6F6351F195DE23800E4C719 /* Cube.h */,
+				E6F63521195DE27000E4C719 /* Squid.mm */,
+				E6F63522195DE27000E4C719 /* Squid.h */,
+				E6F63524195DE2BF00E4C719 /* Diamond.mm */,
+				E6F63525195DE2BF00E4C719 /* Diamond.h */,
+				E6F6352A195DE32400E4C719 /* Chip.mm */,
+				E6F6352B195DE32400E4C719 /* Chip.h */,
+				E6F63530195DE3CF00E4C719 /* Cyl.mm */,
+				E6F63531195DE3CF00E4C719 /* Cyl.h */,
+				E6F63533195DE44D00E4C719 /* Orbs.mm */,
+				E6F63534195DE44D00E4C719 /* Orbs.h */,
+				E6F63536195DE5DD00E4C719 /* Arp.mm */,
+				E6F63537195DE5DD00E4C719 /* Arp.h */,
+			);
+			name = Sculptures;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -496,7 +488,7 @@
 		29B97313FDCFA39411CA2CEA /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0460;
+				LastUpgradeCheck = 0510;
 				TargetAttributes = {
 					1D6058900D05DD3D006BFB54 = {
 						DevelopmentTeam = 5W2EG43BWU;
@@ -543,8 +535,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E41D3ED713B38FB500A75A5D /* Project.xcconfig in Resources */,
-				E41D3EE613B3906D00A75A5D /* CoreOF.xcconfig in Resources */,
 				678E130817951530005B6D19 /* Icon@2x.png in Resources */,
 				678E130A17951536005B6D19 /* Icon.png in Resources */,
 				678E130C1795153C005B6D19 /* Default.png in Resources */,
@@ -577,28 +567,24 @@
 			buildActionMask = 2147483647;
 			files = (
 				E4D8936E11527B74007E1F53 /* main.mm in Sources */,
+				E6F63523195DE27000E4C719 /* Squid.mm in Sources */,
+				E6F63532195DE3CF00E4C719 /* Cyl.mm in Sources */,
 				E6835255195223D8001206F7 /* background.mm in Sources */,
 				E683524619520574001206F7 /* ofxAssimpMeshHelper.cpp in Sources */,
 				E4D8936F11527B74007E1F53 /* testApp.mm in Sources */,
-				E68352E41954BFCC001206F7 /* middleground.mm in Sources */,
-				5C7A1F3D1905D1D800467932 /* drawShape.mm in Sources */,
 				E683524819520574001206F7 /* ofxAssimpTexture.cpp in Sources */,
-				5C7A1F491905D3A400467932 /* drawCircle.mm in Sources */,
-				5C7A1F4C1905D3E000467932 /* drawPentagon.mm in Sources */,
+				E6F63535195DE44D00E4C719 /* Orbs.mm in Sources */,
 				E683524719520574001206F7 /* ofxAssimpModelLoader.cpp in Sources */,
+				E6F63520195DE23800E4C719 /* Cube.mm in Sources */,
 				E696B22A192C078D00506912 /* ofxImageSequence.cpp in Sources */,
 				5C7A1F4F1905D46800467932 /* lineShape.mm in Sources */,
-				E683520C195204D9001206F7 /* drawOrbs.mm in Sources */,
-				5C7A1F521905D4E000467932 /* drawCube.mm in Sources */,
-				5C7A1F551905D52D00467932 /* drawSquid.mm in Sources */,
+				E6F63526195DE2BF00E4C719 /* Diamond.mm in Sources */,
+				E6F6351D195DE1F400E4C719 /* Pentagon.mm in Sources */,
 				E696B21B192C070800506912 /* drawGifs.mm in Sources */,
 				E66A7D7F19253C1700E337CB /* Circles.mm in Sources */,
-				5C7A1F581905D58D00467932 /* drawDiamond.mm in Sources */,
 				E683524519520574001206F7 /* ofxAssimpAnimation.cpp in Sources */,
-				E6835258195226A3001206F7 /* foreground.mm in Sources */,
-				5C7A1F5B1905D5DD00467932 /* drawRect.mm in Sources */,
-				5C7A1F5E1905D62600467932 /* drawChip.mm in Sources */,
-				5C7A1F611905D6F000467932 /* drawCyl.mm in Sources */,
+				E6F63538195DE5DD00E4C719 /* Arp.mm in Sources */,
+				E6F6352C195DE32400E4C719 /* Chip.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -659,7 +645,6 @@
 			baseConfigurationReference = E41D3ED613B38FB500A75A5D /* Project.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COMPRESS_PNG_FILES = NO;
@@ -673,7 +658,7 @@
 				GCC_WARN_PROTOTYPE_CONVERSION = NO;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 3.1;
-				ONLY_ACTIVE_ARCH = NO;
+				ONLY_ACTIVE_ARCH = YES;
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -686,7 +671,6 @@
 			baseConfigurationReference = E41D3ED613B38FB500A75A5D /* Project.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COMPRESS_PNG_FILES = NO;

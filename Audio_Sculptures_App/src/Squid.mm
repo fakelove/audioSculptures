@@ -1,17 +1,17 @@
 
-#include "drawSquid.h"
+#include "Squid.h"
 
-drawSquid::drawSquid() {
+Squid::Squid() {
     
 }
 
-drawSquid::~drawSquid() {
+Squid::~Squid() {
     
 }
 
 
 //--------------------------------------------------------------
-void drawSquid::setup(){
+void Squid::setup(){
     
     point1.set(0, 0);
     point2.set(0, 500);
@@ -27,7 +27,7 @@ void drawSquid::setup(){
 }
 
 //--------------------------------------------------------------
-void drawSquid::update(){
+void Squid::update(){
     
     rotate += 0.33f;
     speedNoise += 0.10f;
@@ -39,32 +39,37 @@ void drawSquid::update(){
 
 
 //--------------------------------------------------------------
-void drawSquid::draw(){
+void Squid::draw(){
     
     sound.setVolume(trackVolume);
-    //cam.setDistance(0.0);
     
-   //cam.begin();
     for (int i = 0; i < 700; i += 5) {
-        ofPushMatrix();
-        ofSetColor(randomFill, ofMap(i, 0, 500, 100, 30));
-        ofNoFill();
-        ofTranslate(ofGetWidth() / 2, ofGetHeight() / 2);
-        ofRotateX( i + squidPos.y );
-        ofRotateY( rotate + i );
-        ofRotateZ( rotate  + cos(i) );
-        ofScale(0.50, 0.50);
-        ofCurve(point1.x + i + noise, point1.y + i + noise, point2.x + i, point2.y + i, point3.x + i, point3.y + i, point4.x, point4.y);
-        ofPopMatrix();
+        
+        ofPushStyle(); {
+            
+            ofPushMatrix(); {
+                
+                ofSetColor(randomFill, ofMap(i, 0, 500, 100, 30));
+                ofNoFill();
+                ofTranslate(ofGetWidth() / 2, ofGetHeight() / 2);
+                ofRotateX( i + squidPos.y );
+                ofRotateY( rotate + i );
+                ofRotateZ( rotate  + cos(i) );
+                ofScale(0.50, 0.50);
+                ofCurve(point1.x + i + noise, point1.y + i + noise, point2.x + i, point2.y + i, point3.x + i, point3.y + i, point4.x, point4.y);
+                
+            } ofPopMatrix();
+            
+        } ofPopStyle();
+        
     }
-    //cam.end();
     
     
     
 }
 
 //--------------------------------------------------------------
-void drawSquid::slide(int x, int y){
+void Squid::slide(int x, int y){
     
     sound.setPan(ofMap(y, 0, ofGetWidth(), 1.0, -1.0, true));
     squidPos.x = x;
@@ -74,11 +79,11 @@ void drawSquid::slide(int x, int y){
 
 
 //--------------------------------------------------------------
-void drawSquid::exit(){
+void Squid::exit(){
     
 }
 
-void drawSquid::randomizeColor() {
+void Squid::randomizeColor() {
     
     randomColor = ofRandom(4);
     
@@ -98,7 +103,7 @@ void drawSquid::randomizeColor() {
             randomFill = ofColor::black;
             break;
     }
-
+    
     
 }
 

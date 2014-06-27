@@ -5,11 +5,11 @@
 #include "ofxiOSExtras.h"
 #include "ofxAssimpModelLoader.h"
 
-class drawOrbs {
+class Orbs {
 	
 public:
-    drawOrbs();
-    ~drawOrbs();
+    Orbs();
+    ~Orbs();
     void setup(int posX, int posY, float size);
     void update(float noiseSpeed, float rotationSpeed);
     void randomizeColor();

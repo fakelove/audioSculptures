@@ -13,23 +13,22 @@ This is the latest version of the Fake Love Audio Sculptures Ipad App
 
 //Background Images
 #include "background.h"
-#include "middleground.h"
-#include "foreground.h"
+#include "drawGifs.h"
+
 
 //Objects
-#include "drawShape.h"
-#include "drawCircle.h"
-#include "drawPentagon.h"
+#include "Pentagon.h"
 #include "lineShape.h"
-#include "drawCube.h"
-#include "drawSquid.h"
-#include "drawDiamond.h"
-#include "drawRect.h"
-#include "drawChip.h"
-#include "drawCyl.h"
+#include "Cube.h"
+#include "Squid.h"
+#include "Diamond.h"
+#include "Arp.h"
+#include "Chip.h"
+#include "Cyl.h"
 #include "Circles.h"
-#include "drawGifs.h"
-#include "drawOrbs.h"
+#include "Orbs.h"
+
+
 
 class testApp : public ofxiOSApp{
 	
@@ -52,26 +51,24 @@ class testApp : public ofxiOSApp{
 
     //ofImage flLogo;
     
-    drawShape shape; //n/a
-    drawPentagon pent; //OK
+    Pentagon pent; //OK
     lineShape line; //OK
-    drawCube cube; //OK
-    drawSquid squid; //OK
-    drawDiamond dia; //OK
-    drawRect rect; //OK
-    drawChip chip; //OK
-    drawCyl cyl; //OK
+    Cube cube; //OK
+    Squid squid; //OK
+    Diamond dia; //OK
+    Arp rect; //OK
+    Chip chip; //OK
+    Cyl cyl; //OK
     
-    vector<drawOrbs> orbs;
+    vector<Orbs> orbs;
     int orbsPosX, orbsPosY;
     
     //Generate Button
     ofColor buttonColor;
     
     //Load Backgrounds
-    background bg;
-    middleground mg;
-    foreground fg;
+    background bg, mg, fg;
+   
     int randomBackground;
     
     //vector<drawGifs> gif;

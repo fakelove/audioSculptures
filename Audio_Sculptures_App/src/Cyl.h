@@ -4,11 +4,11 @@
 #include "ofxiOS.h"
 #include "ofxiOSExtras.h"
 
-class drawCyl {
+class Cyl {
 	
 public:
-    drawCyl();
-    ~drawCyl();
+    Cyl();
+    ~Cyl();
     void setup();
     void update();
     void draw();

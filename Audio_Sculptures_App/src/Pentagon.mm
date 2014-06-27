@@ -1,17 +1,26 @@
+//
+//  Pentagon.mm
+//  Fake_Love_Sound_Sculptures
+//
+//  Created by Fake Love on 6/27/14.
+//
+//
 
-#include "drawPentagon.h"
+#include "Pentagon.h"
 
-drawPentagon::drawPentagon() {
+#include "Pentagon.h"
+
+Pentagon::Pentagon() {
     
     
 }
 
-drawPentagon::~drawPentagon() {
+Pentagon::~Pentagon() {
     
 }
 
 //--------------------------------------------------------------
-void drawPentagon::setup(){
+void Pentagon::setup(){
     
     sound.loadSound("sounds/pentSound.caf");
     sound.play();
@@ -23,7 +32,7 @@ void drawPentagon::setup(){
 }
 
 //--------------------------------------------------------------
-void drawPentagon::update(){
+void Pentagon::update(){
     
     rotateShape += 0.50f;
     
@@ -34,9 +43,9 @@ void drawPentagon::update(){
         
         volumeNoise = varyNoisePent(1.0, controlVolume);
         sound.setVolume(volumeNoise);
-    
+        
     } else {
-    
+        
         volumeNoise = 0.0;
         sound.setVolume(volumeNoise);
         
@@ -47,7 +56,7 @@ void drawPentagon::update(){
 }
 
 //--------------------------------------------------------------
-void drawPentagon::draw(){
+void Pentagon::draw(){
     
     objectOn = true;
     
@@ -57,42 +66,44 @@ void drawPentagon::draw(){
     
 }
 
-void drawPentagon::drawSlider() {
+void Pentagon::drawSlider() {
     
     ofPushMatrix();
     cirSlider();
     ofSetColor(0);
     //ofDrawBitmapString("Sound Sculpture Control", sliderPos.x + 50, sliderPos.y);
     ofPopMatrix();
-
+    
 }
 
 //--------------------------------------------------------------
-void drawPentagon::exit(){
+void Pentagon::exit(){
     
 }
 
 
 //--------------------------------------------------------------
-void drawPentagon::shape(int x, int y, int size, float alpha) {
+void Pentagon::shape(int x, int y, int size, float alpha) {
     
     ofPushMatrix();
-    ofSetCircleResolution(5);
-    ofTranslate(x, y);
-    ofRotateY(rotateShape * PI);
-    ofRotateX(alpha + 50);
-    ofRotateZ(rotateShape + alpha);
-    ofScale(scaleParaX + 3.0, scaleParaY + 3.0);
-    //ofSetPolyMode(OF_POLY_WINDING_NONZERO); //odd that this effected other objects
-    ofSetColor(pentColor, 80);
-    ofNoFill();
-    ofCircle(0, 0, size);
+    {
+        ofSetCircleResolution(5);
+        ofTranslate(x, y);
+        ofRotateY(rotateShape * PI);
+        ofRotateX(alpha + 50);
+        ofRotateZ(rotateShape + alpha);
+        ofScale(scaleParaX + 3.0, scaleParaY + 3.0);
+        //ofSetPolyMode(OF_POLY_WINDING_NONZERO); //odd that this effected other objects
+        ofSetColor(pentColor, 80);
+        ofNoFill();
+        ofCircle(0, 0, size);
+    }
     ofPopMatrix();
     
 }
 
 //--------------------------------------------------------------
-float drawPentagon::varyNoisePent(int amount, float speed){
+float Pentagon::varyNoisePent(int amount, float speed){
     
     noise += speed;
     float noiseAlpha = amount * ofNoise(noise);
@@ -103,35 +114,41 @@ float drawPentagon::varyNoisePent(int amount, float speed){
 
 
 //--------------------------------------------------------------
-void drawPentagon::slide(int x, int y){
+void Pentagon::slide(int x, int y){
     
     int dist1 = ofDist(sliderPos.x, sliderPos.y, x, y);
     
     if (dist1 < sliderSize + 10){
         
-    controlShape = ofMap(x, 0, ofGetWidth(), 0.0001, 0.07);
-    sound.setSpeed(ofMap(x, 0, ofGetWidth(), 0.30, 1.0, true));
-    controlVolume = ofMap(x, 0, ofGetWidth(), 0.01, .10);
-    
-    //slide control
-    sliderPos.x = x;
-    
-    alpha = ofMap(x, 0.0, ofGetWidth() - 100, 0.0, 255);
+        controlShape = ofMap(x, 0, ofGetWidth(), 0.0001, 0.07);
+        sound.setSpeed(ofMap(x, 0, ofGetWidth(), 0.30, 1.0, true));
+        controlVolume = ofMap(x, 0, ofGetWidth(), 0.01, .10);
+        
+        //slide control
+        sliderPos.x = x;
+        
+        alpha = ofMap(x, 0.0, ofGetWidth() - 100, 0.0, 255);
     }
 }
 
-void drawPentagon::cirSlider() {
+void Pentagon::cirSlider() {
     
-    ofPushMatrix();
-    ofSetCircleResolution(100);
-    ofTranslate(sliderPos.x, sliderPos.y);
-    ofSetColor(0, 0, 0, 150);
-    ofNoFill();
-    ofCircle(0, 0, sliderSize);
-    ofSetColor(0, 0, 0, alpha);
-    ofFill();
-    ofCircle(0, 0, sliderSize);
-    ofPopMatrix();
+    ofPushStyle(); {
+        
+        ofPushMatrix(); {
+            
+            ofSetCircleResolution(100);
+            ofTranslate(sliderPos.x, sliderPos.y);
+            ofSetColor(0, 0, 0, 150);
+            ofNoFill();
+            ofCircle(0, 0, sliderSize);
+            ofSetColor(0, 0, 0, alpha);
+            ofFill();
+            ofCircle(0, 0, sliderSize);
+            
+        } ofPopMatrix();
+        
+    } ofPopStyle();
     
     ofPushMatrix();
     ofSetColor(200);

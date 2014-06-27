@@ -54,14 +54,20 @@ void lineShape::draw(){
 
 void lineShape::drawLine(float x, float y, float rotate, int opacity){
     
-    ofPushMatrix();
+    ofPushStyle(); {
+    
+        ofPushMatrix(); {
+        
     ofSetColor(randomFill, opacity);
     ofRotateX(rotate * sin(PI / 2));
     ofRotateY(x + rotate);
     ofScale(.10, .10);
     ofTranslate(ofGetWidth() / 2, ofGetHeight() / 2);
     ofLine(0, 50, x + rotate + 50, y + 50);
-    ofPopMatrix();
+    
+        } ofPopMatrix();
+    
+    } ofPopStyle();
     
     //ofDrawBitmapString("Track ms: " + ofToString(pad.getPositionMS()), 100, 100);
     

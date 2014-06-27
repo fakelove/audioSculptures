@@ -5,11 +5,11 @@
 #include "ofxiOS.h"
 #include "ofxiOSExtras.h"
 
-class drawCube {
+class Cube :public ofNode {
 	
 public:
-    drawCube();
-    ~drawCube();
+    Cube();
+    ~Cube();
     void setup();
     void update();
     void draw();
@@ -20,7 +20,7 @@ public:
     void reloadTex(int changeTex);
     
     float rotate, noise, speed, alpha, alphaOutline;
-    float sendNoise;    
+    float sendNoise;
     bool trigger, triggerSound;
     int sizeTrigger;
     ofPoint pos;
@@ -29,7 +29,7 @@ public:
     ofRectangle clickBox;
     //sculpture bounce for sound design
     
-    void randomizeColor();    
+    void randomizeColor();
     ofColor randomFill;
     int randomColor;
     

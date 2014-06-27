@@ -50,12 +50,14 @@ void Circles::update(){
 //--------------------------------------------------------------
 void Circles::draw(){
     
-    
+    ofPushStyle(); {
+        
     ofEnableDepthTest(); //important to begin and end
 
     //Outside Orb
     ofSetColor(outSideColor, 50);
-    ofPushMatrix();
+    ofPushMatrix(); {
+    
     ofTranslate(fingerPos.x, fingerPos.y + sine);
     model.setScale(size, size, size);
     ofRotateX(rotate);
@@ -71,10 +73,15 @@ void Circles::draw(){
     ofRotateX(rotate);
     ofRotateY(rotate);
     model.drawFaces();
-    ofPopMatrix();
     
+        } ofPopMatrix();
+
     ofDisableDepthTest();
-    
+
+    } ofPopStyle();
+
+
+    //Circle Button
     ofPushMatrix();
     ofSetColor(ofColor::red, 0); //transparent circle buttons
     ofTranslate(fingerPos.x, fingerPos.y + sine);

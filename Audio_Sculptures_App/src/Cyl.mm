@@ -1,17 +1,17 @@
 
-#include "drawCyl.h"
+#include "Cyl.h"
 
-drawCyl::drawCyl() {
+Cyl::Cyl() {
     
 }
 
-drawCyl::~drawCyl() {
+Cyl::~Cyl() {
     
     
 }
 
 //--------------------------------------------------------------
-void drawCyl::setup(){
+void Cyl::setup(){
     
     
     sound.loadSound("sounds/cylSound.caf");
@@ -26,7 +26,7 @@ void drawCyl::setup(){
 }
 
 //--------------------------------------------------------------
-void drawCyl::update(){
+void Cyl::update(){
     
     rotate += 0.55f;
     
@@ -42,7 +42,7 @@ void drawCyl::update(){
     
 }
 
-void drawCyl::reloadTex(int changeTex) {
+void Cyl::reloadTex(int changeTex) {
     
     texture.loadImage("tex/tex" + ofToString(changeTex) + ".jpg");
     texture.getTextureReference().setTextureWrap( GL_REPEAT, GL_REPEAT );
@@ -51,32 +51,38 @@ void drawCyl::reloadTex(int changeTex) {
 
 
 //--------------------------------------------------------------
-void drawCyl::draw(){
-    
-    ofPushMatrix();
-    //outer cyl
-    cylinder(0, 25, 50, sendNoise - 240, 50);
-    //ofDrawBitmapString("Sound File Position: " + ofToString(sound.getPosition()), 50, 50);
-    
-    //inner cyl
-    ofEnableDepthTest();
-    ofEnableNormalizedTexCoords();
-    texture.getTextureReference().bind();
-    cylinder(0, 15, 25, sendNoise - 100, 0);
-    texture.getTextureReference().unbind();
-    ofDisableNormalizedTexCoords();
-    ofDisableDepthTest();
-    /////Trigger Button/////
-    //ofSetColor(0);
-    //ofNoFill();
-    ofTranslate(pos.x, pos.y);
-    ofCircle(0, 0, sizeTrigger);
-    ofPopMatrix();
+void Cyl::draw(){
+    ofPushStyle(); {
+        
+        ofPushMatrix(); {
+            
+            //outer cyl
+            cylinder(0, 25, 50, sendNoise - 240, 50);
+            //ofDrawBitmapString("Sound File Position: " + ofToString(sound.getPosition()), 50, 50);
+            
+            //inner cyl
+            ofEnableDepthTest();
+            ofEnableNormalizedTexCoords();
+            texture.getTextureReference().bind();
+            cylinder(0, 15, 25, sendNoise - 100, 0);
+            texture.getTextureReference().unbind();
+            ofDisableNormalizedTexCoords();
+            ofDisableDepthTest();
+            
+            /////Trigger Button/////
+            //ofSetColor(0);
+            //ofNoFill();
+            ofTranslate(pos.x, pos.y);
+            ofCircle(0, 0, sizeTrigger);
+            
+        } ofPopMatrix();
+        
+    } ofPopStyle();
 }
 
 //--------------------------------------------------------------
-void drawCyl::cylinder(float iterate, int width, int height, float alpha, int outline){
-
+void Cyl::cylinder(float iterate, int width, int height, float alpha, int outline){
+    
     ofSetCylinderResolution(4, 2);
     ofPushMatrix();
     ofTranslate( pos.x, pos.y );
@@ -93,12 +99,12 @@ void drawCyl::cylinder(float iterate, int width, int height, float alpha, int ou
     
 }
 
-void drawCyl::exit() {
+void Cyl::exit() {
     
 }
 
 //--------------------------------------------------------------
-void drawCyl::touchTrigger(int x, int y){
+void Cyl::touchTrigger(int x, int y){
     
     int dist1 = ofDist(pos.x, pos.y, x, y);
     
@@ -108,24 +114,24 @@ void drawCyl::touchTrigger(int x, int y){
     }
 }
 
-void drawCyl::moveCyl(int x, int y) {
-
+void Cyl::moveCyl(int x, int y) {
+    
     int dist1 = ofDist(pos.x, pos.y, x, y);
     
     if ( dist1 < sizeTrigger ) {
-    pos.x = x;
-    pos.y = y;
-    movementOn = true;
+        pos.x = x;
+        pos.y = y;
+        movementOn = true;
         
     } else {
-    
-    movementOn = false;
-    
+        
+        movementOn = false;
+        
     }
-
+    
 }
 
-void drawCyl::randomizeColor() {
+void Cyl::randomizeColor() {
     
     randomColor = ofRandom(4);
     

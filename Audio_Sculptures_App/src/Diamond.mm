@@ -1,16 +1,16 @@
 
-#include "drawDiamond.h"
+#include "Diamond.h"
 
-drawDiamond::drawDiamond() {
+Diamond::Diamond() {
     
 }
 
-drawDiamond::~drawDiamond() {
+Diamond::~Diamond() {
     
 }
 
 //--------------------------------------------------------------
-void drawDiamond::setup(){
+void Diamond::setup(){
     
     
     soundFiles.push_back("sounds/shapeBass1.caf");
@@ -29,7 +29,7 @@ void drawDiamond::setup(){
 }
 
 //--------------------------------------------------------------
-void drawDiamond::update(){
+void Diamond::update(){
     
     rotate += 0.33f;
     speed += 0.20f;
@@ -51,61 +51,72 @@ void drawDiamond::update(){
     
 }
 //--------------------------------------------------------------
-void drawDiamond::draw(){
-  
-    ofSetColor(0,0,0,0);
-    ofCircle(pos.x, pos.y, sizeTrigger);
+void Diamond::draw(){
     
-    sphere();
-   
-}
-
-//--------------------------------------------------------------
-void drawDiamond::exit(){
+    ofPushMatrix(); {
+        
+        ofSetColor(0,0,0,0);
+        ofCircle(pos.x, pos.y, sizeTrigger);
+        
+    }
     
-}
-
-//--------------------------------------------------------------
-void drawDiamond::sphere(){
-    
-    ofSetSphereResolution(3);
-    ofPushMatrix();
-    ofTranslate(pos.x, pos.y + sine);
-    ofScale(1.75, 1.75);
-    ofRotateX(rotate);
-    ofRotateY(rotate);
-    //small shape
-    ofSetColor(randomFill, 100);
-    ofFill();
-    ofDrawSphere(sendNoise);
-    //big shape
-    ofSetColor(outerDiaColor, 100);
-    ofNoFill();
-    ofDrawSphere(50);
     ofPopMatrix();
     
+    sphere();
+    
+}
+
+//--------------------------------------------------------------
+void Diamond::exit(){
+    
+}
+
+//--------------------------------------------------------------
+void Diamond::sphere(){
+    
+    ofPushStyle(); {
+        
+        ofPushMatrix(); {
+            
+            ofSetSphereResolution(3);
+            ofTranslate(pos.x, pos.y + sine);
+            ofScale(1.75, 1.75);
+            ofRotateX(rotate);
+            ofRotateY(rotate);
+            //small shape
+            ofSetColor(randomFill, 100);
+            ofFill();
+            ofDrawSphere(sendNoise);
+            //big shape
+            ofSetColor(outerDiaColor, 100);
+            ofNoFill();
+            ofDrawSphere(50);
+            
+        } ofPopMatrix();
+        
+    } ofPopStyle();
 }
 
 
 //--------------------------------------------------------------
-void drawDiamond::touchTrigger(int x, int y){
+void Diamond::touchTrigger(int x, int y){
     
     int dist1 = ofDist(pos.x, pos.y, x, y);
     
     if ( dist1 < sizeTrigger ) {
-    
-    trigger = true;
-    
-    int randomFile = ofRandom(3);
-    sound.loadSound(soundFiles[randomFile]);
-    sound.play();
-    sound.setLoop(true);
-    
+        
+        trigger = true;
+        
+        int randomFile = ofRandom(3);
+        sound.loadSound(soundFiles[randomFile]);
+        sound.play();
+        sound.setLoop(true);
+        
     }
     
 }
 
-void drawDiamond::upTouch(int x, int y){
+void Diamond::upTouch(int x, int y){
     
     int dist1 = ofDist(pos.x, pos.y, x, y);
     
@@ -116,10 +127,10 @@ void drawDiamond::upTouch(int x, int y){
         sound.setLoop(false);
         
     }
-  
+    
 }
 
-void drawDiamond::moveDiamond(int x, int y) {
+void Diamond::moveDiamond(int x, int y) {
     
     int dist1 = ofDist(pos.x, pos.y, x, y);
     
@@ -136,7 +147,7 @@ void drawDiamond::moveDiamond(int x, int y) {
     
 }
 
-void drawDiamond::randomizeColor() {
+void Diamond::randomizeColor() {
     
     randomColor = ofRandom(4);
     
