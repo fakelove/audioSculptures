@@ -80,7 +80,7 @@ void Diamond::sphere(){
             
             ofSetSphereResolution(3);
             ofTranslate(pos.x, pos.y + sine);
-            ofScale(1.75, 1.75);
+            ofScale(2.75, 2.75);
             ofRotateX(rotate);
             ofRotateY(rotate);
             //small shape

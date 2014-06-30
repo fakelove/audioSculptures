@@ -49,6 +49,7 @@ void Squid::draw(){
             
             ofPushMatrix(); {
                 
+                ofSetLineWidth(1.0);
                 ofSetColor(randomFill, ofMap(i, 0, 500, 100, 30));
                 ofNoFill();
                 ofTranslate(ofGetWidth() / 2, ofGetHeight() / 2);

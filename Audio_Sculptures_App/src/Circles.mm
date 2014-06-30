@@ -15,7 +15,7 @@ void Circles::setup(int posX, int posY, float setSize) {
     model.loadModel("orb.dae");
     
     //alphaAction = 0.0;
-    size = ofRandom(0.10, 0.20);
+    size = ofRandom(0.20, 0.30);
     fingerPos.set(posX, posY);
     randomSizeSpeed = setSize;
     randomRotateSpeed = ofRandom(-0.10f, 0.40f);
@@ -24,6 +24,7 @@ void Circles::setup(int posX, int posY, float setSize) {
     for (int i = 0; i < 4; i++) {
         circleSound.resize(i);
     }
+    
     for (int i = 0; i < circleSound.size(); i++) {
         circleSound[i].loadSound("sounds/circles" + ofToString(i) + ".caf");
     }
@@ -55,7 +56,7 @@ void Circles::draw(){
     ofEnableDepthTest(); //important to begin and end
 
     //Outside Orb
-    ofSetColor(outSideColor, 50);
+    ofSetColor(outSideColor, 75);
     ofPushMatrix(); {
     
     ofTranslate(fingerPos.x, fingerPos.y + sine);
@@ -66,7 +67,7 @@ void Circles::draw(){
     ofPopMatrix();
     
     //Inside Orb
-    ofSetColor(randomFill, alphaAction);
+    ofSetColor(ofColor::whiteSmoke, alphaAction);
     ofPushMatrix();
     ofTranslate(fingerPos.x, fingerPos.y + sine);
     model.setScale(size, size, size);

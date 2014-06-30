@@ -9,6 +9,8 @@ void testApp::setup(){
     ofEnableSmoothing();
     ofSetFrameRate(60);
     ofSetRectMode(OF_RECTMODE_CENTER);
+    ofxAccelerometer.setup();
+    ofxAccelerometer.setForceSmoothing(25);
     
     pent.setup();
     line.setup();
@@ -40,6 +42,7 @@ void testApp::setup(){
     }
     
     //// Floating Circles ////
+    
     for (int i = 0; i < ofGetWidth(); i ++) {
         for (int j = 0; j < ofGetHeight(); j ++) {
             cirPosX = i;
@@ -47,7 +50,7 @@ void testApp::setup(){
         }
     }
     
-    int objectAmt = 10;
+    int objectAmt = 5;
     
     Circles temp;
     
@@ -55,14 +58,21 @@ void testApp::setup(){
         circles.push_back(temp);
     }
     
-    for (int i = 0; i < circles.size(); i++) {
-        circles[i].setup(ofRandom(ofGetWidth()), ofRandom(0, ofGetHeight() / 2), ofRandom(0.05, 0.20) );
-    }
+    
+    circles[0].setup(300, 100, ofRandom(0.05, 0.20));
+    circles[1].setup(350, 450, ofRandom(0.05, 0.20));
+    circles[2].setup(650, 150, ofRandom(0.05, 0.20));
+    circles[3].setup(650, 375, ofRandom(0.05, 0.20));
+    circles[4].setup(475, 275, ofRandom(0.05, 0.20));
+
 
     //Random button
     randomPos.set(75, 75);
     sizeRandom = 30;
     buttonColor = ofColor::black;
+    
+    /// END FLOATING CIRCLES ///
+    
     
     //// GENERATE BACKGROUNDS ////
     
@@ -96,7 +106,6 @@ void testApp::setup(){
 //--------------------------------------------------------------
 void testApp::update(){
     
-    //cir.update();
     pent.update();
     line.update();
     cube.update();
@@ -121,6 +130,9 @@ void testApp::update(){
     alpha = 255 * sin(alphaSine);
     
     
+    bg.pos.z = ofMap(ofxAccelerometer.getForce().y, 0.0, .25, 10, -10, true);
+    fg.pos.x = ofMap(ofxAccelerometer.getForce().y, 0.0, .25, -100, 100, true);
+    mg.pos.x = ofMap(ofxAccelerometer.getForce().y, 0.0, .25, -50, 50, true);
 }
 
 //--------------------------------------------------------------

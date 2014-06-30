@@ -19,6 +19,7 @@ void Chip::setup(){
     size = 75;
     pos.set(ofGetWidth() / 2, ofGetHeight() / 2); //actual translation of object
     randomCircleRes = 100;
+    shapeSize = 0;
 }
 
 //--------------------------------------------------------------
@@ -55,14 +56,12 @@ void Chip::update(){
 //--------------------------------------------------------------
 void Chip::draw(){
     
-    
-    
     ofSetCircleResolution(randomCircleRes);
     
-    button(size, noise4);
-    button(50, noise1);
-    button(25, noise2);
-    button(10, noise3);
+    button(size + shapeSize, noise4);
+    button(50 + shapeSize, noise1);
+    button(25 + shapeSize, noise2);
+    button(10 + shapeSize, noise3);
 	
 }
 
@@ -72,10 +71,13 @@ void Chip::randomRes() {
     
     if (randomNumber == 0) {
         randomCircleRes = 100;
+        shapeSize = 0;
     } else if (randomNumber == 1) {
         randomCircleRes = 6;
+        shapeSize = 20;
     } else if (randomNumber == 2) {
         randomCircleRes = 3;
+        shapeSize = 40;
     }
     
     //cout << "Random Circle Resolution: " << randomNumber << endl;

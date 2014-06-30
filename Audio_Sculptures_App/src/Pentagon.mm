@@ -92,7 +92,7 @@ void Pentagon::shape(int x, int y, int size, float alpha) {
         ofRotateY(rotateShape * PI);
         ofRotateX(alpha + 50);
         ofRotateZ(rotateShape + alpha);
-        ofScale(scaleParaX + 3.0, scaleParaY + 3.0);
+        ofScale(scaleParaX + 4.0, scaleParaY + 4.0);
         //ofSetPolyMode(OF_POLY_WINDING_NONZERO); //odd that this effected other objects
         ofSetColor(pentColor, 80);
         ofNoFill();

@@ -28,7 +28,7 @@ public:
     bool trigger;
     ofSoundPlayer clicks;
     ofPoint pos;
-    int size, randomColor, randomCircleRes;
+    int size, randomColor, randomCircleRes, shapeSize;
     ofColor randomFill;
     
 };
