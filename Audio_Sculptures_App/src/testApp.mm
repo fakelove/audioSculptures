@@ -131,10 +131,10 @@ void testApp::update(){
     alphaSine += 0.08f;
     alpha = 255 * sin(alphaSine);
     
-    
     bg.pos.z = ofMap(ofxAccelerometer.getForce().y, 0.0, .25, 10, -10, true);
     fg.pos.x = ofMap(ofxAccelerometer.getForce().y, 0.0, .25, -100, 100, true);
     mg.pos.x = ofMap(ofxAccelerometer.getForce().y, 0.0, .25, -50, 50, true);
+    
 }
 
 //--------------------------------------------------------------
@@ -309,13 +309,16 @@ void testApp::touchDown(ofTouchEventArgs & touch){
         
     }
     
+    
     if (randomSculpture1 == 1 || randomSculpture2 == 1 || randomSculpture3 == 1) {
         
         for (int i = 0; i < circles.size(); i++) {
             circles[i].touchTrigger(touch.x, touch.y);
+                
+            }
         }
-    }
-    
+        
+      
     //cout << "Finger: " << touch.id << endl;
 
 }
@@ -362,7 +365,6 @@ void testApp::touchMoved(ofTouchEventArgs & touch){
     
     }
 
-    
     ///BACKGROUND MOVEMENT
     
     if (cube.movementOn == true || cyl.movementOn == true || dia.movementOn == true) {
@@ -370,6 +372,7 @@ void testApp::touchMoved(ofTouchEventArgs & touch){
         bg.pos.z = ofMap(touch.x, 0, ofGetWidth(), 10, -10);
         fg.pos.x = ofMap(touch.x, 0, ofGetWidth(), -100, 100);
         mg.pos.x = ofMap(touch.x, 0, ofGetWidth(), -50, 50);
+        
     }
     
     //cout << "cube moveOn: " << ofToString(cube.movementOn) << endl;

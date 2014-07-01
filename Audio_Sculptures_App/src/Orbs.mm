@@ -87,7 +87,6 @@ void Orbs::draw(){
         ofSetColor(c, 75);
         
         ofPushMatrix(); {
-            
             ofTranslate(pos);
             //ofScale(size, size);
             model.setScale(size, size, size);
@@ -100,7 +99,6 @@ void Orbs::draw(){
         //Inside Orb
         ofSetColor(0, 0, 0, sendNoise);
         ofPushMatrix(); {
-            
             ofTranslate(pos);
             model.setScale(size, size, size);
             //ofScale(size, size);

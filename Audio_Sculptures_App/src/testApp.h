@@ -68,9 +68,8 @@ class testApp : public ofxiOSApp{
     
     //Load Backgrounds
     background bg, mg, fg;
-   
     int randomBackground;
-    
+      
     //vector<drawGifs> gif;
     //vector<int> imgAmt;
     //vector<string> imageNames;
