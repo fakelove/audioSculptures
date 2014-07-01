@@ -16,9 +16,7 @@ public:
     void draw();
     void exit();
     void randomizePosition(int posX, int posY);
-	
     void touchDown(ofTouchEventArgs & touch);
-    void touchMoved(ofTouchEventArgs & touch);
     void touchUp(ofTouchEventArgs & touch);
     void touchDoubleTap(ofTouchEventArgs & touch);
     void touchCancelled(ofTouchEventArgs & touch);
@@ -35,6 +33,8 @@ public:
     vector<ofSoundPlayer> sounds;
     int sampleCycle;
     float triggerSounds;
+    
+
 };
 
 

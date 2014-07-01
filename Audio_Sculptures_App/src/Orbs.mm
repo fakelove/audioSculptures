@@ -74,6 +74,7 @@ void Orbs::update(float noiseSpeed, float rotationSpeed){
     
     // cout << "Orb Pos Y: " << sampleCycle << endl;
     
+    
 }
 
 //--------------------------------------------------------------
@@ -154,10 +155,6 @@ void Orbs::touchDown(ofTouchEventArgs & touch){
     
 }
 
-//--------------------------------------------------------------
-void Orbs::touchMoved(ofTouchEventArgs & touch){
-    
-}
 
 //--------------------------------------------------------------
 void Orbs::touchUp(ofTouchEventArgs & touch){

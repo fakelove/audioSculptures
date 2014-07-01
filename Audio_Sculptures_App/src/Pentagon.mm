@@ -109,7 +109,6 @@ float Pentagon::varyNoisePent(int amount, float speed){
     float noiseAlpha = amount * ofNoise(noise);
     return noiseAlpha;
     
-    
 }
 
 

@@ -29,7 +29,7 @@ void testApp::setup(){
         }
     }
     
-    int orbAmt = 10;
+    int orbAmt = 5;
     
     Orbs tempOrbs;
     
@@ -38,8 +38,11 @@ void testApp::setup(){
     }
     
     for (int i = 0; i < orbs.size(); i++) {
-        orbs[i].setup(ofRandom(50, ofGetWidth() - 50), ofRandom(50, 200), ofRandom(0.05, 0.20));
+
+    orbs[i].setup(i * 100, i * 20, ofRandom(0.15, 0.25));
+    
     }
+
     
     //// Floating Circles ////
     
@@ -59,12 +62,11 @@ void testApp::setup(){
     }
     
     
-    circles[0].setup(300, 100, ofRandom(0.05, 0.20));
-    circles[1].setup(350, 450, ofRandom(0.05, 0.20));
-    circles[2].setup(650, 150, ofRandom(0.05, 0.20));
-    circles[3].setup(650, 375, ofRandom(0.05, 0.20));
-    circles[4].setup(475, 275, ofRandom(0.05, 0.20));
-
+    circles[0].setup(300, 150, ofRandom(0.05, 0.20));
+    circles[1].setup(350, 475, ofRandom(0.05, 0.20));
+    circles[2].setup(650, 175, ofRandom(0.05, 0.20));
+    circles[3].setup(650, 400, ofRandom(0.05, 0.20));
+    circles[4].setup(475, 300, ofRandom(0.05, 0.20));
 
     //Random button
     randomPos.set(75, 75);
@@ -392,7 +394,7 @@ void testApp::touchUp(ofTouchEventArgs & touch){
         
         //Randomize the orbs every random button touch
         for (int i = 0; i < orbs.size(); i++) {
-            orbs[i].randomizePosition(ofRandom(50, ofGetWidth() - 50), ofRandom(50, 200));
+            orbs[i].randomizePosition(300 + i * 100, i * 20);
         }
         
     cube.randomizeColor();
