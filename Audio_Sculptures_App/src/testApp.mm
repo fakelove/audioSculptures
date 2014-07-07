@@ -245,8 +245,8 @@ void testApp::draw(){
 
     ////CYLINDER////
     if (randomSculpture1 == 9 || randomSculpture2 == 9 || randomSculpture3 == 9) {
-
-            cyl.draw();
+        
+        cyl.draw();
     }
     
     
@@ -448,7 +448,7 @@ void testApp::touchUp(ofTouchEventArgs & touch){
         
     cube.pos.set(ofGetWidth() / 2 - 200, ofGetHeight() / 2);
     dia.pos.set(ofGetWidth() / 2 + 250, ofGetHeight() / 2 + 100);
-    cyl.pos.set(ofGetWidth() / 2 , ofGetHeight() / 2 );
+    cyl.pos.set(ofGetWidth() / 2 , ofGetHeight() / 2);
 
         
     /*cout << "Sculpture 1: " << randomSculpture1 << endl;

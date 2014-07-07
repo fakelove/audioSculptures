@@ -37,7 +37,6 @@ public:
     
     //background move
     bool movementOn;
-    
 };
 
 
