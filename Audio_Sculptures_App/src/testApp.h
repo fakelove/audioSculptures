@@ -91,6 +91,9 @@ class testApp : public ofxiOSApp{
     ofPoint randomPos;
     int sizeRandom;
     float alpha, alphaSine, counter;
+    
+    //Repel Objects
+    float smoothing;
 };
 
 

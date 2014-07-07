@@ -135,6 +135,12 @@ void testApp::update(){
     fg.pos.x = ofMap(ofxAccelerometer.getForce().y, 0.0, .25, -100, 100, true);
     mg.pos.x = ofMap(ofxAccelerometer.getForce().y, 0.0, .25, -50, 50, true);
     
+    smoothing += 0.50f;
+    
+    if (smoothing >= 2.0f) {
+        smoothing = 0.0f;
+    }
+    
 }
 
 //--------------------------------------------------------------
@@ -375,6 +381,33 @@ void testApp::touchMoved(ofTouchEventArgs & touch){
         
     }
     
+    
+    int distance = ofDist(cube.pos.x, cube.pos.y, dia.pos.x, dia.pos.y);
+    
+    if (distance <= 250) {
+        
+        cube.pos += -10.0 + smoothing;
+        dia.pos += 10.0 + smoothing;
+
+    }
+    
+    int distance2 = ofDist(cube.pos.x, cube.pos.y, cyl.pos.x, cyl.pos.y);
+    
+    if (distance2 <= 250) {
+        cube.pos += -10.0 + smoothing;
+        cyl.pos += 10.0 + smoothing;
+    }
+    
+    int distance3 = ofDist(cyl.pos.x, cyl.pos.y, dia.pos.x, dia.pos.y);
+    
+    if (distance3 <= 250) {
+        cyl.pos += -10.0 + smoothing;
+        dia.pos += 10.0 + smoothing;
+    }
+
+    
+    cout << "Distance between CUBE and DIA: " << distance << endl;
+    
     //cout << "cube moveOn: " << ofToString(cube.movementOn) << endl;
     //cout << "cyl moveOn: " << ofToString(cyl.movementOn) << endl;
     //cout << "dia moveOn: " << ofToString(dia.movementOn) << endl;
@@ -389,6 +422,7 @@ void testApp::touchUp(ofTouchEventArgs & touch){
     int dist1 = ofDist(randomPos.x, randomPos.y, touch.x, touch.y);
     
     if ( dist1 < sizeRandom ) {
+        
     
     //Needs randomize button
     randomSculpture1 = ofRandom(11);
