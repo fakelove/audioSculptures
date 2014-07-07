@@ -20,7 +20,7 @@ void Cube::setup(){
     movementOn = false;
     
     triggerSound = false;
-    cubeSound.loadSound("sounds/CubeSound.caf");
+    cubeSound.loadSound("sounds/cubeSound.caf");
     cubeSound.setMultiPlay(true);
     sizeTrigger = 100;
     pos.set(ofGetWidth() / 2 - 200, ofGetHeight() / 2);
@@ -32,6 +32,7 @@ void Cube::setup(){
     texture.getTextureReference().setTextureWrap( GL_REPEAT, GL_REPEAT );
     
     ofDisableArbTex(); // we need GL_TEXTURE_2D for our models coords.
+
     
 }
 

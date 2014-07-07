@@ -406,7 +406,7 @@ void testApp::touchMoved(ofTouchEventArgs & touch){
     }
 
     
-    cout << "Distance between CUBE and DIA: " << distance << endl;
+    //cout << "Distance between CUBE and DIA: " << distance << endl;
     
     //cout << "cube moveOn: " << ofToString(cube.movementOn) << endl;
     //cout << "cyl moveOn: " << ofToString(cyl.movementOn) << endl;
@@ -442,6 +442,14 @@ void testApp::touchUp(ofTouchEventArgs & touch){
     squid.randomizeColor();
     chip.randomizeColor();
     chip.randomRes();
+        
+        
+    ///RESET OBJECT POSITION///
+        
+    cube.pos.set(ofGetWidth() / 2 - 200, ofGetHeight() / 2);
+    dia.pos.set(ofGetWidth() / 2 + 250, ofGetHeight() / 2 + 100);
+    cyl.pos.set(ofGetWidth() / 2 , ofGetHeight() / 2 );
+
         
     /*cout << "Sculpture 1: " << randomSculpture1 << endl;
     cout << "Sculpture 2: " << randomSculpture2 << endl;
