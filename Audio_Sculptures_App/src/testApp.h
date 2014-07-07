@@ -49,6 +49,11 @@ class testApp : public ofxiOSApp{
         void gotMemoryWarning();
         void deviceOrientationChanged(int newOrientation);
 
+    //randomButton
+    void randomButton();
+    ofPoint pos;
+    float rotateButton, sineButton, pulseSpeedButton;
+    
     //ofImage flLogo;
     
     Pentagon pent; //OK
@@ -92,8 +97,7 @@ class testApp : public ofxiOSApp{
     int sizeRandom;
     float alpha, alphaSine, counter;
     
-    //Repel Objects
-    float smoothing;
+    
 };
 
 

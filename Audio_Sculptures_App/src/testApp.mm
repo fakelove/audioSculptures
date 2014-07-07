@@ -135,11 +135,10 @@ void testApp::update(){
     fg.pos.x = ofMap(ofxAccelerometer.getForce().y, 0.0, .25, -100, 100, true);
     mg.pos.x = ofMap(ofxAccelerometer.getForce().y, 0.0, .25, -50, 50, true);
     
-    smoothing += 0.50f;
     
-    if (smoothing >= 2.0f) {
-        smoothing = 0.0f;
-    }
+    rotateButton += 0.45f;
+    pulseSpeedButton += 0.15f;
+    sineButton = 50 * sin(pulseSpeedButton);
     
 }
 
@@ -152,18 +151,21 @@ void testApp::draw(){
     //gif[randomImage].draw();
   
     ////Randomize button////
-    ofPushMatrix(); {
+   //ofPushMatrix(); {
         
-    ofSetCircleResolution(100);
-    ofSetColor(0, 0, 0, 100);
-    ofNoFill();
-    ofCircle(75, 75, sizeRandom);
-    ofSetColor(buttonColor, alpha);
-    ofFill();
-    ofCircle(randomPos.x, randomPos.y, sizeRandom);
+   // ofSetCircleResolution(100);
+   // ofSetColor(0, 0, 0, 100);
+   // ofNoFill();
+   // ofCircle(75, 75, sizeRandom);
+   // ofSetColor(buttonColor, alpha);
+   // ofFill();
+   // ofCircle(randomPos.x, randomPos.y, sizeRandom);
         
-        }
-    ofPopMatrix();
+   //     }
+   // ofPopMatrix();
+    
+    //DRAW RANDOM BUTTON
+    randomButton();
     
     /////SPINNING RECTANGLE BACKGROUND/////
     if (randomSculpture1 == 7 || randomSculpture2 == 7 || randomSculpture3 == 7) {
@@ -282,6 +284,41 @@ void testApp::draw(){
     }
 }
 
+void testApp::randomButton() {
+    
+    
+    ofPushStyle(); {
+        
+        ofPushMatrix(); {
+            
+            ofTranslate(randomPos);
+            ofScale(0.75, 0.75);
+            ofRotateZ(rotateButton);
+            ofSetCircleResolution(10);
+            ofSetLineWidth(2.0);
+            ofSetColor(ofColor::black);
+            ofFill();
+            ofCircle(0, 0, 75);
+            
+            ofSetCircleResolution(100);
+            ofSetLineWidth(1.0);
+            
+            ofSetColor(ofColor::aquamarine);
+            ofNoFill();
+            ofCircle(0, 0, sineButton);
+            
+            ofSetCircleResolution(100);
+            ofSetColor(0, 0, 0, 20);
+            ofNoFill();
+            ofCircle(0, 0, sizeRandom);
+            
+        } ofPopMatrix();
+        
+    } ofPopStyle();
+
+
+}
+
 //--------------------------------------------------------------
 void testApp::exit(){
 
@@ -386,23 +423,23 @@ void testApp::touchMoved(ofTouchEventArgs & touch){
     
     if (distance <= 250) {
         
-        cube.pos += -10.0 + smoothing;
-        dia.pos += 10.0 + smoothing;
+        cube.pos += -10.0;
+        dia.pos += 10.0;
 
     }
     
     int distance2 = ofDist(cube.pos.x, cube.pos.y, cyl.pos.x, cyl.pos.y);
     
     if (distance2 <= 250) {
-        cube.pos += -10.0 + smoothing;
-        cyl.pos += 10.0 + smoothing;
+        cube.pos += -10.0;
+        cyl.pos += 10.0;
     }
     
     int distance3 = ofDist(cyl.pos.x, cyl.pos.y, dia.pos.x, dia.pos.y);
     
     if (distance3 <= 250) {
-        cyl.pos += -10.0 + smoothing;
-        dia.pos += 10.0 + smoothing;
+        cyl.pos += -10.0;
+        dia.pos += 10.0;
     }
 
     
