@@ -36,7 +36,8 @@ void Orbs::setup(int posX, int posY, float orbSize){
         sounds[i].setVolume(1.0);
     }
     
-    
+    sampleCycle = ofRandom(sounds.size());
+
 }
 
 //--------------------------------------------------------------
@@ -52,7 +53,6 @@ void Orbs::update(float noiseSpeed, float rotationSpeed){
     total += ofMap(ofxAccelerometer.getForce().x, 0.0, 1.0, -10, 600);
     pos.y = total + sendNoise;
     
-    
     triggerSounds = ofMap(sendNoise, 0, 300, 0.0, 1.0);
     triggerSounds = round(triggerSounds);
     //cout << "Accel: " << total << endl;
@@ -60,7 +60,6 @@ void Orbs::update(float noiseSpeed, float rotationSpeed){
     
     if (triggerSounds == 1 && !sounds[sampleCycle].getIsPlaying()) {
         
-        sampleCycle = ofRandom(sounds.size());
         sounds[sampleCycle].play();
         c = ofColor::whiteSmoke;
     } else {
@@ -74,6 +73,7 @@ void Orbs::update(float noiseSpeed, float rotationSpeed){
     
     // cout << "Orb Pos Y: " << sampleCycle << endl;
     
+
     
 }
 
@@ -146,6 +146,48 @@ void Orbs::randomizeColor() {
 //--------------------------------------------------------------
 void Orbs::exit(){
     
+}
+
+void Orbs::drawSlider() {
+    
+    ofPushMatrix();
+    ofTranslate(ofGetWidth() - 100, ofGetHeight() / 2);
+    ofRotateZ(90);
+    sliderUI(0, 0);
+    sliderUI(60, 125);
+    ofPopMatrix();
+}
+
+void Orbs::sliderUI(int rotate, int posX) {
+    
+    ofPushStyle(); {
+        
+        ofPushMatrix(); {
+            
+            ofTranslate(posSlider.x - posX, posSlider.y);
+            ofScale(1.50, 1.50);
+            ofRotateZ(rotate);
+            ofSetCircleResolution(3);
+            ofSetColor(ofColor::black);
+            ofFill();
+            ofCircle(0, 0, 75);
+            
+            ofSetCircleResolution(3);
+            ofSetLineWidth(1.0);
+            
+            ofSetColor(ofColor::aquamarine);
+            ofNoFill();
+            ofCircle(0, 0, ofMap(sine, -50, 50, 0, 50));
+            
+            ofCircle(0, 0, ofMap(sine, -50, 50, 0, 25));
+            
+        } ofPopMatrix();
+        
+        
+        
+    } ofPopStyle();
+    
+
 }
 
 //--------------------------------------------------------------

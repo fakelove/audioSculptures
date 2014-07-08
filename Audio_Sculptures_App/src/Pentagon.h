@@ -36,6 +36,9 @@ public:
     float alpha, alphaCounter;
     ofColor pentColor;
     
+    //new Slider
+    void sliderUI(int rotate, int posX);
+    float rotate, sine, pulseSpeed;
 };
 
 

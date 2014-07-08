@@ -247,8 +247,9 @@ void testApp::draw(){
 
     ////CYLINDER////
     if (randomSculpture1 == 9 || randomSculpture2 == 9 || randomSculpture3 == 9) {
-        
+    
         cyl.draw();
+        
     }
     
     
@@ -358,8 +359,8 @@ void testApp::touchDown(ofTouchEventArgs & touch){
         for (int i = 0; i < circles.size(); i++) {
             circles[i].touchTrigger(touch.x, touch.y);
                 
-            }
         }
+    }
         
       
     //cout << "Finger: " << touch.id << endl;

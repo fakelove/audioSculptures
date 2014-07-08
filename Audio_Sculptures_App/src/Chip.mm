@@ -146,7 +146,7 @@ void Chip::upTouch(int x, int y){
     
     int dist1 = ofDist(pos.x, pos.y, x, y);
     
-    if ( dist1 < size + 300 ) {
+    if ( dist1 < size + 100 ) {
         trigger = false;
         clicks.stop();
         clicks.setLoop(false);

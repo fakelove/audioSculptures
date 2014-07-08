@@ -23,7 +23,8 @@ void Cyl::setup(){
     texture.loadImage("tex/tex0.jpg");
     texture.getTextureReference().setTextureWrap( GL_REPEAT, GL_REPEAT );
     ofDisableArbTex(); // we need GL_TEXTURE_2D for our models coords.
-
+    
+    sendNoise = 255;
 }
 
 //--------------------------------------------------------------

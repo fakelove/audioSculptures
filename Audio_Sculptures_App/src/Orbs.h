@@ -34,7 +34,11 @@ public:
     int sampleCycle;
     float triggerSounds;
     
-
+    ///new Slider
+    void drawSlider();
+    void sliderUI(int rotate, int posX);
+    ofPoint posSlider;
+    float rotateSlider, sine, pulseSpeed;
 };
 
 

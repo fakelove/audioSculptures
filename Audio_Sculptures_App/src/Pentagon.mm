@@ -27,7 +27,7 @@ void Pentagon::setup(){
     sound.setLoop(true);
     sound.setVolume(0.0);
     objectOn = false;
-    sliderPos.set(100, ofGetHeight() - 150);
+    sliderPos.set(150, ofGetHeight() - 150);
     sliderSize = 40;
 }
 
@@ -53,6 +53,12 @@ void Pentagon::update(){
     //alphaCounter += 0.05f;
     //alpha = 200 * sin(alphaCounter);
     
+    //slider
+    rotate += 0.45f;
+    pulseSpeed += 0.10f;
+    sine = 50 * sin(pulseSpeed);
+    
+    
 }
 
 //--------------------------------------------------------------
@@ -66,14 +72,51 @@ void Pentagon::draw(){
     
 }
 
+
 void Pentagon::drawSlider() {
     
-    ofPushMatrix();
-    cirSlider();
-    ofSetColor(0);
-    //ofDrawBitmapString("Sound Sculpture Control", sliderPos.x + 50, sliderPos.y);
-    ofPopMatrix();
+    sliderUI(0, 0);
+    sliderUI(180, 75);
     
+}
+
+
+void Pentagon::sliderUI(int rotate, int posX) {
+    
+    //ofPushMatrix();
+    //cirSlider();
+    //ofSetColor(0);
+    //ofDrawBitmapString("Sound Sculpture Control", sliderPos.x + 50, sliderPos.y);
+    //ofPopMatrix();
+    
+    
+    ofPushStyle(); {
+        
+        ofPushMatrix(); {
+            
+            ofTranslate(sliderPos.x - posX, sliderPos.y);
+            ofScale(.75, .75);
+            ofRotateZ(rotate);
+            ofSetCircleResolution(3);
+            ofSetColor(ofColor::black);
+            ofFill();
+            ofCircle(0, 0, 75);
+            
+            ofSetCircleResolution(3);
+            ofSetLineWidth(1.0);
+            
+            ofSetColor(ofColor::aquamarine);
+            ofNoFill();
+            ofCircle(0, 0, ofMap(sine, -50, 50, 0, 50));
+            
+            ofCircle(0, 0, ofMap(sine, -50, 50, 0, 25));
+            
+        } ofPopMatrix();
+        
+        
+        
+    } ofPopStyle();
+
 }
 
 //--------------------------------------------------------------
@@ -117,7 +160,7 @@ void Pentagon::slide(int x, int y){
     
     int dist1 = ofDist(sliderPos.x, sliderPos.y, x, y);
     
-    if (dist1 < sliderSize + 10){
+    if (dist1 < sliderSize + 15){
         
         controlShape = ofMap(x, 0, ofGetWidth(), 0.0001, 0.07);
         sound.setSpeed(ofMap(x, 0, ofGetWidth(), 0.30, 1.0, true));
@@ -137,7 +180,7 @@ void Pentagon::cirSlider() {
         ofPushMatrix(); {
             
             ofSetCircleResolution(100);
-            ofTranslate(sliderPos.x, sliderPos.y);
+            ofTranslate(sliderPos.x - 50, sliderPos.y); //Change this to be center of slider
             ofSetColor(0, 0, 0, 150);
             ofNoFill();
             ofCircle(0, 0, sliderSize);

@@ -28,6 +28,10 @@ public:
     void randomizeColor();
     ofColor randomFill;
     int randomColor;
+    
+    //new Slider
+    void sliderUI(int rotate, int posX);
+    float rotate, sine, pulseSpeed;
 };
 
 
