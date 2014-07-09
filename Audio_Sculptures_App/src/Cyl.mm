@@ -16,7 +16,7 @@ void Cyl::setup(){
     
     sound.loadSound("sounds/cylSound.caf");
     trigger = false;
-    pos.set(ofGetWidth() / 2 , ofGetHeight() / 2 );
+    pos.set( ofGetWidth() / 2 , ofGetHeight() / 2 );
     sizeTrigger = 60;
     movementOn = false;
     
@@ -54,7 +54,7 @@ void Cyl::reloadTex(int changeTex) {
 
 //--------------------------------------------------------------
 void Cyl::draw(){
-    
+        
     ofPushStyle(); {
         
         ofPushMatrix(); {
@@ -78,15 +78,18 @@ void Cyl::draw(){
             ofTranslate(pos.x, pos.y);
             ofCircle(0, 0, sizeTrigger);
             
+            
         } ofPopMatrix();
         
     } ofPopStyle();
+        
     
     
 }
 
 //--------------------------------------------------------------
 void Cyl::cylinder(float iterate, int width, int height, float alpha, int outline){
+    
     
     ofSetCylinderResolution(4, 2);
     ofPushMatrix();

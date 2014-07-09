@@ -33,7 +33,7 @@ void testApp::setup(){
     
     Orbs tempOrbs;
     
-    for (int i = 0; i < orbAmt; i++) {
+    for (int i = 0; i < orbAmt; i++) {  
         orbs.push_back(tempOrbs);
     }
     
@@ -180,12 +180,12 @@ void testApp::draw(){
 
     if (randomSculpture1 == 2 || randomSculpture2 == 2 || randomSculpture3 == 2) {
         
-            pent.objectOn = true;
-            pent.draw();
+        pent.objectOn = true;
+        pent.draw();
         
     } else {
         
-            pent.objectOn = false;
+        pent.objectOn = false;
     
     }
     
@@ -197,7 +197,9 @@ void testApp::draw(){
             line.draw();
         
     } else {
+        
             line.volumeLevel = 0.0;
+    
     }
     
     ////CIRCLE CENTER////
@@ -247,11 +249,12 @@ void testApp::draw(){
 
     ////CYLINDER////
     if (randomSculpture1 == 9 || randomSculpture2 == 9 || randomSculpture3 == 9) {
-    
         cyl.draw();
         
+    } else {
+        
+        cyl.pos.set(-1, -1);
     }
-    
     
     
     ////SPHERES 3D////
@@ -283,7 +286,10 @@ void testApp::draw(){
     if (randomSculpture1 == 7 || randomSculpture2 == 7 || randomSculpture3 == 7) {
         rect.rectSlider();
     }
+
+
 }
+
 
 void testApp::randomButton() {
     
@@ -352,8 +358,7 @@ void testApp::touchDown(ofTouchEventArgs & touch){
     cyl.touchTrigger(touch.x, touch.y);
         
     }
-    
-    
+        
     if (randomSculpture1 == 1 || randomSculpture2 == 1 || randomSculpture3 == 1) {
         
         for (int i = 0; i < circles.size(); i++) {
@@ -486,7 +491,7 @@ void testApp::touchUp(ofTouchEventArgs & touch){
         
     cube.pos.set(ofGetWidth() / 2 - 200, ofGetHeight() / 2);
     dia.pos.set(ofGetWidth() / 2 + 250, ofGetHeight() / 2 + 100);
-    cyl.pos.set(ofGetWidth() / 2 , ofGetHeight() / 2);
+    cyl.pos.set(ofGetWidth() / 2, ofGetHeight() / 2);
 
         
     /*cout << "Sculpture 1: " << randomSculpture1 << endl;
@@ -500,40 +505,6 @@ void testApp::touchUp(ofTouchEventArgs & touch){
     mg.changeBackground(randomBackground);
     fg.changeBackground(randomBackground);
         
-        if (randomBackground == 0) {
-            buttonColor = ofColor::black;
-            pent.pentColor = ofColor::black;
-            cube.outerCube = ofColor::black;
-            dia.outerDiaColor = ofColor::black;
-            cyl.outerCyl = ofColor::black;
-            for (int i = 0; i < circles.size(); i++) {
-                circles[i].outSideColor = ofColor::black;
-            }
-            
-        }  else if (randomBackground == 1) {
-            buttonColor = ofColor::black;
-            pent.pentColor = ofColor::black;
-            cube.outerCube = ofColor::black;
-            dia.outerDiaColor = ofColor::black;
-            cyl.outerCyl = ofColor::black;
-            for (int i = 0; i < circles.size(); i++) {
-                circles[i].outSideColor = ofColor::black;
-            }
-            
-        } else if (randomBackground == 2) {
-                buttonColor = ofColor::lightPink;
-                pent.pentColor = ofColor::white;
-                cube.outerCube = ofColor::white;
-                dia.outerDiaColor = ofColor::white;
-                cyl.outerCyl = ofColor::white;
-            for (int i = 0; i < circles.size(); i++) {
-                circles[i].outSideColor = ofColor::white;
-            }
-                
-        }
-        
-
-        
     //TEXTURE CYCLES//
     
     cube.reloadTex(ofRandom(2));
@@ -541,6 +512,40 @@ void testApp::touchUp(ofTouchEventArgs & touch){
     
     }
     
+    if (randomBackground == 0) {
+        buttonColor = ofColor::black;
+        pent.pentColor = ofColor::black;
+        cube.outerCube = ofColor::black;
+        dia.outerDiaColor = ofColor::black;
+        cyl.outerCyl = ofColor::black;
+        for (int i = 0; i < circles.size(); i++) {
+            circles[i].outSideColor = ofColor::black;
+        }
+        
+    }  else if (randomBackground == 1) {
+        buttonColor = ofColor::black;
+        pent.pentColor = ofColor::black;
+        cube.outerCube = ofColor::black;
+        dia.outerDiaColor = ofColor::black;
+        cyl.outerCyl = ofColor::black;
+        for (int i = 0; i < circles.size(); i++) {
+            circles[i].outSideColor = ofColor::black;
+        }
+        
+    } else if (randomBackground == 2) {
+        buttonColor = ofColor::lightPink;
+        pent.pentColor = ofColor::white;
+        cube.outerCube = ofColor::white;
+        dia.outerDiaColor = ofColor::white;
+        cyl.outerCyl = ofColor::white;
+        for (int i = 0; i < circles.size(); i++) {
+            circles[i].outSideColor = ofColor::white;
+        }
+        
+    }
+    
+    
+
     /// If you hold the "Chip" object it loops if touchUp then off
     if (randomSculpture1 == 8 || randomSculpture2 == 8 || randomSculpture3 == 8) {
         
