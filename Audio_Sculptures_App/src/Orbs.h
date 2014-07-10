@@ -16,10 +16,8 @@ public:
     void draw();
     void exit();
     void randomizePosition(int posX, int posY);
-    void touchDown(ofTouchEventArgs & touch);
-    void touchUp(ofTouchEventArgs & touch);
-    void touchDoubleTap(ofTouchEventArgs & touch);
-    void touchCancelled(ofTouchEventArgs & touch);
+    void moveOrbs(int x, int y);
+   
     
     ofxAssimpModelLoader model;
     ofPoint pos;

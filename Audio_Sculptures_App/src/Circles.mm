@@ -30,7 +30,7 @@ void Circles::setup(int posX, int posY, float setSize) {
     }
     
     //button to trigger action
-    buttonSize = 25;
+    buttonSize = 40;
     
     outSideColor = ofColor::black;
 }
@@ -53,10 +53,10 @@ void Circles::draw(){
     
     ofPushStyle(); {
         
-    ofEnableDepthTest(); //important to begin and end
-
+    //ofEnableDepthTest(); //important to begin and end
+    //ofEnableAlphaBlending();
     //Outside Orb
-    ofSetColor(outSideColor, 75);
+    ofSetColor(outSideColor, 150);
     ofPushMatrix(); {
     
     ofTranslate(fingerPos.x, fingerPos.y + sine);
@@ -77,7 +77,8 @@ void Circles::draw(){
     
         } ofPopMatrix();
 
-    ofDisableDepthTest();
+    //ofDisableAlphaBlending();
+    //ofDisableDepthTest();
 
     } ofPopStyle();
 

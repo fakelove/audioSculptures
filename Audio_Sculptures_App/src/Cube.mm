@@ -82,7 +82,7 @@ void Cube::draw(){
                 
                 ofEnableNormalizedTexCoords();
                 ofTranslate(pos.x, pos.y);
-                ofScale(4.5, 4.5);
+                ofScale(6.0, 6.0);
                 ofRotateY(rotate);
                 ofRotateX(rotate);
                 

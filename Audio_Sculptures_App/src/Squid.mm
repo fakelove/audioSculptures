@@ -43,16 +43,17 @@ void Squid::draw(){
     
     sound.setVolume(trackVolume);
     
-    for (int i = 0; i < 700; i += 5) {
+    for (int i = 0; i < 500; i += 3) {
         
         ofPushStyle(); {
             
             ofPushMatrix(); {
                 
-                ofSetLineWidth(1.0);
+                ofSetLineWidth(.75);
                 ofSetColor(randomFill, ofMap(i, 0, 500, 200, 75));
                 ofNoFill();
                 ofTranslate(ofGetWidth() / 2, ofGetHeight() / 2);
+                ofScale(2.0, 2.0);
                 ofRotateX( i + squidPos.y );
                 ofRotateY( rotate + i );
                 ofRotateZ( rotate  + cos(i) );

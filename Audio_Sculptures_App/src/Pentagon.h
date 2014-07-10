@@ -26,7 +26,7 @@ public:
     void cirSlider();
     
     ofEasyCam cam;
-    float rotateShape;
+    float rotateShape, controlRotate;
     float scaleParaX, scaleParaY, controlVolume, volumeNoise;
     float controlShape;
     ofSoundPlayer sound;

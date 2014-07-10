@@ -51,6 +51,7 @@ void Chip::update(){
         noise4 = 30;
     }
     
+    clicks.setVolume(volumeLevel);
 }
 
 //--------------------------------------------------------------
@@ -71,7 +72,7 @@ void Chip::randomRes() {
     
     if (randomNumber == 0) {
         randomCircleRes = 100;
-        shapeSize = 0;
+        shapeSize = 20;
     } else if (randomNumber == 1) {
         randomCircleRes = 6;
         shapeSize = 20;

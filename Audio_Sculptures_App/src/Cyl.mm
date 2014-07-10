@@ -94,7 +94,7 @@ void Cyl::cylinder(float iterate, int width, int height, float alpha, int outlin
     ofSetCylinderResolution(4, 2);
     ofPushMatrix();
     ofTranslate( pos.x, pos.y );
-    ofScale(5.0, 5.0);
+    ofScale(7.0, 7.0);
     ofRotateY(rotate + iterate * PI );
     ofRotateX(rotate * PI);
     ofSetColor(randomFill, alpha);

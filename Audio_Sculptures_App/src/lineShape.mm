@@ -46,7 +46,7 @@ void lineShape::draw(){
     cam.setDistance(0.0);
     
     cam.begin();
-    for (int i = 0; i < 200; i += 2 ) {
+    for (int i = 0; i < 250; i ++ ) {
         drawLine(i, 0, rotateShape + i, ofMap(i, 0, 200, 75, 175));
     }
     cam.end();

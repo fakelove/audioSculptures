@@ -31,7 +31,7 @@ void background::draw(){
         ofPushMatrix(); {
         
     ofSetColor(255);
-    ofTranslate(ofGetWidth() / 2 + pos.x, ofGetHeight() / 2, pos.z);
+    ofTranslate(ofGetWidth() / 2 + pos.x, ofGetHeight() / 2 + pos.y, pos.z);
     ofScale(0.75, 0.75);
     texture[counter].draw(0, 0);
             

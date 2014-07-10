@@ -7,10 +7,8 @@ void testApp::setup(){
     ofSetOrientation(OF_ORIENTATION_90_RIGHT);
     ofBackground(255);
     ofEnableSmoothing();
-    ofSetFrameRate(60);
     ofSetRectMode(OF_RECTMODE_CENTER);
     ofxAccelerometer.setup();
-    ofxAccelerometer.setForceSmoothing(25);
     
     pent.setup();
     line.setup();
@@ -131,10 +129,23 @@ void testApp::update(){
     alphaSine += 0.08f;
     alpha = 255 * sin(alphaSine);
     
-    bg.pos.z = ofMap(ofxAccelerometer.getForce().y, 0.0, .25, 10, -10, true);
-    fg.pos.x = ofMap(ofxAccelerometer.getForce().y, 0.0, .25, -100, 100, true);
-    mg.pos.x = ofMap(ofxAccelerometer.getForce().y, 0.0, .25, -50, 50, true);
+    ofPushStyle(); {
+        
+    ofxAccelerometer.setForceSmoothing(0.65);
     
+    //cout << ofxAccelerometer.getForce().y << endl;
+    //Parralax Horizontal
+    
+    bg.pos.x = ofMap(ofxAccelerometer.getForce().y, -1.0, 1.0, -40, 40, true);
+    fg.pos.x = ofMap(ofxAccelerometer.getForce().y, -1.0, 1.0, -150, 150, true);
+    mg.pos.x = ofMap(ofxAccelerometer.getForce().y, -1.0, 1.0, -50, 50, true);
+
+    //Parralax Vertical
+    bg.pos.y = ofMap(ofxAccelerometer.getForce().x, -1.0, 1.0, -10, 10, true);
+    fg.pos.y = ofMap(ofxAccelerometer.getForce().x, -1.0, 1.0, -45, 105);
+    mg.pos.y = ofMap(ofxAccelerometer.getForce().x, -1.0, 1.0, -20, 20, true);
+    
+    } ofPopStyle();
     
     rotateButton += 0.45f;
     pulseSpeedButton += 0.15f;
@@ -206,6 +217,11 @@ void testApp::draw(){
     if (randomSculpture1 == 8 || randomSculpture2 == 8 || randomSculpture3 == 8) {
         
         chip.draw();
+        chip.volumeLevel = 1.0;
+
+    } else {
+        
+        chip.volumeLevel = 0.0;
     }
     
     /// MIDDLEGROUND ///
@@ -413,14 +429,22 @@ void testApp::touchMoved(ofTouchEventArgs & touch){
     cube.moveCube(touch.x, touch.y);
     
     }
+    
+    if (randomSculpture1 == 10 || randomSculpture2 == 10 || randomSculpture3 == 10) {
+        
+        for (int i = 0; i < orbs.size(); i++) {
+            orbs[i].moveOrbs(touch.x, touch.y);
+        }
+    }
 
     ///BACKGROUND MOVEMENT
     
     if (cube.movementOn == true || cyl.movementOn == true || dia.movementOn == true) {
         
-        bg.pos.z = ofMap(touch.x, 0, ofGetWidth(), 10, -10);
+        bg.pos.x = ofMap(touch.x, 0, ofGetWidth(), -10, 10);
         fg.pos.x = ofMap(touch.x, 0, ofGetWidth(), -100, 100);
         mg.pos.x = ofMap(touch.x, 0, ofGetWidth(), -50, 50);
+        
         
     }
     
@@ -429,23 +453,23 @@ void testApp::touchMoved(ofTouchEventArgs & touch){
     
     if (distance <= 250) {
         
-        cube.pos += -10.0;
-        dia.pos += 10.0;
+        cube.pos += -15.0;
+        dia.pos += 15.0;
 
     }
     
     int distance2 = ofDist(cube.pos.x, cube.pos.y, cyl.pos.x, cyl.pos.y);
     
     if (distance2 <= 250) {
-        cube.pos += -10.0;
-        cyl.pos += 10.0;
+        cube.pos += -15.0;
+        cyl.pos += 15.0;
     }
     
     int distance3 = ofDist(cyl.pos.x, cyl.pos.y, dia.pos.x, dia.pos.y);
     
     if (distance3 <= 250) {
-        cyl.pos += -10.0;
-        dia.pos += 10.0;
+        cyl.pos += -15.0;
+        dia.pos += 15.0;
     }
 
     

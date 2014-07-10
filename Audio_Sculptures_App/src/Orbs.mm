@@ -23,7 +23,6 @@ void Orbs::setup(int posX, int posY, float orbSize){
     size = orbSize;
     
     ofxAccelerometer.setup();
-    ofxAccelerometer.setForceSmoothing(200);
     
     int fileAmt = 5;
     
@@ -53,18 +52,18 @@ void Orbs::update(float noiseSpeed, float rotationSpeed){
     total += ofMap(ofxAccelerometer.getForce().x, 0.0, 1.0, -10, 600);
     pos.y = total + sendNoise;
     
-    triggerSounds = ofMap(sendNoise, 0, 300, 0.0, 1.0);
-    triggerSounds = round(triggerSounds);
+    //triggerSounds = ofMap(sendNoise, 0, 300, 0.0, 1.0);
+    //triggerSounds = round(triggerSounds);
     //cout << "Accel: " << total << endl;
     
     
-    if (triggerSounds == 1 && !sounds[sampleCycle].getIsPlaying()) {
+    /*if (triggerSounds == 1 && !sounds[sampleCycle].getIsPlaying()) {
         
         sounds[sampleCycle].play();
         c = ofColor::whiteSmoke;
     } else {
         c = ofColor::teal;
-    }
+    }*/
     
     for (int i = 0; i < sounds.size(); i++) {
         sounds[i].setVolume(ofMap(ofxAccelerometer.getForce().x, 0.0, 1.0, 1.0, 0.10, true));
@@ -81,7 +80,8 @@ void Orbs::update(float noiseSpeed, float rotationSpeed){
 void Orbs::draw(){
     
     ofPushStyle(); {
-        
+        ofxAccelerometer.setForceSmoothing(1.0);
+
         ofEnableDepthTest();
         //Outside Orb
         ofSetColor(c, 75);
@@ -96,7 +96,7 @@ void Orbs::draw(){
             
         } ofPopMatrix();
         
-        //Inside Orb
+        /*//Inside Orb
         ofSetColor(0, 0, 0, sendNoise);
         ofPushMatrix(); {
             ofTranslate(pos);
@@ -107,7 +107,7 @@ void Orbs::draw(){
             model.drawFaces();
             
         } ofPopMatrix();
-        
+        */
         ofDisableDepthTest();
         
     } ofPopStyle();
@@ -190,24 +190,17 @@ void Orbs::sliderUI(int rotate, int posX) {
 
 }
 
-//--------------------------------------------------------------
-void Orbs::touchDown(ofTouchEventArgs & touch){
-    
-}
+void Orbs::moveOrbs(int x, int y) {
 
-
-//--------------------------------------------------------------
-void Orbs::touchUp(ofTouchEventArgs & touch){
+    int dist = ofDist(x, y, pos.x, pos.y);
     
-}
-
-//--------------------------------------------------------------
-void Orbs::touchDoubleTap(ofTouchEventArgs & touch){
+    if (dist < 30 && sounds[sampleCycle].getPositionMS() < 1000) {
+            sounds[sampleCycle].play();
+            c = ofColor::whiteSmoke;
+        } else {
+            c = ofColor::teal;
+    }
     
-}
-
-//--------------------------------------------------------------
-void Orbs::touchCancelled(ofTouchEventArgs & touch){
-    
+    cout << sounds[sampleCycle].getPositionMS() << endl;
 }
 

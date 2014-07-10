@@ -21,7 +21,7 @@ public:
     
     void exit();
     
-    
+    float volumeLevel;
     float noise1, noise2, noise3, noise4;
     float speed1, speed2, speed3, speed4;
     float rotate, sine;

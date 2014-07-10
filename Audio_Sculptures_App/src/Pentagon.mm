@@ -6,7 +6,6 @@
 //
 //
 
-#include "Pentagon.h"
 
 #include "Pentagon.h"
 
@@ -29,12 +28,13 @@ void Pentagon::setup(){
     objectOn = false;
     sliderPos.set(150, ofGetHeight() - 150);
     sliderSize = 40;
+    controlRotate = 0.0f;
 }
 
 //--------------------------------------------------------------
 void Pentagon::update(){
     
-    rotateShape += 0.50f;
+    rotateShape += controlRotate;
     
     scaleParaX = varyNoisePent(10.0, controlShape - 0.01);
     scaleParaY = varyNoisePent(5.0, controlShape);
@@ -58,7 +58,9 @@ void Pentagon::update(){
     pulseSpeed += 0.10f;
     sine = 50 * sin(pulseSpeed);
     
-    
+    if (controlRotate < 0.05f) {
+        controlRotate = 0.0;
+    }
 }
 
 //--------------------------------------------------------------
@@ -160,17 +162,20 @@ void Pentagon::slide(int x, int y){
     
     int dist1 = ofDist(sliderPos.x, sliderPos.y, x, y);
     
-    if (dist1 < sliderSize + 15){
+    if (dist1 < sliderSize + 25){
         
-        controlShape = ofMap(x, 0, ofGetWidth(), 0.0001, 0.07);
-        sound.setSpeed(ofMap(x, 0, ofGetWidth(), 0.30, 1.0, true));
-        controlVolume = ofMap(x, 0, ofGetWidth(), 0.01, .10);
+        controlShape = ofMap(x, 0, ofGetWidth(), 0.0001, 0.10);
+        sound.setSpeed(ofMap(x, 0, ofGetWidth(), 0.10, 1.0, true));
+        controlVolume = ofMap(x, 0, ofGetWidth(), 0.01, .20);
+        controlRotate = ofMap(x, 100, ofGetWidth(), 0.01f, 2.0f);
+        //cout << "Rotate: " << controlRotate << endl;
         
         //slide control
         sliderPos.x = x;
         
         alpha = ofMap(x, 0.0, ofGetWidth() - 100, 0.0, 255);
     }
+    
 }
 
 void Pentagon::cirSlider() {
@@ -181,7 +186,7 @@ void Pentagon::cirSlider() {
             
             ofSetCircleResolution(100);
             ofTranslate(sliderPos.x - 50, sliderPos.y); //Change this to be center of slider
-            ofSetColor(0, 0, 0, 150);
+            ofSetColor(0, 0, 0, 50);
             ofNoFill();
             ofCircle(0, 0, sliderSize);
             ofSetColor(0, 0, 0, alpha);
@@ -197,6 +202,7 @@ void Pentagon::cirSlider() {
     ofTranslate(sliderPos.x - 20, sliderPos.y);
     ofDrawBitmapString("Slide", 0, 0);
     ofPopMatrix();
+    
     
 }
 

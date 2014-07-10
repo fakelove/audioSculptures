@@ -80,12 +80,15 @@ void Diamond::sphere(){
             
             ofSetSphereResolution(3);
             ofTranslate(pos.x, pos.y + sine);
-            ofScale(2.75, 2.75);
+            ofScale(3.75, 3.75);
             ofRotateX(rotate);
             ofRotateY(rotate);
             //small shape
             ofSetColor(randomFill, 100);
             ofFill();
+            ofDrawSphere(sendNoise);
+            ofSetColor(ofColor::whiteSmoke, 100);
+            ofNoFill();
             ofDrawSphere(sendNoise);
             //big shape
             ofSetColor(outerDiaColor, 100);
