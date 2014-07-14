@@ -13,9 +13,9 @@ Orbs::~Orbs() {
 void Orbs::setup(int posX, int posY, float orbSize){
     
     ofDisableArbTex(); // we need GL_TEXTURE_2D for our models coords.
-    pos.set(posX, posY, 0);
     model.loadModel("orb2.dae");
     //model.setPosition(pos.x, pos.y, pos.z);
+    pos.set(posX, posY, 0);
     rotate = 0;
     
     c = ofColor::teal;
@@ -82,7 +82,7 @@ void Orbs::draw(){
     ofPushStyle(); {
         ofxAccelerometer.setForceSmoothing(1.0);
 
-        ofEnableDepthTest();
+        //ofEnableDepthTest();
         //Outside Orb
         ofSetColor(c, 75);
         
@@ -108,7 +108,7 @@ void Orbs::draw(){
             
         } ofPopMatrix();
         */
-        ofDisableDepthTest();
+        //ofDisableDepthTest();
         
     } ofPopStyle();
     
@@ -194,13 +194,13 @@ void Orbs::moveOrbs(int x, int y) {
 
     int dist = ofDist(x, y, pos.x, pos.y);
     
-    if (dist < 30 && sounds[sampleCycle].getPositionMS() < 1000) {
+    if (dist < 80 && sounds[sampleCycle].getPositionMS() < 250) {
             sounds[sampleCycle].play();
             c = ofColor::whiteSmoke;
         } else {
             c = ofColor::teal;
     }
     
-    cout << sounds[sampleCycle].getPositionMS() << endl;
+    //cout << sounds[sampleCycle].getPositionMS() << endl;
 }
 

@@ -20,8 +20,9 @@ void Arp::setup(){
     sound.setLoop(true);
     speed = 10.0;
     sound.setVolume(trackVolume);
-    sliderPos.set(150, ofGetHeight() - 50);
+    sliderPos.set(150, ofGetHeight() - 75);
     sliderSize = 50;
+    
 }
 
 //--------------------------------------------------------------
@@ -133,7 +134,10 @@ void Arp::rectSlider() {
 
 
 void Arp::sliderUI(int rotate, int posX) {
-        
+    
+    ofColor buttonAniColor;
+    buttonAniColor.set(135,135,165);
+    
     ofPushStyle(); {
         
         ofPushMatrix(); {
@@ -149,7 +153,7 @@ void Arp::sliderUI(int rotate, int posX) {
             ofSetCircleResolution(3);
             ofSetLineWidth(1.0);
             
-            ofSetColor(ofColor::aquamarine);
+            ofSetColor(buttonAniColor);
             ofNoFill();
             ofCircle(0, 0, ofMap(sine, -50, 50, 0, 50));
             

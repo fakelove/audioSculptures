@@ -26,7 +26,7 @@ void Pentagon::setup(){
     sound.setLoop(true);
     sound.setVolume(0.0);
     objectOn = false;
-    sliderPos.set(150, ofGetHeight() - 150);
+    sliderPos.set(150, ofGetHeight() - 175);
     sliderSize = 40;
     controlRotate = 0.0f;
 }
@@ -91,6 +91,8 @@ void Pentagon::sliderUI(int rotate, int posX) {
     //ofDrawBitmapString("Sound Sculpture Control", sliderPos.x + 50, sliderPos.y);
     //ofPopMatrix();
     
+    ofColor buttonAniColor;
+    buttonAniColor.set(135,135,165);
     
     ofPushStyle(); {
         
@@ -107,7 +109,7 @@ void Pentagon::sliderUI(int rotate, int posX) {
             ofSetCircleResolution(3);
             ofSetLineWidth(1.0);
             
-            ofSetColor(ofColor::aquamarine);
+            ofSetColor(buttonAniColor);
             ofNoFill();
             ofCircle(0, 0, ofMap(sine, -50, 50, 0, 50));
             

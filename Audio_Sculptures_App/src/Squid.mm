@@ -24,6 +24,8 @@ void Squid::setup(){
     sound.setLoop(true);
     sound.setVolume(trackVolume);
     squidPos.set(0, 0);
+    squidSize = 2.0;
+    
 }
 
 //--------------------------------------------------------------
@@ -34,6 +36,7 @@ void Squid::update(){
     
     noise = 1000 * ofNoise(speedNoise);
     sound.setVolume(trackVolume);
+
     
 }
 
@@ -41,24 +44,22 @@ void Squid::update(){
 //--------------------------------------------------------------
 void Squid::draw(){
     
-    sound.setVolume(trackVolume);
     
-    for (int i = 0; i < 500; i += 3) {
+    for ( int i = 0; i < 250; i++ ) {
         
         ofPushStyle(); {
             
             ofPushMatrix(); {
-                
                 ofSetLineWidth(.75);
-                ofSetColor(randomFill, ofMap(i, 0, 500, 200, 75));
+                ofSetColor(randomFill, ofMap(i, 0, 250, 150, 75));
                 ofNoFill();
                 ofTranslate(ofGetWidth() / 2, ofGetHeight() / 2);
-                ofScale(2.0, 2.0);
+                ofScale(squidSize, squidSize);
                 ofRotateX( i + squidPos.y );
                 ofRotateY( rotate + i );
-                ofRotateZ( rotate  + cos(i) );
-                ofScale(0.50, 0.50);
-                ofCurve(point1.x + i + noise, point1.y + i + noise, point2.x + i, point2.y + i, point3.x + i, point3.y + i, point4.x, point4.y);
+                ofRotateZ( rotate  + PI * i );
+                ofScale(.50, .50);
+                ofCurve(point1.x + i + noise * 10, point1.y + i + noise * 10, point2.x + i, point2.y + i, point3.x + i, point3.y + i, point4.x * 10, point4.y * 10);
                 
             } ofPopMatrix();
             
@@ -73,9 +74,11 @@ void Squid::draw(){
 //--------------------------------------------------------------
 void Squid::slide(int x, int y){
     
-    sound.setPan(ofMap(y, 0, ofGetWidth(), 1.0, -1.0, true));
+    sound.setPan(ofMap(y, 0, ofGetWidth(), -1.0, 1.0, true));
     squidPos.x = x;
     squidPos.y = y;
+    squidSize = ofMap(x, 0, ofGetHeight(), .25, 3.0, true);
+    
     
 }
 

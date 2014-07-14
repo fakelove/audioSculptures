@@ -46,6 +46,7 @@ void testApp::setup(){
     
     for (int i = 0; i < ofGetWidth(); i ++) {
         for (int j = 0; j < ofGetHeight(); j ++) {
+            
             cirPosX = i;
             cirPosY = j;
         }
@@ -131,7 +132,7 @@ void testApp::update(){
     
     ofPushStyle(); {
         
-    ofxAccelerometer.setForceSmoothing(0.65);
+    ofxAccelerometer.setForceSmoothing(0.95);
     
     //cout << ofxAccelerometer.getForce().y << endl;
     //Parralax Horizontal
@@ -309,6 +310,8 @@ void testApp::draw(){
 
 void testApp::randomButton() {
     
+    ofColor buttonAniColor;
+    buttonAniColor.set(135,135,165);
     
     ofPushStyle(); {
         
@@ -326,7 +329,7 @@ void testApp::randomButton() {
             ofSetCircleResolution(100);
             ofSetLineWidth(1.0);
             
-            ofSetColor(ofColor::aquamarine);
+            ofSetColor(buttonAniColor);
             ofNoFill();
             ofCircle(0, 0, sineButton);
             
@@ -382,8 +385,15 @@ void testApp::touchDown(ofTouchEventArgs & touch){
                 
         }
     }
+    
+    if (randomSculpture1 == 10 || randomSculpture2 == 10 || randomSculpture3 == 10) {
         
-      
+        for (int i = 0; i < orbs.size(); i++) {
+            orbs[i].moveOrbs(touch.x, touch.y);
+        }
+    }
+
+    
     //cout << "Finger: " << touch.id << endl;
 
 }
