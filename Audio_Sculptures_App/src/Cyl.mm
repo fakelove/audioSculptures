@@ -1,6 +1,9 @@
 
 #include "Cyl.h"
 
+const float myPI = 3.14159265358979;
+
+
 Cyl::Cyl() {
     
 }
@@ -25,6 +28,8 @@ void Cyl::setup(){
     ofDisableArbTex(); // we need GL_TEXTURE_2D for our models coords.
     
     sendNoise = 255;
+    
+    
 }
 
 //--------------------------------------------------------------
@@ -42,6 +47,7 @@ void Cyl::update(){
         sendNoise = 255;
     }
     
+   
 }
 
 void Cyl::reloadTex(int changeTex) {
@@ -95,8 +101,8 @@ void Cyl::cylinder(float iterate, int width, int height, float alpha, int outlin
     ofPushMatrix();
     ofTranslate( pos.x, pos.y );
     ofScale(7.0, 7.0);
-    ofRotateY(rotate + iterate * PI );
-    ofRotateX(rotate * PI);
+    ofRotateY(rotate + iterate * myPI );
+    ofRotateX(rotate * myPI);
     ofSetColor(randomFill, alpha);
     ofFill();
     ofDrawCylinder(0, 0, width, height);
@@ -119,8 +125,10 @@ void Cyl::touchTrigger(int x, int y){
     if ( dist1 < sizeTrigger ) {
         trigger = true;
         sound.play();
+        
     }
 }
+
 
 void Cyl::moveCyl(int x, int y) {
     
@@ -130,6 +138,7 @@ void Cyl::moveCyl(int x, int y) {
         pos.x = x;
         pos.y = y;
         movementOn = true;
+        
         
     } else {
         
@@ -159,4 +168,5 @@ void Cyl::randomizeColor() {
             break;
     }
 }
+
 

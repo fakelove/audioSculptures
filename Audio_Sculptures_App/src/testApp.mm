@@ -8,6 +8,8 @@ void testApp::setup(){
     ofBackground(255);
     ofEnableSmoothing();
     ofSetRectMode(OF_RECTMODE_CENTER);
+    ofSoundStreamSetup(2, 0);
+
     ofxAccelerometer.setup();
     
     pent.setup();
@@ -69,7 +71,7 @@ void testApp::setup(){
 
     //Random button
     randomPos.set(75, 75);
-    sizeRandom = 30;
+    sizeRandom = 50;
     buttonColor = ofColor::black;
     
     /// END FLOATING CIRCLES ///
@@ -139,12 +141,12 @@ void testApp::update(){
     
     bg.pos.x = ofMap(ofxAccelerometer.getForce().y, -1.0, 1.0, -40, 40, true);
     fg.pos.x = ofMap(ofxAccelerometer.getForce().y, -1.0, 1.0, -150, 150, true);
-    mg.pos.x = ofMap(ofxAccelerometer.getForce().y, -1.0, 1.0, -50, 50, true);
+    mg.pos.x = ofMap(ofxAccelerometer.getForce().y, -1.0, 1.0, -75, 75, true);
 
     //Parralax Vertical
     bg.pos.y = ofMap(ofxAccelerometer.getForce().x, -1.0, 1.0, -10, 10, true);
     fg.pos.y = ofMap(ofxAccelerometer.getForce().x, -1.0, 1.0, -45, 105);
-    mg.pos.y = ofMap(ofxAccelerometer.getForce().x, -1.0, 1.0, -20, 20, true);
+    mg.pos.y = ofMap(ofxAccelerometer.getForce().x, -1.0, 1.0, -40, 40, true);
     
     } ofPopStyle();
     
@@ -247,10 +249,11 @@ void testApp::draw(){
     /////SQUIGGLE LINES/////
 
     if (randomSculpture1 == 5 || randomSculpture2 == 5 || randomSculpture3 == 5) {
-            squid.trackVolume = 1.0;
             squid.draw();
+            squid.audioOn = true;
     } else {
             squid.trackVolume = 0.0;
+            squid.audioOn = false;
     }
     
   
@@ -307,6 +310,14 @@ void testApp::draw(){
 
 }
 
+void testApp::audioOut(float *output,int bufferSize,int nChannels) {
+    
+    squid.audioOut(output, bufferSize, nChannels);
+    
+}
+
+
+
 
 void testApp::randomButton() {
     
@@ -334,7 +345,7 @@ void testApp::randomButton() {
             ofCircle(0, 0, sineButton);
             
             ofSetCircleResolution(100);
-            ofSetColor(0, 0, 0, 20);
+            ofSetColor(0, 0, 0, 0);
             ofNoFill();
             ofCircle(0, 0, sizeRandom);
             
@@ -392,6 +403,12 @@ void testApp::touchDown(ofTouchEventArgs & touch){
             orbs[i].moveOrbs(touch.x, touch.y);
         }
     }
+    
+    if (randomSculpture1 == 5 || randomSculpture2 == 5 || randomSculpture3 == 5) {
+        
+        squid.downTouch(touch.x, touch.y);
+    }
+    
 
     
     //cout << "Finger: " << touch.id << endl;
@@ -446,6 +463,7 @@ void testApp::touchMoved(ofTouchEventArgs & touch){
             orbs[i].moveOrbs(touch.x, touch.y);
         }
     }
+    
 
     ///BACKGROUND MOVEMENT
     
@@ -594,6 +612,10 @@ void testApp::touchUp(ofTouchEventArgs & touch){
     if (randomSculpture1 == 4 || randomSculpture2 == 4 || randomSculpture3 == 4) {
         
         cube.upTouch(touch.x, touch.y);
+    }
+    if (randomSculpture1 == 5 || randomSculpture2 == 5 || randomSculpture3 == 5) {
+        
+        squid.upTouch(touch.x, touch.y);
     }
    
     

@@ -37,6 +37,9 @@ public:
     void sliderUI(int rotate, int posX);
     ofPoint posSlider;
     float rotateSlider, sine, pulseSpeed;
+    
+    void touchTrigger(int x, int y);
+    int buttonSize;
 };
 
 

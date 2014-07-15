@@ -9,6 +9,8 @@
 
 #include "Pentagon.h"
 
+const float myPI = 3.14159265358979;
+
 Pentagon::Pentagon() {
     
     
@@ -69,7 +71,7 @@ void Pentagon::draw(){
     objectOn = true;
     
     for (int i = 0; i < 250; i += 5) {
-        shape(ofGetWidth() / 2, ofGetHeight() / 2, 25, i * PI / 2 + 50);
+        shape(ofGetWidth() / 2, ofGetHeight() / 2, 25, i * myPI / 2 + 50);
     }
     
 }
@@ -136,7 +138,7 @@ void Pentagon::shape(int x, int y, int size, float alpha) {
     {
         ofSetCircleResolution(5);
         ofTranslate(x, y);
-        ofRotateY(rotateShape * PI);
+        ofRotateY(rotateShape * myPI);
         ofRotateX(alpha + 50);
         ofRotateZ(rotateShape + alpha);
         ofScale(scaleParaX + 4.0, scaleParaY + 4.0);

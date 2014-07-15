@@ -97,7 +97,9 @@ class testApp : public ofxiOSApp{
     int sizeRandom;
     float alpha, alphaSine, counter;
     
-    
+    ///STK
+    void audioOut(float *output,int bufferSize,int nChannels);
+
 };
 
 

@@ -1,6 +1,8 @@
 
 #include "Diamond.h"
 
+
+
 Diamond::Diamond() {
     
 }

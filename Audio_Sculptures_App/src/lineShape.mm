@@ -1,6 +1,8 @@
 
 #include "lineShape.h"
 
+const float myPI = 3.14159265358979;
+
 lineShape::lineShape() {
 
 }
@@ -19,7 +21,6 @@ void lineShape::setup(){
     pad.setVolume(volumeLevel);
     pos.set(0, 0);
     sineSpeed = 0.25f;
-    
 }
 
 //--------------------------------------------------------------
@@ -59,7 +60,7 @@ void lineShape::drawLine(float x, float y, float rotate, int opacity){
         ofPushMatrix(); {
         
     ofSetColor(randomFill, opacity);
-    ofRotateX(rotate * sin(PI / 2));
+    ofRotateX(rotate * sin(myPI / 2));
     ofRotateY(x + rotate);
     ofScale(.10, .10);
     ofTranslate(ofGetWidth() / 2, ofGetHeight() / 2);

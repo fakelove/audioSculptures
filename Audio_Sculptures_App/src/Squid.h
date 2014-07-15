@@ -3,6 +3,7 @@
 #include "ofMain.h"
 #include "ofxiOS.h"
 #include "ofxiOSExtras.h"
+#include "ofxStk.h"
 
 class Squid {
 	
@@ -21,13 +22,23 @@ public:
     float rotate, noise, speedNoise;
     ofSoundPlayer sound;
     ofPoint squidPos;
-    float trackVolume;
+    float trackVolume, trackPitch;
     float squidSize;
     
     //random color
     void randomizeColor();
     ofColor randomFill;
     int randomColor;
+    
+    //stk
+    void audioOut(float *output,int bufferSize,int nChannels);
+    stk::FileLoop soundCyl;
+    stk::FreeVerb reverb;
+    stk::Chorus chorus;
+    bool audioOn;
+    void upTouch(int x, int y);
+    void downTouch(int x, int y);
+
 };
 
 

@@ -13,7 +13,6 @@ Orbs::~Orbs() {
 void Orbs::setup(int posX, int posY, float orbSize){
     
     ofDisableArbTex(); // we need GL_TEXTURE_2D for our models coords.
-    model.loadModel("orb2.dae");
     //model.setPosition(pos.x, pos.y, pos.z);
     pos.set(posX, posY, 0);
     rotate = 0;
@@ -23,6 +22,8 @@ void Orbs::setup(int posX, int posY, float orbSize){
     size = orbSize;
     
     ofxAccelerometer.setup();
+    
+    buttonSize = 50;
     
     int fileAmt = 5;
     
@@ -36,6 +37,8 @@ void Orbs::setup(int posX, int posY, float orbSize){
     }
     
     sampleCycle = ofRandom(sounds.size());
+    
+    model.loadModel("orb2.dae");
 
 }
 
@@ -65,10 +68,10 @@ void Orbs::update(float noiseSpeed, float rotationSpeed){
         c = ofColor::teal;
     }*/
     
-    for (int i = 0; i < sounds.size(); i++) {
-        sounds[i].setVolume(ofMap(ofxAccelerometer.getForce().x, 0.0, 1.0, 1.0, 0.10, true));
-        sounds[i].setSpeed(ofMap(ofxAccelerometer.getForce().x, 0.0, 1.0, 1.0, 0.60, true));
-    }
+   // for (int i = 0; i < sounds.size(); i++) {
+   //     sounds[i].setVolume(ofMap(ofxAccelerometer.getForce().x, 0.0, 1.0, 1.0, 0.10, true));
+   //     sounds[i].setSpeed(ofMap(ofxAccelerometer.getForce().x, 0.0, 1.0, 1.0, 0.60, true));
+   // }
     
     // cout << "Orb Pos Y: " << sampleCycle << endl;
     
@@ -96,6 +99,16 @@ void Orbs::draw(){
             
         } ofPopMatrix();
         
+        ofPushStyle();
+        ofPushMatrix(); {
+            ofSetCircleResolution(100);
+            ofSetColor(ofColor::black, 0);
+            ofTranslate(pos);
+            ofCircle(0, 0, buttonSize);
+            
+        } ofPopMatrix();
+        ofPopStyle();
+        
         /*//Inside Orb
         ofSetColor(0, 0, 0, sendNoise);
         ofPushMatrix(); {
@@ -111,6 +124,7 @@ void Orbs::draw(){
         //ofDisableDepthTest();
         
     } ofPopStyle();
+    
     
     
 }
@@ -188,6 +202,16 @@ void Orbs::sliderUI(int rotate, int posX) {
     } ofPopStyle();
     
 
+}
+//--------------------------------------------------------------
+void Orbs::touchTrigger(int x, int y){
+    
+    int dist1 = ofDist(pos.x, pos.y, x, y);
+    
+    if ( dist1 < buttonSize ) {
+        sounds[sampleCycle].play();
+    }
+    
 }
 
 void Orbs::moveOrbs(int x, int y) {

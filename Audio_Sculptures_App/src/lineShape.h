@@ -19,6 +19,8 @@ public:
     
     float rotateShape, volumeLevel;
     
+
+    
     ofEasyCam cam;
     ofSoundPlayer pad;
     ofPoint pos;
