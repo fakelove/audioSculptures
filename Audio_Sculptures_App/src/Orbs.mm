@@ -83,7 +83,7 @@ void Orbs::update(float noiseSpeed, float rotationSpeed){
 void Orbs::draw(){
     
     ofPushStyle(); {
-        ofxAccelerometer.setForceSmoothing(1.0);
+        //ofxAccelerometer.setForceSmoothing(1.0);
 
         //ofEnableDepthTest();
         //Outside Orb
