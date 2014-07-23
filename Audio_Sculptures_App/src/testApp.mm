@@ -80,12 +80,6 @@ void testApp::setup(){
     /// END FLOATING CIRCLES ///
     
     
-    //// GENERATE BACKGROUNDS ////
-    
-    bg.loadBackground("back");
-    mg.loadBackground("middle");
-    fg.loadBackground("front");
-    
     ///Note: make sure to load assests after everything has been setup();
     
     //flLogo.loadImage("fakelovelogo.jpg");
@@ -107,10 +101,14 @@ void testApp::setup(){
     //}
     ////gif.loadNewSequence(fileName, amtFiles, frameRate)
     
+    
+    
+    
     //// LOGO FADE ////
-   introBack.loadImage("intro/introBack.png");
-   introFl.loadImage("intro/introFL.png");
-   introRomeo.loadImage("intro/introRomeo.png");
+    
+    //ofLoadImage(introBack, "intro/introBack.png");
+    ofLoadImage(introFl, "intro/introFL.png");
+    ofLoadImage(introRomeo, "intro/introRomeo.png");
 
     logoToggle = true;
     romeoToggle = false;
@@ -125,6 +123,22 @@ void testApp::setup(){
     randomSculpture1 = 0;
     randomSculpture2 = 0;
     randomSculpture3 = 0;
+    
+    //// GENERATE BACKGROUNDS ////
+    
+    bg.loadBackground("back");
+    mg.loadBackground("middle");
+    fg.loadBackground("front");
+    
+    
+    //BACKGROUND IMAGE CYCLES//
+    
+    randomBackground = 2;
+    bg.changeBackground(randomBackground);
+    mg.changeBackground(randomBackground);
+    fg.changeBackground(randomBackground);
+    
+
     
 }
 
@@ -181,6 +195,7 @@ void testApp::update(){
     ///LOGO FADE///
     if (ofGetElapsedTimef() >= 16.0) {
         fade1 -= 7;
+        
     }
     
     if (fade1 <= 0) {
@@ -197,6 +212,13 @@ void testApp::update(){
     
     if (fadeBack <= 10) {
         logoToggle = false;
+       
+    }
+    
+    if (fadeBack <= 0) {
+        introRomeo.clear();
+        introFl.clear();
+        introBack.clear();
     }
 
 }

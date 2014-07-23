@@ -104,7 +104,7 @@ class testApp : public ofxiOSApp{
     void logoFade();
     bool logoToggle, romeoToggle;
     int fade1, fade2, fadeBack;
-    ofImage introBack, introFl, introRomeo;
+    ofTexture introBack, introFl, introRomeo;
     
 };
 
