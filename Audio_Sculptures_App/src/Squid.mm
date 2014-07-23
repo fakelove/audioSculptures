@@ -69,7 +69,7 @@ void Squid::draw(){
                 ofRotateX( i + squidPos.y );
                 ofRotateY( rotate + i );
                 ofRotateZ( rotate  + myPI * i );
-                ofScale(.50, .50);
+                ofScale(1.50, 1.50);
                 ofCurve(point1.x + i + noise * 10, point1.y + i + noise * 10, point2.x + i, point2.y + i, point3.x + i, point3.y + i, point4.x * 10, point4.y * 10);
                 
             } ofPopMatrix();

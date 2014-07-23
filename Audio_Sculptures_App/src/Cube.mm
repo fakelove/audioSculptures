@@ -22,8 +22,8 @@ void Cube::setup(){
     triggerSound = false;
     cubeSound.loadSound("sounds/cubeSound.caf");
     cubeSound.setMultiPlay(true);
-    sizeTrigger = 100;
-    pos.set(ofGetWidth() / 2 - 200, ofGetHeight() / 2);
+    sizeTrigger = 275;
+    pos.set(ofGetWidth() * .25, ofGetHeight() / 2);
     randomFill.set(ofColor::black);
     
     outerCube = ofColor::lightYellow;
@@ -33,7 +33,8 @@ void Cube::setup(){
     
     ofDisableArbTex(); // we need GL_TEXTURE_2D for our models coords.
 
-    
+    smallCubeSize = 30;
+    bigCubeSize = 110;
 }
 
 //--------------------------------------------------------------
@@ -90,20 +91,20 @@ void Cube::draw(){
                 
                 ofSetColor(randomFill, alpha + 100);
                 ofFill();
-                ofDrawBox(0, 0, -1, 10 + sendNoise, 10 + sendNoise, 10 + sendNoise);
+                ofDrawBox(0, 0, -1, smallCubeSize + sendNoise, smallCubeSize + sendNoise, smallCubeSize + sendNoise);
                 ofSetColor(255, 240, 250, alpha + 150);
                 ofNoFill();
-                ofDrawBox(0, 0, -1, 10 + sendNoise, 10 + sendNoise, 10 + sendNoise);
+                ofDrawBox(0, 0, -1, smallCubeSize + sendNoise, smallCubeSize + sendNoise, smallCubeSize + sendNoise);
                 
                 //big box
                 
                 ofSetColor(ofColor::black, 150);
                 ofNoFill();
-                ofDrawBox(0, 0, -1, 50, 50, 50);
+                ofDrawBox(0, 0, -1, bigCubeSize);
                 ofSetColor(255, alpha - 20); //outerCube
                 ofFill();
                 texture.getTextureReference().bind();
-                ofDrawBox(0, 0, -1, 50, 50, 50);
+                ofDrawBox(0, 0, -1, bigCubeSize);
                 texture.getTextureReference().unbind();
                 ofDisableNormalizedTexCoords();
                 

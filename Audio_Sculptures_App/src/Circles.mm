@@ -30,7 +30,7 @@ void Circles::setup(int posX, int posY, float setSize) {
     }
     
     //button to trigger action
-    buttonSize = 40;
+    buttonSize = 80;
     
     outSideColor = ofColor::black;
 }

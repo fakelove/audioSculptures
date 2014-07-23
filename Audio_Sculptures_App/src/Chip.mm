@@ -20,6 +20,8 @@ void Chip::setup(){
     pos.set(ofGetWidth() / 2, ofGetHeight() / 2); //actual translation of object
     randomCircleRes = 100;
     shapeSize = 0;
+    
+    
 }
 
 //--------------------------------------------------------------
@@ -58,12 +60,12 @@ void Chip::update(){
 void Chip::draw(){
     
     ofSetCircleResolution(randomCircleRes);
-    
+  
     button(size + shapeSize, noise4);
     button(50 + shapeSize, noise1);
     button(25 + shapeSize, noise2);
     button(10 + shapeSize, noise3);
-	
+
 }
 
 void Chip::randomRes() {
@@ -72,7 +74,7 @@ void Chip::randomRes() {
     
     if (randomNumber == 0) {
         randomCircleRes = 100;
-        shapeSize = 20;
+        shapeSize = 15;
     } else if (randomNumber == 1) {
         randomCircleRes = 6;
         shapeSize = 20;
@@ -119,7 +121,7 @@ void Chip::button(int size, int color){
             ofTranslate(pos.x, pos.y);
             //ofRotateX(rotate);
             //ofRotateY(rotate);
-            ofScale(sine, sine);
+            ofScale(sine * 2.25, sine * 2.25);
             ofSetColor(randomFill, color);
             ofFill();
             ofCircle(0, 0, size);
@@ -135,7 +137,7 @@ void Chip::receivedTouch(int x, int y) {
     
     int dist1 = ofDist(pos.x, pos.y, x, y);
     
-    if ( dist1 < size + 100) {
+    if ( dist1 < size + 350) {
         trigger = true;
         clicks.setPositionMS(0);
         clicks.play();
@@ -147,7 +149,7 @@ void Chip::upTouch(int x, int y){
     
     int dist1 = ofDist(pos.x, pos.y, x, y);
     
-    if ( dist1 < size + 100 ) {
+    if ( dist1 < size + 350) {
         trigger = false;
         clicks.stop();
         clicks.setLoop(false);

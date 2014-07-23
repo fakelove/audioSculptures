@@ -20,8 +20,8 @@ void Diamond::setup(){
     soundFiles.push_back("sounds/shapeBass3.caf");
     
     sound.loadSound(soundFiles[0]);
-    sizeTrigger = 60;
-    pos.set(ofGetWidth() / 2 + 250, ofGetHeight() / 2 + 100);
+    sizeTrigger = 150;
+    pos.set(ofGetWidth() * 1.50, ofGetHeight() * 1.50);
     
     randomFill.set(ofColor::black);
     outerDiaColor.set(ofColor::black);
@@ -82,7 +82,7 @@ void Diamond::sphere(){
             
             ofSetSphereResolution(3);
             ofTranslate(pos.x, pos.y + sine);
-            ofScale(3.75, 3.75);
+            ofScale(8.75, 8.75);
             ofRotateX(rotate);
             ofRotateY(rotate);
             //small shape

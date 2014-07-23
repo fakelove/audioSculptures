@@ -20,8 +20,8 @@ void Arp::setup(){
     sound.setLoop(true);
     speed = 10.0;
     sound.setVolume(trackVolume);
-    sliderPos.set(150, ofGetHeight() - 75);
-    sliderSize = 50;
+    sliderPos.set(ofGetWidth() * 0.17, ofGetHeight() * 0.75);
+    sliderSize = 225;
     
 }
 
@@ -92,7 +92,7 @@ void Arp::rect(int x, int y, float rotate){
     ofSetColor(randomFill, 15);
     ofFill();
     ofTranslate(ofGetWidth() / 2, ofGetHeight() / 2);
-    ofScale(1.25, 1.25);
+    ofScale(2.50, 2.50);
     ofRotateZ(rotate);
     ofRect(0, 0, x, y);
     ofPopMatrix();
@@ -128,7 +128,7 @@ void Arp::rectSlider() {
     ofPopMatrix();
     
     sliderUI(0, 0);
-    sliderUI(180, 75);
+    sliderUI(180, 150);
     
 }
 
@@ -143,7 +143,7 @@ void Arp::sliderUI(int rotate, int posX) {
         ofPushMatrix(); {
             
             ofTranslate(sliderPos.x - posX, sliderPos.y);
-            ofScale(.75, .75);
+            ofScale(1.75, 1.75);
             ofRotateZ(rotate);
             ofSetCircleResolution(3);
             ofSetColor(ofColor::black);

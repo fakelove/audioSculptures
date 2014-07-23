@@ -33,14 +33,16 @@ void testApp::setup(){
     
     Orbs tempOrbs;
     
-    for (int i = 0; i < orbAmt; i++) {  
+    for (int i = 0; i < orbAmt; i++) {
+        
         orbs.push_back(tempOrbs);
+    
     }
     
     for (int i = 0; i < orbs.size(); i++) {
 
-    orbs[i].setup(i * 100, i * 20, ofRandom(0.15, 0.25));
-    
+        orbs[i].setup(0, 0, ofRandom(0.20, 0.40));
+        
     }
 
     
@@ -63,15 +65,16 @@ void testApp::setup(){
     }
     
     
-    circles[0].setup(300, 150, ofRandom(0.05, 0.20));
-    circles[1].setup(350, 475, ofRandom(0.05, 0.20));
-    circles[2].setup(650, 175, ofRandom(0.05, 0.20));
-    circles[3].setup(650, 400, ofRandom(0.05, 0.20));
-    circles[4].setup(475, 300, ofRandom(0.05, 0.20));
+    circles[0].setup(ofGetWidth() * 0.25, ofGetHeight() * 0.25, ofRandom(0.05, 0.20));
+    circles[1].setup(ofGetWidth() * 0.75, ofGetHeight() * 0.25, ofRandom(0.05, 0.20));
+    circles[2].setup(ofGetWidth() * 0.50, ofGetHeight() * 0.50, ofRandom(0.05, 0.20));
+    circles[3].setup(ofGetWidth() * 0.25, ofGetHeight() * 0.65, ofRandom(0.05, 0.20));
+    circles[4].setup(ofGetWidth() * 0.75, ofGetHeight() * 0.65, ofRandom(0.05, 0.20));
 
     //Random button
-    randomPos.set(75, 75);
-    sizeRandom = 50;
+    randomPos.set(ofGetWidth() * .06, ofGetHeight() * .08);
+
+    sizeRandom = 70;
     buttonColor = ofColor::black;
     
     /// END FLOATING CIRCLES ///
@@ -103,7 +106,26 @@ void testApp::setup(){
     //gif[i].loadNewSequence(imageNames[i], imgAmt[i], 6);
     //}
     ////gif.loadNewSequence(fileName, amtFiles, frameRate)
+    
+    //// LOGO FADE ////
+   introBack.loadImage("intro/introBack.png");
+   introFl.loadImage("intro/introFL.png");
+   introRomeo.loadImage("intro/introRomeo.png");
 
+    logoToggle = true;
+    romeoToggle = false;
+    
+    fade1 = 255;
+    fade2 = 255;
+    fadeBack = 255;
+    
+    
+    ////            ////
+    
+    randomSculpture1 = 0;
+    randomSculpture2 = 0;
+    randomSculpture3 = 0;
+    
 }
 
 //--------------------------------------------------------------
@@ -122,6 +144,7 @@ void testApp::update(){
 
     for (int i = 0; i < orbs.size(); i++) {
         orbs[i].update(ofRandom(0.009f, 0.03f), ofRandom(0.15f, 0.33f));
+        
         }
     }
     
@@ -154,13 +177,36 @@ void testApp::update(){
     pulseSpeedButton += 0.15f;
     sineButton = 50 * sin(pulseSpeedButton);
     
+    
+    ///LOGO FADE///
+    if (ofGetElapsedTimef() >= 16.0) {
+        fade1 -= 7;
+    }
+    
+    if (fade1 <= 0) {
+        romeoToggle = true;
+    }
+    
+    if (ofGetElapsedTimef() >= 18.0) {
+        fade2 -= 5;
+    }
+    
+    if (fade2 <= 25) {
+        fadeBack -= 10;
+    }
+    
+    if (fadeBack <= 10) {
+        logoToggle = false;
+    }
+
 }
 
 //--------------------------------------------------------------
 void testApp::draw(){
 
-    /// BACKGROUND ///
     bg.draw();
+
+    /// BACKGROUND ///
    
     //gif[randomImage].draw();
   
@@ -178,8 +224,11 @@ void testApp::draw(){
    //     }
    // ofPopMatrix();
     
+
     //DRAW RANDOM BUTTON
+    if (logoToggle == false) {
     randomButton();
+    }
     
     /////SPINNING RECTANGLE BACKGROUND/////
     if (randomSculpture1 == 7 || randomSculpture2 == 7 || randomSculpture3 == 7) {
@@ -227,9 +276,10 @@ void testApp::draw(){
         chip.volumeLevel = 0.0;
     }
     
+    
     /// MIDDLEGROUND ///
     mg.draw();
-    
+
     
     ////ORBS////
     if (randomSculpture1 == 10 || randomSculpture2 == 10 || randomSculpture3 == 10) {
@@ -256,7 +306,7 @@ void testApp::draw(){
             squid.audioOn = false;
     }
     
-  
+    
     /// FOREGROUND ///
     fg.draw();
     
@@ -306,9 +356,53 @@ void testApp::draw(){
     if (randomSculpture1 == 7 || randomSculpture2 == 7 || randomSculpture3 == 7) {
         rect.rectSlider();
     }
-
-
+    
+    //Logo Fade
+    if (logoToggle == true) {
+      
+        logoFade();
+        
+    }
 }
+
+void testApp::logoFade() {
+    
+    ofPoint logoMiddle;
+    logoMiddle.set(ofGetWidth() / 2, ofGetHeight() / 2);
+    
+    ofPushStyle();
+    ofDisableSmoothing();
+    ofPushMatrix();
+    ofSetColor(255, 255, 255, fadeBack);
+    ofTranslate(logoMiddle);
+    introBack.draw(0, 0);
+    ofPopMatrix();
+    ofPopStyle();
+    
+    
+    ofPushStyle();
+    ofDisableSmoothing();
+
+    ofPushMatrix();
+    ofSetColor(255, 255, 255, fade1);
+    ofTranslate(logoMiddle);
+    introFl.draw(0,0,ofGetWidth(),ofGetHeight());
+    ofPopMatrix();
+    ofPopStyle();
+    
+    if (romeoToggle == true) {
+    ofPushStyle();
+    ofPushMatrix();
+    ofTranslate(logoMiddle);
+    ofSetColor(255, 255, 255, fade2);
+    introRomeo.draw(0,0,ofGetWidth(),ofGetHeight());
+    ofPopMatrix();
+    ofPopStyle();
+    }
+    
+    //cout << "Total Time: " << ofGetElapsedTimef() << endl;
+}
+
 
 void testApp::audioOut(float *output,int bufferSize,int nChannels) {
     
@@ -329,7 +423,7 @@ void testApp::randomButton() {
         ofPushMatrix(); {
             
             ofTranslate(randomPos);
-            ofScale(0.75, 0.75);
+            ofScale(1.25, 1.25);
             ofRotateZ(rotateButton);
             ofSetCircleResolution(10);
             ofSetLineWidth(2.0);
@@ -345,7 +439,7 @@ void testApp::randomButton() {
             ofCircle(0, 0, sineButton);
             
             ofSetCircleResolution(100);
-            ofSetColor(0, 0, 0, 0);
+            ofSetColor(ofColor::red, 0);
             ofNoFill();
             ofCircle(0, 0, sizeRandom);
             
@@ -476,10 +570,10 @@ void testApp::touchMoved(ofTouchEventArgs & touch){
         
     }
     
-    
+    int threshold = 400;
     int distance = ofDist(cube.pos.x, cube.pos.y, dia.pos.x, dia.pos.y);
     
-    if (distance <= 250) {
+    if (distance <= threshold) {
         
         cube.pos += -15.0;
         dia.pos += 15.0;
@@ -488,14 +582,14 @@ void testApp::touchMoved(ofTouchEventArgs & touch){
     
     int distance2 = ofDist(cube.pos.x, cube.pos.y, cyl.pos.x, cyl.pos.y);
     
-    if (distance2 <= 250) {
+    if (distance2 <= threshold) {
         cube.pos += -15.0;
         cyl.pos += 15.0;
     }
     
     int distance3 = ofDist(cyl.pos.x, cyl.pos.y, dia.pos.x, dia.pos.y);
     
-    if (distance3 <= 250) {
+    if (distance3 <= threshold) {
         cyl.pos += -15.0;
         dia.pos += 15.0;
     }
@@ -516,7 +610,7 @@ void testApp::touchUp(ofTouchEventArgs & touch){
     //// Random Button ////
     int dist1 = ofDist(randomPos.x, randomPos.y, touch.x, touch.y);
     
-    if ( dist1 < sizeRandom ) {
+    if ( dist1 < sizeRandom + 50 ) {
         
     
     //Needs randomize button
@@ -526,7 +620,7 @@ void testApp::touchUp(ofTouchEventArgs & touch){
         
         //Randomize the orbs every random button touch
         for (int i = 0; i < orbs.size(); i++) {
-            orbs[i].randomizePosition(300 + i * 100, i * 20);
+            orbs[i].randomizePosition(i * 250 + ofGetWidth() * 0.25, 0);
         }
         
     cube.randomizeColor();
@@ -541,8 +635,8 @@ void testApp::touchUp(ofTouchEventArgs & touch){
         
     ///RESET OBJECT POSITION///
         
-    cube.pos.set(ofGetWidth() / 2 - 200, ofGetHeight() / 2);
-    dia.pos.set(ofGetWidth() / 2 + 250, ofGetHeight() / 2 + 100);
+    cube.pos.set(ofGetWidth() * 0.25, ofGetHeight() * 0.45);
+    dia.pos.set(ofGetWidth() * 0.80, ofGetHeight() * 0.70);
     cyl.pos.set(ofGetWidth() / 2, ofGetHeight() / 2);
 
         

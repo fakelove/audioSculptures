@@ -24,6 +24,7 @@ public:
     bool trigger, triggerSound;
     int sizeTrigger;
     ofPoint pos;
+    int bigCubeSize, smallCubeSize;
     
     ofSoundPlayer cubeSound;
     ofRectangle clickBox;

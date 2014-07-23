@@ -26,7 +26,7 @@ void lineShape::setup(){
 //--------------------------------------------------------------
 void lineShape::update(){
     
-    rotateShape += 0.70f;
+    rotateShape += 0.90f;
     
     if (pad.getPositionMS() >= 17000) {
         pad.play();
@@ -64,7 +64,7 @@ void lineShape::drawLine(float x, float y, float rotate, int opacity){
     ofRotateY(x + rotate);
     ofScale(.10, .10);
     ofTranslate(ofGetWidth() / 2, ofGetHeight() / 2);
-    ofLine(0, 50, x + rotate + 50, y + 50);
+    ofLine(0, 50, x + rotate + 150, y + 150);
     
         } ofPopMatrix();
     

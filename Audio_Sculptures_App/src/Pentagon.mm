@@ -28,8 +28,8 @@ void Pentagon::setup(){
     sound.setLoop(true);
     sound.setVolume(0.0);
     objectOn = false;
-    sliderPos.set(150, ofGetHeight() - 175);
-    sliderSize = 40;
+    sliderPos.set(ofGetWidth() * 0.17, ofGetHeight() * 0.90);
+    sliderSize = 225;
     controlRotate = 0.0f;
 }
 
@@ -80,7 +80,7 @@ void Pentagon::draw(){
 void Pentagon::drawSlider() {
     
     sliderUI(0, 0);
-    sliderUI(180, 75);
+    sliderUI(180, 150);
     
 }
 
@@ -101,7 +101,7 @@ void Pentagon::sliderUI(int rotate, int posX) {
         ofPushMatrix(); {
             
             ofTranslate(sliderPos.x - posX, sliderPos.y);
-            ofScale(.75, .75);
+            ofScale(1.75, 1.75);
             ofRotateZ(rotate);
             ofSetCircleResolution(3);
             ofSetColor(ofColor::black);
@@ -141,7 +141,7 @@ void Pentagon::shape(int x, int y, int size, float alpha) {
         ofRotateY(rotateShape * myPI);
         ofRotateX(alpha + 50);
         ofRotateZ(rotateShape + alpha);
-        ofScale(scaleParaX + 4.0, scaleParaY + 4.0);
+        ofScale(scaleParaX + 8.0, scaleParaY + 8.0);
         //ofSetPolyMode(OF_POLY_WINDING_NONZERO); //odd that this effected other objects
         ofSetColor(pentColor, 80);
         ofNoFill();
@@ -166,7 +166,7 @@ void Pentagon::slide(int x, int y){
     
     int dist1 = ofDist(sliderPos.x, sliderPos.y, x, y);
     
-    if (dist1 < sliderSize + 25){
+    if (dist1 < sliderSize ){
         
         controlShape = ofMap(x, 0, ofGetWidth(), 0.0001, 0.10);
         sound.setSpeed(ofMap(x, 0, ofGetWidth(), 0.10, 1.0, true));
@@ -190,7 +190,7 @@ void Pentagon::cirSlider() {
             
             ofSetCircleResolution(100);
             ofTranslate(sliderPos.x - 50, sliderPos.y); //Change this to be center of slider
-            ofSetColor(0, 0, 0, 50);
+            ofSetColor(ofColor::red, 255);
             ofNoFill();
             ofCircle(0, 0, sliderSize);
             ofSetColor(0, 0, 0, alpha);

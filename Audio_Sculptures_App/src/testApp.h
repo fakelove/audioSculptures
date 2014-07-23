@@ -15,7 +15,6 @@ This is the latest version of the Fake Love Audio Sculptures Ipad App
 #include "background.h"
 #include "drawGifs.h"
 
-
 //Objects
 #include "Pentagon.h"
 #include "lineShape.h"
@@ -100,6 +99,13 @@ class testApp : public ofxiOSApp{
     ///STK
     void audioOut(float *output,int bufferSize,int nChannels);
 
+    
+    ///Fade Logo
+    void logoFade();
+    bool logoToggle, romeoToggle;
+    int fade1, fade2, fadeBack;
+    ofImage introBack, introFl, introRomeo;
+    
 };
 
 

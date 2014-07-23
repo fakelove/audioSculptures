@@ -23,7 +23,7 @@ void Orbs::setup(int posX, int posY, float orbSize){
     
     ofxAccelerometer.setup();
     
-    buttonSize = 50;
+    buttonSize = 150;
     
     int fileAmt = 5;
     
@@ -52,7 +52,7 @@ void Orbs::update(float noiseSpeed, float rotationSpeed){
     
     
     total -= total;
-    total += ofMap(ofxAccelerometer.getForce().x, 0.0, 1.0, -10, 600);
+    total += ofMap(ofxAccelerometer.getForce().x, 0.0, 1.0, -10, 1000);
     pos.y = total + sendNoise;
     
     //triggerSounds = ofMap(sendNoise, 0, 300, 0.0, 1.0);
@@ -218,7 +218,7 @@ void Orbs::moveOrbs(int x, int y) {
 
     int dist = ofDist(x, y, pos.x, pos.y);
     
-    if (dist < 80 && sounds[sampleCycle].getPositionMS() < 250) {
+    if (dist < buttonSize && sounds[sampleCycle].getPositionMS() < 250) {
             sounds[sampleCycle].play();
             c = ofColor::whiteSmoke;
         } else {

@@ -20,7 +20,7 @@ void Cyl::setup(){
     sound.loadSound("sounds/cylSound.caf");
     trigger = false;
     pos.set( ofGetWidth() / 2 , ofGetHeight() / 2 );
-    sizeTrigger = 60;
+    sizeTrigger = 250;
     movementOn = false;
     
     texture.loadImage("tex/tex0.jpg");
@@ -47,7 +47,6 @@ void Cyl::update(){
         sendNoise = 255;
     }
     
-   
 }
 
 void Cyl::reloadTex(int changeTex) {
@@ -79,7 +78,7 @@ void Cyl::draw(){
             ofDisableDepthTest();
             
             /////Trigger Button/////
-            //ofSetColor(0);
+            //ofSetColor(ofColor::red);
             //ofNoFill();
             ofTranslate(pos.x, pos.y);
             ofCircle(0, 0, sizeTrigger);
@@ -100,7 +99,7 @@ void Cyl::cylinder(float iterate, int width, int height, float alpha, int outlin
     ofSetCylinderResolution(4, 2);
     ofPushMatrix();
     ofTranslate( pos.x, pos.y );
-    ofScale(7.0, 7.0);
+    ofScale(15.0, 15.0);
     ofRotateY(rotate + iterate * myPI );
     ofRotateX(rotate * myPI);
     ofSetColor(randomFill, alpha);
@@ -138,8 +137,7 @@ void Cyl::moveCyl(int x, int y) {
         pos.x = x;
         pos.y = y;
         movementOn = true;
-        
-        
+      
     } else {
         
         movementOn = false;

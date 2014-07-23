@@ -11,7 +11,7 @@ background::~background() {
 }
 void background::loadBackground(string layerType) {
     
-    totalFiles = 3;
+    totalFiles = 4;
     
     texture.resize(totalFiles);
     
@@ -32,8 +32,8 @@ void background::draw(){
         
     ofSetColor(255);
     ofTranslate(ofGetWidth() / 2 + pos.x, ofGetHeight() / 2 + pos.y, pos.z);
-    ofScale(0.75, 0.75);
-    texture[counter].draw(0, 0);
+    ofScale(1.50, 1.50);
+    texture[counter].draw(0, 0, ofGetWidth(), ofGetHeight());
             
         } ofPopMatrix();
         
