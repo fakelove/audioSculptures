@@ -15,7 +15,7 @@ void background::loadBackground(string layerType) {
     
     texture.resize(totalFiles);
     
-    for (int i = 0; i < texture.size(); i++) {
+   for (int i = 0; i < texture.size(); i++) {
         ofLoadImage( texture[i], "bg" + ofToString(i) + "/bg" + ofToString(i) + layerType + ".png" );
     }
     
@@ -32,7 +32,7 @@ void background::draw(){
         
     ofSetColor(255);
     ofTranslate(ofGetWidth() / 2 + pos.x, ofGetHeight() / 2 + pos.y, pos.z);
-    ofScale(1.50, 1.50);
+    ofScale(1.15, 1.08);
     texture[counter].draw(0, 0, ofGetWidth(), ofGetHeight());
             
         } ofPopMatrix();
@@ -43,7 +43,6 @@ void background::draw(){
 void background::changeBackground(int imageNumber) {
     
     counter = imageNumber;
-    
 }
 
 

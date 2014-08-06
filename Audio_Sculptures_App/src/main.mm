@@ -10,6 +10,7 @@ int main( ){
     window->enableAntiAliasing(4); //fixed smoothing
 	window->enableDepthBuffer();
 	ofSetupOpenGL(window, 1024, 768, OF_FULLSCREEN);			// <-------- setup the GL context
+
     
     
 	// this kicks off the running of my app

@@ -1,4 +1,11 @@
 
+
+/// Romeo by Fake Love Play
+/// Programming by Michael Romeo
+/// Background Elements designed by Atanas Djibirov
+/// 2014
+
+
 #include "testApp.h"
 
 //--------------------------------------------------------------
@@ -133,7 +140,7 @@ void testApp::setup(){
     
     //BACKGROUND IMAGE CYCLES//
     
-    randomBackground = 2;
+    randomBackground = 0;
     bg.changeBackground(randomBackground);
     mg.changeBackground(randomBackground);
     fg.changeBackground(randomBackground);
@@ -171,7 +178,7 @@ void testApp::update(){
     
     ofPushStyle(); {
         
-    ofxAccelerometer.setForceSmoothing(0.95);
+    ofxAccelerometer.setForceSmoothing(0.90);
     
     //cout << ofxAccelerometer.getForce().y << endl;
     //Parralax Horizontal
@@ -193,8 +200,8 @@ void testApp::update(){
     
     
     ///LOGO FADE///
-    if (ofGetElapsedTimef() >= 16.0) {
-        fade1 -= 7;
+    if (ofGetElapsedTimef() >= 17.0) {
+        fade1 -= 8;
         
     }
     
@@ -202,8 +209,8 @@ void testApp::update(){
         romeoToggle = true;
     }
     
-    if (ofGetElapsedTimef() >= 18.0) {
-        fade2 -= 5;
+    if (ofGetElapsedTimef() >= 19.0) {
+        fade2 -= 8;
     }
     
     if (fade2 <= 25) {
@@ -301,6 +308,8 @@ void testApp::draw(){
     
     /// MIDDLEGROUND ///
     mg.draw();
+    
+    
 
     
     ////ORBS////
@@ -328,11 +337,12 @@ void testApp::draw(){
             squid.audioOn = false;
     }
     
-    
+
     /// FOREGROUND ///
     fg.draw();
     
-    
+
+
     ////DIAMOND////
     if (randomSculpture1 == 6 || randomSculpture2 == 6 || randomSculpture3 == 6) {
 
