@@ -13,7 +13,7 @@ This is the latest version of the Fake Love Audio Sculptures Ipad App
 
 //Background Images
 #include "background.h"
-#include "drawGifs.h"
+//#include "drawGifs.h"
 
 //Objects
 #include "Pentagon.h"
@@ -106,6 +106,11 @@ class testApp : public ofxiOSApp{
     int fade1, fade2, fadeBack;
     ofTexture introBack, introFl, introRomeo;
     
+    
+    //draw moons
+    bool moonsOn;
+    ofImage moons;
+
 };
 
 

@@ -145,6 +145,9 @@ void testApp::setup(){
     mg.changeBackground(randomBackground);
     fg.changeBackground(randomBackground);
     
+    
+    moons.loadImage("moons.png");
+    moonsOn = false;
 
     
 }
@@ -209,7 +212,7 @@ void testApp::update(){
         romeoToggle = true;
     }
     
-    if (ofGetElapsedTimef() >= 19.0) {
+    if (ofGetElapsedTimef() >= 21.0) {
         fade2 -= 8;
     }
     
@@ -234,7 +237,8 @@ void testApp::update(){
 void testApp::draw(){
 
     bg.draw();
-
+    
+   
     /// BACKGROUND ///
    
     //gif[randomImage].draw();
@@ -257,6 +261,15 @@ void testApp::draw(){
     //DRAW RANDOM BUTTON
     if (logoToggle == false) {
     randomButton();
+    }
+    
+    if (moonsOn == true) {
+        ofPushStyle();
+        ofPushMatrix();
+        ofSetColor(255);
+        moons.draw(ofGetWidth() / 2, ofGetHeight() / 2);
+        ofPopMatrix();
+        ofPopStyle();
     }
     
     /////SPINNING RECTANGLE BACKGROUND/////
@@ -699,6 +712,8 @@ void testApp::touchUp(ofTouchEventArgs & touch){
         for (int i = 0; i < circles.size(); i++) {
             circles[i].outSideColor = ofColor::black;
         }
+        moonsOn = false;
+
         
     }  else if (randomBackground == 1) {
         buttonColor = ofColor::black;
@@ -709,7 +724,8 @@ void testApp::touchUp(ofTouchEventArgs & touch){
         for (int i = 0; i < circles.size(); i++) {
             circles[i].outSideColor = ofColor::black;
         }
-        
+        moonsOn = false;
+
     } else if (randomBackground == 2) {
         buttonColor = ofColor::lightPink;
         pent.pentColor = ofColor::white;
@@ -719,8 +735,15 @@ void testApp::touchUp(ofTouchEventArgs & touch){
         for (int i = 0; i < circles.size(); i++) {
             circles[i].outSideColor = ofColor::white;
         }
-        
+        moonsOn = false;
+
     }
+    else if (randomBackground == 3) {
+        moonsOn = true;
+    }
+    
+    cout << "MoonsOn " << moonsOn << endl;
+  
     
     
 

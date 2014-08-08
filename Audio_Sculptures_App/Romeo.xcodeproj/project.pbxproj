@@ -112,7 +112,6 @@
 		E683524819520574001206F7 /* ofxAssimpTexture.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E683521519520574001206F7 /* ofxAssimpTexture.cpp */; };
 		E683524919520574001206F7 /* assimp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E683524219520574001206F7 /* assimp.a */; };
 		E6835255195223D8001206F7 /* background.mm in Sources */ = {isa = PBXBuildFile; fileRef = E6835253195223D8001206F7 /* background.mm */; };
-		E696B21B192C070800506912 /* drawGifs.mm in Sources */ = {isa = PBXBuildFile; fileRef = E696B219192C070800506912 /* drawGifs.mm */; };
 		E696B22A192C078D00506912 /* ofxImageSequence.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E696B228192C078D00506912 /* ofxImageSequence.cpp */; };
 		E6F6351D195DE1F400E4C719 /* Pentagon.mm in Sources */ = {isa = PBXBuildFile; fileRef = E6F6351B195DE1F400E4C719 /* Pentagon.mm */; };
 		E6F63520195DE23800E4C719 /* Cube.mm in Sources */ = {isa = PBXBuildFile; fileRef = E6F6351E195DE23800E4C719 /* Cube.mm */; };
@@ -397,8 +396,6 @@
 		E693D07B196F0AC500B1602B /* bg2back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bg2back.png; sourceTree = "<group>"; };
 		E693D07C196F0AC500B1602B /* bg2front.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bg2front.png; sourceTree = "<group>"; };
 		E693D07D196F0AC500B1602B /* bg2middle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bg2middle.png; sourceTree = "<group>"; };
-		E696B219192C070800506912 /* drawGifs.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = drawGifs.mm; sourceTree = "<group>"; };
-		E696B21A192C070800506912 /* drawGifs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = drawGifs.h; sourceTree = "<group>"; };
 		E696B228192C078D00506912 /* ofxImageSequence.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ofxImageSequence.cpp; sourceTree = "<group>"; };
 		E696B229192C078D00506912 /* ofxImageSequence.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ofxImageSequence.h; sourceTree = "<group>"; };
 		E6F6351B195DE1F400E4C719 /* Pentagon.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = Pentagon.mm; sourceTree = "<group>"; };
@@ -939,8 +936,6 @@
 		E6B29173195DCE8300DBE6FD /* Background */ = {
 			isa = PBXGroup;
 			children = (
-				E696B219192C070800506912 /* drawGifs.mm */,
-				E696B21A192C070800506912 /* drawGifs.h */,
 				E6835253195223D8001206F7 /* background.mm */,
 				E6835254195223D8001206F7 /* background.h */,
 			);
@@ -1150,7 +1145,6 @@
 				E659E0A1197587BC0060EDC6 /* BlowBotl.cpp in Sources */,
 				E659E0A0197587BC0060EDC6 /* BlitSquare.cpp in Sources */,
 				E659E0DA197587BC0060EDC6 /* Sphere.cpp in Sources */,
-				E696B21B192C070800506912 /* drawGifs.mm in Sources */,
 				E66A7D7F19253C1700E337CB /* Circles.mm in Sources */,
 				E659E0BC197587BC0060EDC6 /* JCRev.cpp in Sources */,
 				E659E0BA197587BC0060EDC6 /* HevyMetl.cpp in Sources */,
