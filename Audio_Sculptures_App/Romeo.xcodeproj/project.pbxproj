@@ -112,7 +112,6 @@
 		E683524819520574001206F7 /* ofxAssimpTexture.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E683521519520574001206F7 /* ofxAssimpTexture.cpp */; };
 		E683524919520574001206F7 /* assimp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E683524219520574001206F7 /* assimp.a */; };
 		E6835255195223D8001206F7 /* background.mm in Sources */ = {isa = PBXBuildFile; fileRef = E6835253195223D8001206F7 /* background.mm */; };
-		E696B22A192C078D00506912 /* ofxImageSequence.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E696B228192C078D00506912 /* ofxImageSequence.cpp */; };
 		E6F6351D195DE1F400E4C719 /* Pentagon.mm in Sources */ = {isa = PBXBuildFile; fileRef = E6F6351B195DE1F400E4C719 /* Pentagon.mm */; };
 		E6F63520195DE23800E4C719 /* Cube.mm in Sources */ = {isa = PBXBuildFile; fileRef = E6F6351E195DE23800E4C719 /* Cube.mm */; };
 		E6F63523195DE27000E4C719 /* Squid.mm in Sources */ = {isa = PBXBuildFile; fileRef = E6F63521195DE27000E4C719 /* Squid.mm */; };
@@ -396,8 +395,6 @@
 		E693D07B196F0AC500B1602B /* bg2back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bg2back.png; sourceTree = "<group>"; };
 		E693D07C196F0AC500B1602B /* bg2front.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bg2front.png; sourceTree = "<group>"; };
 		E693D07D196F0AC500B1602B /* bg2middle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bg2middle.png; sourceTree = "<group>"; };
-		E696B228192C078D00506912 /* ofxImageSequence.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ofxImageSequence.cpp; sourceTree = "<group>"; };
-		E696B229192C078D00506912 /* ofxImageSequence.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ofxImageSequence.h; sourceTree = "<group>"; };
 		E6F6351B195DE1F400E4C719 /* Pentagon.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = Pentagon.mm; sourceTree = "<group>"; };
 		E6F6351C195DE1F400E4C719 /* Pentagon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Pentagon.h; sourceTree = "<group>"; };
 		E6F6351E195DE23800E4C719 /* Cube.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = Cube.mm; sourceTree = "<group>"; };
@@ -500,7 +497,6 @@
 			children = (
 				E659DFEA197587BC0060EDC6 /* ofxStk */,
 				E683520D19520574001206F7 /* ofxAssimpModelLoader */,
-				E696B226192C078D00506912 /* ofxImageSequence */,
 			);
 			name = addons;
 			sourceTree = "<group>";
@@ -915,24 +911,6 @@
 			path = bin/data/bg2;
 			sourceTree = "<group>";
 		};
-		E696B226192C078D00506912 /* ofxImageSequence */ = {
-			isa = PBXGroup;
-			children = (
-				E696B227192C078D00506912 /* src */,
-			);
-			name = ofxImageSequence;
-			sourceTree = "<group>";
-		};
-		E696B227192C078D00506912 /* src */ = {
-			isa = PBXGroup;
-			children = (
-				E696B228192C078D00506912 /* ofxImageSequence.cpp */,
-				E696B229192C078D00506912 /* ofxImageSequence.h */,
-			);
-			name = src;
-			path = ../../../addons/ofxImageSequence/src;
-			sourceTree = "<group>";
-		};
 		E6B29173195DCE8300DBE6FD /* Background */ = {
 			isa = PBXGroup;
 			children = (
@@ -1118,7 +1096,6 @@
 				E659E0C9197587BC0060EDC6 /* OneZero.cpp in Sources */,
 				E659E0B8197587BC0060EDC6 /* Granulate.cpp in Sources */,
 				E6F63520195DE23800E4C719 /* Cube.mm in Sources */,
-				E696B22A192C078D00506912 /* ofxImageSequence.cpp in Sources */,
 				E659E0C8197587BC0060EDC6 /* OnePole.cpp in Sources */,
 				E659E0D5197587BC0060EDC6 /* Simple.cpp in Sources */,
 				E659E0DB197587BC0060EDC6 /* StifKarp.cpp in Sources */,
@@ -1189,7 +1166,8 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				APPLY_RULES_IN_COPY_FILES = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Michael ROMEO (5652WX52A9)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Michael ROMEO (5652WX52A9)";
 				COMPRESS_PNG_FILES = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = ofxiOS_Prefix.pch;
@@ -1208,7 +1186,9 @@
 					/Users/fakelove/Desktop/of_v0.8.1_ios_release/addons/ofxAssimpModelLoader/libs/assimp/lib/ios,
 				);
 				PRODUCT_NAME = Romeo;
+				PROVISIONING_PROFILE = "0486724b-6e00-4946-9cfe-70e4283d8835";
 				TARGETED_DEVICE_FAMILY = 2;
+				VALIDATE_PRODUCT = NO;
 				VALID_ARCHS = "armv6 armv7";
 			};
 			name = Debug;
@@ -1217,7 +1197,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				APPLY_RULES_IN_COPY_FILES = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Michael ROMEO (5652WX52A9)";
 				COMPRESS_PNG_FILES = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = ofxiOS_Prefix.pch;
@@ -1235,8 +1215,11 @@
 					"$(inherited)",
 					/Users/fakelove/Desktop/of_v0.8.1_ios_release/addons/ofxAssimpModelLoader/libs/assimp/lib/ios,
 				);
+				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = Romeo;
+				PROVISIONING_PROFILE = "0486724b-6e00-4946-9cfe-70e4283d8835";
 				TARGETED_DEVICE_FAMILY = 2;
+				VALIDATE_PRODUCT = NO;
 				VALID_ARCHS = "armv6 armv7";
 			};
 			name = Release;

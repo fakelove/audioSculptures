@@ -1,8 +1,9 @@
-/*
-Note:
-6/23/14
-This is the latest version of the Fake Love Audio Sculptures Ipad App
-*/
+
+/// Romeo by Fake Love Play
+/// Programming by Michael Romeo
+/// Background Elements designed by Atanas Djibirov
+/// 2014
+
 
 #pragma once
 //openFrameworks stuff
